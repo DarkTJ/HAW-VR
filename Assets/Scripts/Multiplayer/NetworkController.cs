@@ -8,17 +8,19 @@ public class NetworkController : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+
+        PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.ConnectUsingSettings();
+        PhotonNetwork.LocalPlayer.NickName = "Player" + Random.Range(0,999);
     }
 
     public override void OnConnectedToMaster()
     {
-        Debug.Log("Connected to " + PhotonNetwork.CloudRegion + " server!");
+        Debug.Log(PhotonNetwork.LocalPlayer.NickName + " connected to " + PhotonNetwork.CloudRegion + " server!");
     }
 
-    // Update is called once per frame
     public override void OnDisconnected(Photon.Realtime.DisconnectCause cause)
     {
-        Debug.Log("Disconnected from Server for reason " + cause.ToString() );
+        Debug.Log(PhotonNetwork.LocalPlayer.NickName + " disconnected from Server for reason " + cause.ToString() );
     }
 }

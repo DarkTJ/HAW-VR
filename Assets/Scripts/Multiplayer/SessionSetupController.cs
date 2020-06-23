@@ -14,8 +14,9 @@ public class SessionSetupController : MonoBehaviour
 
     private void CreatePlayer()
     {
-        Debug.Log("Creating Player");
-        PhotonNetwork.Instantiate(Path.Combine("MultiplayerPrefabs", "PhotonPlayer"), Vector3.zero, Quaternion.identity);
+        Debug.Log("Creating Player model for " + PhotonNetwork.LocalPlayer.NickName);
+        //Ist noch ein Cube, aber hier kann später das gesammte Player prefab stehen
+        PhotonNetwork.Instantiate(Path.Combine("MultiplayerPrefabs", "PhotonPlayer"), new Vector3(Random.Range(0,3),Random.Range(0,3),0), Quaternion.identity);
     }
     
 }
