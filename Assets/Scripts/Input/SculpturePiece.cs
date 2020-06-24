@@ -21,7 +21,7 @@ public class SculpturePiece : MonoBehaviour
     {
         _renderer = GetComponent<MeshRenderer>();
         
-        // [1] -> Ignore the object itself
+        // [1] -> Ignore this object, [0] would be equal to  GetComponent<MeshRenderer>()
         _glowRenderer = GetComponentsInChildren<MeshRenderer>()[1];
         _glowMaterial = _glowRenderer.material;
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(MovementTrajectory))]
 public class MovementController : MonoBehaviour
@@ -9,6 +10,8 @@ public class MovementController : MonoBehaviour
     /// Static accessible instance of the MovementController (Singleton pattern)
     /// </summary>
     public static MovementController Instance { get; private set; }
+
+    private InputManager _inputManager;
     
     private MovementTrajectory _trajectory;
     private MovementCircle _circle;
@@ -25,9 +28,8 @@ public class MovementController : MonoBehaviour
     [Range(2, 64)]
     [SerializeField]
     private int _indicatorResolution = 20;
-
-    [SerializeField]
-    private Transform _playerController;
+    
+    private Transform _playerObject;
 
     [SerializeField]
     private float _fadeDuration = 0.33f;
@@ -70,10 +72,24 @@ public class MovementController : MonoBehaviour
         
         _trajectory.SetColor(_indicatorColor);
         _trajectory.SetResolution(_indicatorResolution);
+    }
 
-        InputManager.Instance.CurrentlyUsedController.OnStickMove += OnStickMove;
-        InputManager.Instance.CurrentlyUsedController.OnStickRelease += OnStickRelease;
+    private void OnEnable()
+    {
+        _inputManager = InputManager.Instance;
+        _inputManager.CurrentlyUsedController.OnStickMove += OnStickMove;
+        _inputManager.CurrentlyUsedController.OnStickRelease += OnStickRelease;
+        
+        _playerObject = OVRManager.instance.transform;
+    }
 
+    private void OnDisable()
+    {
+        if (!_inputManager) 
+            return;
+        
+        _inputManager.CurrentlyUsedController.OnStickMove -= OnStickMove;
+        _inputManager.CurrentlyUsedController.OnStickRelease -= OnStickRelease;
     }
 
     // // DEBUG
@@ -182,7 +198,7 @@ public class MovementController : MonoBehaviour
         }
         _screenFade.SetFadeLevel(1);
 
-        _playerController.position = _lastTargetPosition;
+        _playerObject.position = _lastTargetPosition;
         _lastTargetPosition = Vector3.zero;
         
         t = 1;

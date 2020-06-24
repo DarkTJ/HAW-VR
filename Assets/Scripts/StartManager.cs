@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
 [RequireComponent(typeof(TutorialController))]
@@ -13,7 +14,6 @@ public class StartManager : MonoBehaviour
     [Header("Will be overriden at runtime.")]
     [SerializeField] 
     private SystemLanguage _language;
-    
     
     [Space]
     
@@ -33,6 +33,8 @@ public class StartManager : MonoBehaviour
     
     private IEnumerator Start()
     {
+        yield return new WaitUntil(() => SessionSetupController.Instance.isReady);
+        
         string localizedTextFileName;
         
         switch (Application.systemLanguage) {

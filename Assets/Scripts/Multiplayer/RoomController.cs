@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomController : MonoBehaviourPunCallbacks
-{
-
+{ 
     [SerializeField]    
    public int mpSceneIndex;
 
@@ -25,10 +24,19 @@ public class RoomController : MonoBehaviourPunCallbacks
    }
 
    private void StartGame(){
-       if(PhotonNetwork.IsMasterClient){
+       if (PhotonNetwork.IsMasterClient)
+       {
            Debug.Log("Loading Room " + PhotonNetwork.CurrentRoom.Name);
-            PhotonNetwork.LoadLevel(mpSceneIndex);
+           PhotonNetwork.LoadLevel(mpSceneIndex);
            
+           // When the player is the master client the scene will be reloaded
+           // That means that the session should be setup after this scene is reloaded
+           SessionSetupController.Instance.SetupAfterSceneLoad();
+       }
+       else
+       {
+           // When the player is not the master client the session can be set up right away
+           SessionSetupController.Instance.Setup();
        }
    }
 }
