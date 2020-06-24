@@ -8,20 +8,16 @@ using UnityEngine.UI;
 public class LobbyController : MonoBehaviourPunCallbacks
 {
 
-    [SerializeField]
-    Button btn_joinLobby;
-
-    
-
     // Start is called before the first frame update
     void Start()
     {
-        btn_joinLobby.onClick.AddListener(()=> PhotonNetwork.JoinRoom("Lobby"));
+       
     }
 
     public override void OnConnectedToMaster()
     {
        Debug.Log(PhotonNetwork.LocalPlayer.NickName + " is connected to master");
+       PhotonNetwork.JoinRoom("Lobby");
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message){
