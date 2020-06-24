@@ -17,7 +17,6 @@ public class SessionSetupController : MonoBehaviour
     /// </summary>
     public static SessionSetupController Instance { get; private set; }
     
-    private Transform _playerObject;
     private GameObject _playerCharacterObject;
 
     public bool isReady;
@@ -45,8 +44,6 @@ public class SessionSetupController : MonoBehaviour
     {
         // When a scene is loaded this object is not ready
         isReady = false;
-
-        _playerObject = OVRManager.instance.transform;
         
         // Is true, is the player is the master client, and the current scene was just reloaded
         // See in RoomController.cs
@@ -63,7 +60,7 @@ public class SessionSetupController : MonoBehaviour
         
         //Ist noch ein Cube, aber hier kann später der Avatar stehen
         _playerCharacterObject = PhotonNetwork.Instantiate(Path.Combine("MultiplayerPrefabs", "PhotonPlayer"), Vector3.zero, Quaternion.identity);
-        //_playerObject.transform.parent = OVRHeadset.transform;
+        //_playerCharacterObject.transform.parent = InputManager.instance.PlayerObject;
         
         isReady = true;
     }

@@ -28,15 +28,10 @@ public class MovementController : MonoBehaviour
     [Range(2, 64)]
     [SerializeField]
     private int _indicatorResolution = 20;
-    
-    private Transform _playerObject;
 
     [SerializeField]
     private float _fadeDuration = 0.33f;
     
-    [SerializeField]
-    private OVRScreenFade _screenFade;
-
     public bool IsMoving { get; private set; }
     
     private void Awake()
@@ -79,8 +74,6 @@ public class MovementController : MonoBehaviour
         _inputManager = InputManager.Instance;
         _inputManager.CurrentlyUsedController.OnStickMove += OnStickMove;
         _inputManager.CurrentlyUsedController.OnStickRelease += OnStickRelease;
-        
-        _playerObject = OVRManager.instance.transform;
     }
 
     private void OnDisable()
@@ -91,8 +84,8 @@ public class MovementController : MonoBehaviour
         _inputManager.CurrentlyUsedController.OnStickMove -= OnStickMove;
         _inputManager.CurrentlyUsedController.OnStickRelease -= OnStickRelease;
     }
-
-    // // DEBUG
+    
+    // DEBUG
     // private void Update()
     // {
     //     PreviewMovement(transform.position, transform.rotation);
@@ -102,7 +95,7 @@ public class MovementController : MonoBehaviour
     {
         if (stickAxis.y > 0.8f)
         {
-            PreviewMovement(InputManager.Instance.CurrentlyUsedController.Position, InputManager.Instance.CurrentlyUsedController.Rotation);
+            PreviewMovement(_inputManager.CurrentlyUsedController.Position, _inputManager.CurrentlyUsedController.Rotation);
             _lastTargetPositionResetCounter = 0;
         }
         else
@@ -184,7 +177,6 @@ public class MovementController : MonoBehaviour
     /// <summary>
     /// Fades to black using the OVRScreenFade object, moves the player and fades back.
     /// </summary>
-    /// <returns></returns>
     private IEnumerator C_Move()
     {
         IsMoving = true;
@@ -192,23 +184,23 @@ public class MovementController : MonoBehaviour
         float t = 0;
         while (t < 1)
         {
-            _screenFade.SetFadeLevel(t);
+            _inputManager.ScreenFade.SetFadeLevel(t);
             t += Time.deltaTime / _fadeDuration;
             yield return null;
         }
-        _screenFade.SetFadeLevel(1);
+        _inputManager.ScreenFade.SetFadeLevel(1);
 
-        _playerObject.position = _lastTargetPosition;
+        _inputManager.PlayerObject.position = _lastTargetPosition;
         _lastTargetPosition = Vector3.zero;
         
         t = 1;
         while (t > 0)
         {
-            _screenFade.SetFadeLevel(t);
+            _inputManager.ScreenFade.SetFadeLevel(t);
             t -= Time.deltaTime / _fadeDuration;
             yield return null;
         }
-        _screenFade.SetFadeLevel(0);
+        _inputManager.ScreenFade.SetFadeLevel(0);
 
         IsMoving = false;
     }
