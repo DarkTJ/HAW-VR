@@ -60,7 +60,15 @@ public class SessionSetupController : MonoBehaviour
         
         //Ist noch ein Cube, aber hier kann später der Avatar stehen
         _playerCharacterObject = PhotonNetwork.Instantiate(Path.Combine("MultiplayerPrefabs", "PhotonPlayer"), Vector3.zero, Quaternion.identity);
-        //_playerCharacterObject.transform.parent = InputManager.instance.PlayerObject;
+        _playerCharacterObject.transform.parent = InputManager.Instance.PlayerObject;
+        _playerCharacterObject.transform.localPosition = Vector3.zero;
+
+        // Fast fix for playing seeing himself
+        // Feel free to change if this is for all other players too
+        foreach (Renderer r in _playerCharacterObject.GetComponentsInChildren<Renderer>())
+        {
+            r.enabled = false;
+        }
         
         isReady = true;
     }
