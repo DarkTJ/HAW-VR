@@ -7,7 +7,7 @@ public class RoomController : MonoBehaviourPunCallbacks
 {
 
     [SerializeField]    
-   private int mpSceneIndex;
+   public int mpSceneIndex;
 
    public override void OnEnable()
    {
@@ -20,13 +20,13 @@ public class RoomController : MonoBehaviourPunCallbacks
    }
 
    public override void OnJoinedRoom(){
-       Debug.Log("Joined Room!");
+       Debug.Log(PhotonNetwork.LocalPlayer.NickName + " joined room " + PhotonNetwork.CurrentRoom.Name);
        StartGame();
    }
 
    private void StartGame(){
        if(PhotonNetwork.IsMasterClient){
-           Debug.Log("Starting Game");
+           Debug.Log("Loading Room " + PhotonNetwork.CurrentRoom.Name);
             PhotonNetwork.LoadLevel(mpSceneIndex);
            
        }
