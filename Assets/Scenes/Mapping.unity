@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 8401881fcb9afd34eb383fc90bbbbddc, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -617,7 +617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VideoLocation: 0
-  m_VideoPath: https://manifest.googlevideo.com/api/manifest/hls_variant/expire/1593049549/ei/ba3zXvSrI8bwgAf_u4t4/ip/2003%3Acc%3Af709%3A1c00%3Ac411%3A83f1%3Ae8a4%3Ad49/id/21X5lGlDOfg.3/source/yt_live_broadcast/requiressl/yes/tx/23903759/txs/23903758%2C23903759%2C23903760%2C23903761%2C23903762%2C23903763%2C23903764%2C23903765%2C23903766/hfr/1/playlist_duration/30/manifest_duration/30/maudio/1/vprv/1/go/1/keepalive/yes/dover/11/itag/0/playlist_type/DVR/sparams/expire%2Cei%2Cip%2Cid%2Csource%2Crequiressl%2Ctx%2Ctxs%2Chfr%2Cplaylist_duration%2Cmanifest_duration%2Cmaudio%2Cvprv%2Cgo%2Citag%2Cplaylist_type/sig/AOq0QJ8wRQIgXUo2TP609g9zXbWClb6qzMFlOb5clPPV5W3KwKF2N24CIQCVkhwUaPVc9J0NcRa4cPVoXMMWyoIlo5ZI6gnkXJ0tOA%3D%3D/file/index.m3u8
+  m_VideoPath: https://manifest.googlevideo.com/api/manifest/hls_variant/expire/1593097945/ei/eWr0Xt2oM9v3gAeajo64BQ/ip/2003%3Acc%3Af709%3A1c00%3A610c%3A27c8%3A2999%3Af4d1/id/21X5lGlDOfg.3/source/yt_live_broadcast/requiressl/yes/tx/23903759/txs/23903758%2C23903759%2C23903760%2C23903761%2C23903762%2C23903763%2C23903764%2C23903765%2C23903766/hfr/1/playlist_duration/30/manifest_duration/30/maudio/1/vprv/1/go/1/keepalive/yes/dover/11/itag/0/playlist_type/DVR/sparams/expire%2Cei%2Cip%2Cid%2Csource%2Crequiressl%2Ctx%2Ctxs%2Chfr%2Cplaylist_duration%2Cmanifest_duration%2Cmaudio%2Cvprv%2Cgo%2Citag%2Cplaylist_type/sig/AOq0QJ8wRAIgFnQcKVzzwC8atVMAiX_QzpgHpH_5jAo8_f7KfVToKmQCIAYznhtt9jt4CyzNX-9DV5ieNlJy00qCQooSNh14PO9h/file/index.m3u8
   m_AutoOpen: 1
   m_AutoStart: 1
   m_Loop: 0
