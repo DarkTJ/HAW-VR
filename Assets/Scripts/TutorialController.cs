@@ -10,8 +10,6 @@ public class TutorialController : MonoBehaviour
     private UIManager _uiManager;
     private Camera _cam;
     
-    private OVRScreenFade _screenFade;
-    
     [SerializeField]
     private Canvas _tutorialCanvas;
     private TextMeshProUGUI _text;
@@ -23,9 +21,8 @@ public class TutorialController : MonoBehaviour
 
     private bool _isTriggerDown, _isStickPushed;
     
-    public void SetupAndStart(OVRScreenFade screenFade)
+    public void SetupAndStart()
     {
-        _screenFade = screenFade;
         _text = _tutorialCanvas.GetComponentInChildren<TextMeshProUGUI>();
         
         _cam = Camera.main;
@@ -116,6 +113,8 @@ public class TutorialController : MonoBehaviour
     
     private IEnumerator C_FadeIn()
     {
+        OVRScreenFade _screenFade = InputManager.Instance.ScreenFade;
+        
         float t = 0;
         while (t < 1)
         {

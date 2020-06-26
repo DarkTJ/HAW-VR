@@ -15,9 +15,6 @@ public class StartManager : MonoBehaviour
     [SerializeField] 
     private SystemLanguage _language;
     
-    [Space]
-    
-    [SerializeField]
     private OVRScreenFade _screenFade;
     
     private TutorialController _tutorial;
@@ -34,6 +31,7 @@ public class StartManager : MonoBehaviour
     private IEnumerator Start()
     {
         yield return new WaitUntil(() => SessionSetupController.Instance.isReady);
+        _screenFade = InputManager.Instance.ScreenFade;
         
         string localizedTextFileName;
         
@@ -65,7 +63,7 @@ public class StartManager : MonoBehaviour
         }
         else
         {
-            _tutorial.SetupAndStart(_screenFade);
+            _tutorial.SetupAndStart();
         }
     }
     
