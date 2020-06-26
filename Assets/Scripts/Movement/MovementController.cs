@@ -171,13 +171,28 @@ public class MovementController : MonoBehaviour
             return;
         }
         
-        StartCoroutine(C_Move());
+        StartCoroutine(C_Move(_lastTargetPosition));
+    }
+
+    /// <summary>
+    /// Teleports the player with a fade to the target position.
+    /// Does not work if the player is already currently moving.
+    /// </summary>
+    /// <param name="target"></param>
+    public void Move(Vector3 target)
+    {
+        if (IsMoving)
+        {
+            return;
+        }
+        
+        StartCoroutine(C_Move(_lastTargetPosition));
     }
     
     /// <summary>
     /// Fades to black using the OVRScreenFade object, moves the player and fades back.
     /// </summary>
-    private IEnumerator C_Move()
+    private IEnumerator C_Move(Vector3 target)
     {
         IsMoving = true;
 
@@ -190,7 +205,7 @@ public class MovementController : MonoBehaviour
         }
         _inputManager.ScreenFade.SetFadeLevel(1);
 
-        _inputManager.PlayerObject.position = _lastTargetPosition;
+        _inputManager.PlayerObject.position = target;
         _lastTargetPosition = Vector3.zero;
         
         t = 1;
