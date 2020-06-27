@@ -470,7 +470,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1856709713279940183}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.1979489
@@ -487,6 +487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7551400739691e46bf3492641932779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _glowColor: {r: 1, g: 0.75, b: 0, a: 1}
+  _targetSceneIndex: 1
 --- !u!1 &2153555548359277363
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,7 +940,7 @@ GameObject:
   - component: {fileID: 5488001182709881253}
   - component: {fileID: 2347545013441244120}
   m_Layer: 0
-  m_Name: Ikosaeder 04
+  m_Name: Ikosaeder 04 - not used
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1253,7 +1255,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5128649159419288744}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.374835
@@ -1270,6 +1272,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7551400739691e46bf3492641932779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _glowColor: {r: 0, g: 1, b: 0.83333325, a: 1}
+  _targetSceneIndex: 0
 --- !u!1 &5669579280913322460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,7 +1443,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5797099498621132315}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.19837284
@@ -1456,6 +1460,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7551400739691e46bf3492641932779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _glowColor: {r: 0, g: 1, b: 0.83333325, a: 1}
+  _targetSceneIndex: 0
 --- !u!1 &6392149916099752195
 GameObject:
   m_ObjectHideFlags: 0
@@ -1546,7 +1552,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6392149916099752195}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.36691213
@@ -1563,6 +1569,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7551400739691e46bf3492641932779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _glowColor: {r: 0, g: 1, b: 0.83333325, a: 1}
+  _targetSceneIndex: 0
 --- !u!1 &6656561040081082360
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,7 +1582,8 @@ GameObject:
   - component: {fileID: 4979490963687530854}
   - component: {fileID: 342227816062245497}
   - component: {fileID: 6914137508923991108}
-  m_Layer: 0
+  - component: {fileID: 1559236404}
+  m_Layer: 8
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1642,6 +1651,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1559236404
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6656561040081082360}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.23, y: 9.04, z: 0}
+  m_Center: {x: 0.027095318, y: -0.17108844, z: 0}
 --- !u!1 &6886600611662486663
 GameObject:
   m_ObjectHideFlags: 0
@@ -2522,7 +2544,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6888079508843783646}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.27327228
@@ -2539,6 +2561,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7551400739691e46bf3492641932779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _glowColor: {r: 0, g: 1, b: 0.83333325, a: 1}
+  _targetSceneIndex: 0
 --- !u!1 &7037097179643682636
 GameObject:
   m_ObjectHideFlags: 0
@@ -2945,7 +2969,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7548133131603739303}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.21249366
@@ -2962,6 +2986,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7551400739691e46bf3492641932779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _glowColor: {r: 0, g: 1, b: 0.83333325, a: 1}
+  _targetSceneIndex: 0
 --- !u!1 &7897121793914075649
 GameObject:
   m_ObjectHideFlags: 0
@@ -3052,7 +3078,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7897121793914075649}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.2275463
@@ -3069,6 +3095,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7551400739691e46bf3492641932779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _glowColor: {r: 0, g: 1, b: 0.83333325, a: 1}
+  _targetSceneIndex: 0
 --- !u!1 &7997889563299951656
 GameObject:
   m_ObjectHideFlags: 0
@@ -3159,7 +3187,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7997889563299951656}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.30660057
@@ -3176,6 +3204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7551400739691e46bf3492641932779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _glowColor: {r: 0, g: 1, b: 0.83333325, a: 1}
+  _targetSceneIndex: 0
 --- !u!1 &8194277940731899395
 GameObject:
   m_ObjectHideFlags: 0
@@ -3345,7 +3375,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8860807071092684791}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.4215122
@@ -3362,6 +3392,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7551400739691e46bf3492641932779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _glowColor: {r: 0, g: 1, b: 0.83333325, a: 1}
+  _targetSceneIndex: 0
 --- !u!1 &9020737314706332534
 GameObject:
   m_ObjectHideFlags: 0
@@ -3452,7 +3484,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9020737314706332534}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.17299114
@@ -3469,6 +3501,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7551400739691e46bf3492641932779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _glowColor: {r: 0, g: 1, b: 0.83333325, a: 1}
+  _targetSceneIndex: 0
 --- !u!1 &9196296543972160864
 GameObject:
   m_ObjectHideFlags: 0
