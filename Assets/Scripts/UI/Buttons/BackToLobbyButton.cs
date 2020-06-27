@@ -8,6 +8,6 @@ public class BackToLobbyButton : UIButton
     public override void OnClick(Vector3 hitPoint)
     {
         base.OnClick(hitPoint);
-        SceneManager.LoadScene(0);
+        SceneLoader.Instance.LoadScene(0);
     }
 }

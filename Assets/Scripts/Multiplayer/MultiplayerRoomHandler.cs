@@ -32,7 +32,12 @@ public class MultiplayerRoomHandler : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void SwitchRoom(int index)
+    public void LeaveRoom()
+    {
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public void JoinRoom(int index)
     {
         string roomName = "Lobby";
         switch (index)
@@ -40,14 +45,8 @@ public class MultiplayerRoomHandler : MonoBehaviour
             case 1: roomName = "Mapping";
                 break;
         }
-
-        StartCoroutine(C_SwitchRoom(index, roomName, _roomOpsOpen, TypedLobby.Default));
-    }
-
-    private IEnumerator C_SwitchRoom(int index, string roomName, RoomOptions roomOptions, TypedLobby typedLobby){
-        PhotonNetwork.LeaveRoom();
-        yield return new WaitForSeconds(1f);
+        
         SceneReferences.RoomController.mpSceneIndex = index;
-        PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, typedLobby);
+        PhotonNetwork.JoinOrCreateRoom(roomName, _roomOpsOpen, TypedLobby.Default);
     }
 }
