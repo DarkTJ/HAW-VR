@@ -33,19 +33,10 @@ public class MultiplayerSceneSetupController : MonoBehaviour
         
         // Always keep this object alive
         DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoad;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoad;
-    }
-    
-    private void OnSceneLoad(Scene scene, LoadSceneMode loadSceneMode)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
         // When a scene is loaded this object is not ready
         IsReady = false;

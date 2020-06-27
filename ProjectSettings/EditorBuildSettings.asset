@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Lobby.unity
+    path: Assets/Scenes/Lobby-Android.unity
     guid: 7658e6e6ea523bb42b25fc54a54bb649
   - enabled: 1
     path: Assets/Scenes/Mapping-Raum.unity

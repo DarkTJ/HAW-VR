@@ -15,18 +15,6 @@ public class InputManager : MonoBehaviour
     public XRInputDeviceController LeftController, RightController, CurrentlyUsedController;
     
     public event Action OnCurrentlyUsedControllerUpdate;
-
-    private void OnEnable()
-    {
-        InputDevices.deviceConnected += DeviceConnected;
-        InputDevices.deviceDisconnected += DeviceDisconnected;
-    }
-
-    private void OnDisable()
-    {
-        InputDevices.deviceConnected -= DeviceConnected;
-        InputDevices.deviceDisconnected -= DeviceDisconnected;
-    }
     
     // This manager needs three controllers to work.
     // Is called when the script is added to an object or the user resets the component.
@@ -57,15 +45,17 @@ public class InputManager : MonoBehaviour
         LeftController = controllers[0];
         RightController = controllers[1];
         CurrentlyUsedController = controllers[2];
+        
+        InputDevices.deviceConnected += DeviceConnected;
+        InputDevices.deviceDisconnected += DeviceDisconnected;
+        LeftController.OnAnyKeyDown += UpdateCurrentlyUsedControllerLeft;
+        RightController.OnAnyKeyDown += UpdateCurrentlyUsedControllerRight;
     }
     
     private void Start()
     {
         StartCoroutine(FetchController(LeftController, InputDeviceCharacteristics.Left));
         StartCoroutine(FetchController(RightController, InputDeviceCharacteristics.Right));
-
-        LeftController.OnAnyKeyDown += UpdateCurrentlyUsedControllerLeft;
-        RightController.OnAnyKeyDown += UpdateCurrentlyUsedControllerRight;
     }
  
     /// <summary>

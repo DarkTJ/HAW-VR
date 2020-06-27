@@ -29,16 +29,7 @@ public class SceneLoader : MonoBehaviour
         
         // Always keep this object alive
         DontDestroyOnLoad(gameObject);
-    }
-    
-    private void OnEnable()
-    {
         SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     public void LoadScene(int index)
@@ -50,9 +41,10 @@ public class SceneLoader : MonoBehaviour
         _isLoadingScene = true;
         
         _targetSceneIndex = index;
-        MultiplayerRoomHandler.Instance.LeaveRoom();
+        UIManager.Instance.HideUI();
         Fade(0, 1, () =>
         {
+            MultiplayerRoomHandler.Instance.LeaveRoom();
             SceneManager.LoadScene(index);
         });
     }

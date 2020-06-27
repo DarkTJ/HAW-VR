@@ -42,6 +42,10 @@ public class UIManager : MonoBehaviour
         _textField = textFieldCanvas.GetComponentInChildren<TextMeshProUGUI>();
         _uiPointer = GetComponent<UIPointer>();
         _keyboard = GetComponentInChildren<Keyboard>();
+        
+        
+        InputManager.Instance.LeftController.OnMenuButtonDown += OnMenuButton;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Start()
@@ -65,24 +69,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void SetUIInteractableState(UIInteractable[] UIInteractables, bool state)
+    private static void SetUIInteractableState(UIInteractable[] uiInteractables, bool state)
     {
-        foreach (UIInteractable i in UIInteractables)
+        foreach (UIInteractable i in uiInteractables)
         {
             i.SetState(state);
         }
-    }
-
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        InputManager.Instance.LeftController.OnMenuButtonDown += OnMenuButton;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-        InputManager.Instance.LeftController.OnMenuButtonDown -= OnMenuButton;
     }
 
     private void OnMenuButton()
@@ -128,9 +120,7 @@ public class UIManager : MonoBehaviour
     {
         Transform camTransform = SceneReferences.PlayerCamera.transform;
         
-        Vector3 pos = uiObject.position;
         Vector3 targetPosition = camTransform.position + (camTransform.forward * 3);
-        targetPosition.y = pos.y;
         uiObject.position = targetPosition;
 
         Quaternion rot = Quaternion.LookRotation(camTransform.forward);
@@ -143,5 +133,14 @@ public class UIManager : MonoBehaviour
     {
         OnTextSubmit?.Invoke(_textField.text);
         _textField.text = "";
+    }
+
+    public void HideUI()
+    {
+        _isShowingMenu = false;
+        _menuCanvas.SetActive(false);
+        _keyboard.gameObject.SetActive(false);
+        textFieldCanvas.SetActive(false);
+        _uiPointer.Disable();
     }
 }
