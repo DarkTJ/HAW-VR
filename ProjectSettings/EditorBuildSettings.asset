@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MultiplayerTest/DemoScene.unity
     guid: dac87198a80d2d048aba49aebbf65435
   - enabled: 1
-    path: Assets/Scenes/Lobby.unity
-    guid: 7658e6e6ea523bb42b25fc54a54bb649
+    path: Assets/Scenes/TestScene Melanie.unity
+    guid: 08858b23788ef2245854e1591b7be4be
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 582b6227d8c197f48bc7bc047173c76d,
       type: 2}
