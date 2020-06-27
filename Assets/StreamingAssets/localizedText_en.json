@@ -1,4 +1,10 @@
 { "items": [
+
+	{ "key" : "volume_text", "value" : "volume" },
+	{ "key" : "voicechat_text", "value" : "voice-chat" },
+	{ "key" : "backtolobby_button", "value" : "back to lobby" },
+	{ "key" : "quitapp_button", "value" : "quit app" },
+
     { "key" : "tutorial_1", "value" : "Hey! Press the button at the back of the controller. (Trigger)" },
     { "key" : "tutorial_2", "value" : "Great, this way you can advance the text and interact with things." },
     { "key" : "tutorial_3", "value" : "If you push the control stick forward you can teleport after this tutorial." },
