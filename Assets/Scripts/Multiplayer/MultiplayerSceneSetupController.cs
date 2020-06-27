@@ -20,7 +20,7 @@ public class SessionSetupController : MonoBehaviour
     private GameObject _playerCharacterObject;
 
     public bool isReady;
-    private static bool _setupAfterSceneLoad = false;
+    private static bool _setupAfterSceneLoad;
 
     private void Awake()
     {
