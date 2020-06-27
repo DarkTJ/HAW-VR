@@ -31,12 +31,12 @@ public class RoomController : MonoBehaviourPunCallbacks
            
            // When the player is the master client the scene will be reloaded
            // That means that the session should be setup after this scene is reloaded
-           SessionSetupController.Instance.SetupAfterSceneLoad();
+           MultiplayerSceneSetupController.Instance.SetupAfterSceneLoad();
        }
        else
        {
            // When the player is not the master client the session can be set up right away
-           SessionSetupController.Instance.Setup();
+           MultiplayerSceneSetupController.Instance.Setup();
        }
    }
 }

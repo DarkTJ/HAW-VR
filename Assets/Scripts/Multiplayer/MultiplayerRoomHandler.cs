@@ -1,43 +1,53 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
-public class RoomHandler : MonoBehaviour
+/// <summary>
+/// Handles the joining and leaving of photon rooms.
+/// </summary>
+public class MultiplayerRoomHandler : MonoBehaviour
 {
-    [SerializeField]
-    Button btn_room1;
-
-    [SerializeField]
-    Button btn_room2;
-
-    [SerializeField]
-    Button btn_room3;
-    RoomController roomController;
-
-    private RoomOptions roomOpsOpen = new RoomOptions(){IsVisible = true, IsOpen = true, MaxPlayers = (byte)25};
-
-    void Start()
+    /// <summary>
+    /// Static accessible instance of the MultiplayerRoomHandler (Singleton pattern)
+    /// </summary>
+    public static MultiplayerRoomHandler Instance { get; private set; }
+    
+    private readonly RoomOptions _roomOpsOpen = new RoomOptions()
     {
-        roomController = GameObject.Find("RoomController").GetComponent<RoomController>();
-        btn_room1.onClick.AddListener(()=> StartCoroutine(SwitchRoom(1,"Room1",roomOpsOpen,TypedLobby.Default)));
-        btn_room2.onClick.AddListener(()=> StartCoroutine(SwitchRoom(2,"Room2",roomOpsOpen,TypedLobby.Default)));
-        btn_room3.onClick.AddListener(()=> StartCoroutine(SwitchRoom(3,"Room3",roomOpsOpen,TypedLobby.Default)));   
+        IsVisible = true, IsOpen = true, MaxPlayers = 25
+    };
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        } else {
+            Instance = this;
+        }
+        
+        // Always keep this object alive
+        DontDestroyOnLoad(gameObject);
     }
 
-    IEnumerator SwitchRoom(int index, string roomname, RoomOptions roomOptions, TypedLobby typedLobby){
+    public void SwitchRoom(int index)
+    {
+        string roomName = "Lobby";
+        switch (index)
+        {
+            case 1: roomName = "Mapping";
+                break;
+        }
+
+        StartCoroutine(C_SwitchRoom(index, roomName, _roomOpsOpen, TypedLobby.Default));
+    }
+
+    private IEnumerator C_SwitchRoom(int index, string roomName, RoomOptions roomOptions, TypedLobby typedLobby){
         PhotonNetwork.LeaveRoom();
         yield return new WaitForSeconds(1f);
-        roomController.mpSceneIndex = index;
-        PhotonNetwork.JoinOrCreateRoom(roomname,roomOptions,typedLobby);
-       
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SceneReferences.RoomController.mpSceneIndex = index;
+        PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, typedLobby);
     }
 }

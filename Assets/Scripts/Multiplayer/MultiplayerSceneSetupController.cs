@@ -10,16 +10,16 @@ using UnityEngine.SceneManagement;
 /// This class sets up the photon session for every unity scene.
 /// Does not handle the network stuff.
 /// </summary>
-public class SessionSetupController : MonoBehaviour
+public class MultiplayerSceneSetupController : MonoBehaviour
 {
     /// <summary>
     /// Static accessible instance of the SessionSetupController (Singleton pattern)
     /// </summary>
-    public static SessionSetupController Instance { get; private set; }
+    public static MultiplayerSceneSetupController Instance { get; private set; }
     
     private GameObject _playerCharacterObject;
 
-    public bool isReady;
+    public bool IsReady { get; private set; }
     private static bool _setupAfterSceneLoad;
 
     private void Awake()
@@ -43,7 +43,7 @@ public class SessionSetupController : MonoBehaviour
     private void OnSceneLoad(Scene scene, LoadSceneMode loadSceneMode)
     {
         // When a scene is loaded this object is not ready
-        isReady = false;
+        IsReady = false;
         
         // Is true, is the player is the master client, and the current scene was just reloaded
         // See in RoomController.cs
@@ -60,7 +60,7 @@ public class SessionSetupController : MonoBehaviour
         
         //Ist noch ein Cube, aber hier kann später der Avatar stehen
         _playerCharacterObject = PhotonNetwork.Instantiate(Path.Combine("MultiplayerPrefabs", "PhotonPlayer"), Vector3.zero, Quaternion.identity);
-        _playerCharacterObject.transform.parent = InputManager.Instance.PlayerObject;
+        _playerCharacterObject.transform.parent = SceneReferences.PlayerObject;
         _playerCharacterObject.transform.localPosition = Vector3.zero;
 
         // Fast fix for playing seeing himself
@@ -70,7 +70,7 @@ public class SessionSetupController : MonoBehaviour
             r.enabled = false;
         }
         
-        isReady = true;
+        IsReady = true;
     }
 
     public void SetupAfterSceneLoad()
