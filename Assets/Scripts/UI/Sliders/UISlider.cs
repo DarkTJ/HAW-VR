@@ -19,7 +19,7 @@ public abstract class UISlider : UIInteractable
         _colorFeedbackImage.color = isEnabled ? _normalColor : _disabledColor;
     }
 
-    public void SetState(bool state)
+    public override void SetState(bool state)
     {
         isEnabled = state;
         _colorFeedbackImage.color = state ? _normalColor : _disabledColor;

@@ -17,6 +17,8 @@ public abstract class UIInteractable : MonoBehaviour
 
     public bool isEnabled = true;
 
+    public abstract void SetState(bool state);
+
     public abstract void OnPointerEnter();
 
     public abstract void OnPointerLeave();

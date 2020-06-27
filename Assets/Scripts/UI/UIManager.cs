@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(UIPointer))]
 public class UIManager : MonoBehaviour
@@ -14,6 +13,9 @@ public class UIManager : MonoBehaviour
     
     [SerializeField]
     private GameObject _menuCanvas, textFieldCanvas;
+
+    [SerializeField]
+    private UIInteractable[] _disableInLobby;
 
     private TextMeshProUGUI _textField;
 
@@ -48,15 +50,38 @@ public class UIManager : MonoBehaviour
         textFieldCanvas.SetActive(false);
         
         _uiPointer.Disable();
+        SetUIInteractableState(_disableInLobby, false);
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        if (scene.buildIndex == 0)
+        {
+            SetUIInteractableState(_disableInLobby, false);
+        }
+        else
+        {
+            SetUIInteractableState(_disableInLobby, true);
+        }
+    }
+
+    private void SetUIInteractableState(UIInteractable[] UIInteractables, bool state)
+    {
+        foreach (UIInteractable i in UIInteractables)
+        {
+            i.SetState(state);
+        }
     }
 
     private void OnEnable()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         InputManager.Instance.LeftController.OnMenuButtonDown += OnMenuButton;
     }
 
     private void OnDisable()
     {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
         InputManager.Instance.LeftController.OnMenuButtonDown -= OnMenuButton;
     }
 

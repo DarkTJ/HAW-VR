@@ -16,7 +16,7 @@ public abstract class UIButton : UIInteractable
         _image.color = isEnabled ? _normalColor : _disabledColor;
     }
 
-    public void SetState(bool state)
+    public override void SetState(bool state)
     {
         isEnabled = state;
         _image.color = state ? _normalColor : _disabledColor;
