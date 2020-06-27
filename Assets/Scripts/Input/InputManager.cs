@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 
 public class InputManager : MonoBehaviour
@@ -16,9 +15,6 @@ public class InputManager : MonoBehaviour
     public XRInputDeviceController LeftController, RightController, CurrentlyUsedController;
     
     public event Action OnCurrentlyUsedControllerUpdate;
-
-    public Transform PlayerObject { get; private set; }
-    public OVRScreenFade ScreenFade { get; private set; }
 
     private void OnEnable()
     {
@@ -61,19 +57,6 @@ public class InputManager : MonoBehaviour
         LeftController = controllers[0];
         RightController = controllers[1];
         CurrentlyUsedController = controllers[2];
-
-        SceneManager.sceneLoaded += OnsceneLoad;
-    }
-
-    /// <summary>
-    /// Loads references that are not persistent / dont destroy on load
-    /// </summary>
-    /// <param name="scene"></param>
-    /// <param name="loadSceneMode"></param>
-    private void OnsceneLoad(Scene scene, LoadSceneMode loadSceneMode)
-    {
-        PlayerObject = OVRManager.instance.transform;
-        ScreenFade = OVRManager.instance.GetComponentInChildren<OVRScreenFade>();
     }
     
     private void Start()

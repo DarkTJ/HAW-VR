@@ -97,7 +97,8 @@ public class TutorialController : MonoBehaviour
         }
         
         _tutorialCanvas.gameObject.SetActive(false);
-        FadeIn();
+        SceneLoader.Instance.Fade(1, 0);
+        SetControllers(true);
     }
 
     private void OnNameSubmit(string name)
@@ -105,24 +106,14 @@ public class TutorialController : MonoBehaviour
         PlayerPrefs.SetString("username", name);
         _hasEnteredName = true;
     }
-
-    public void FadeIn()
-    {
-        StartCoroutine(C_FadeIn());
-    }
     
-    private IEnumerator C_FadeIn()
+    /// <summary>
+    /// Set states of controllers and managers that should be disabled before & during the tutorial
+    /// </summary>
+    /// <param name="state"></param>
+    public void SetControllers(bool state)
     {
-        OVRScreenFade _screenFade = InputManager.Instance.ScreenFade;
-        
-        float t = 0;
-        while (t < 1)
-        {
-            _screenFade.SetFadeLevel(1 - t);
-            t += Time.deltaTime;
-            yield return null;
-        }
-        
-        _screenFade.SetFadeLevel(0);
+        MovementController.Instance.gameObject.SetActive(state);
+        UIManager.Instance.gameObject.SetActive(state);
     }
 }

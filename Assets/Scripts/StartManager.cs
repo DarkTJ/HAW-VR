@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Photon.Pun;
 using UnityEngine;
 
 [RequireComponent(typeof(TutorialController))]
@@ -30,9 +29,12 @@ public class StartManager : MonoBehaviour
     
     private IEnumerator Start()
     {
-        yield return new WaitUntil(() => SessionSetupController.Instance.isReady);
-        _screenFade = InputManager.Instance.ScreenFade;
+        _screenFade = SceneReferences.ScreenFade;
+        _screenFade.SetFadeLevel(1);
         
+        yield return new WaitUntil(() => MultiplayerSceneSetupController.Instance.IsReady);
+        _tutorial.SetControllers(false);
+
         string localizedTextFileName;
         
         switch (Application.systemLanguage) {
@@ -40,14 +42,11 @@ public class StartManager : MonoBehaviour
                 localizedTextFileName = "localizedText_de.json";
                 break;
             default:
-            case SystemLanguage.English:
                 localizedTextFileName = "localizedText_en.json";
                 break;
         }
 
         LocalizationManager.Instance.LoadLocalizedTextFile(localizedTextFileName);
-        
-        _screenFade.SetFadeLevel(1);
         
         // Enable fading from now on
         _screenFade.fadeOnStart = true;
@@ -60,6 +59,7 @@ public class StartManager : MonoBehaviour
         if (PlayerPrefs.HasKey("username") && !_forceTutorial)
         {
             StartCoroutine(C_FadeIn());
+            _tutorial.SetControllers(true);
         }
         else
         {
