@@ -7,13 +7,6 @@ using UnityEngine.UI;
 
 public class LobbyController : MonoBehaviourPunCallbacks
 {
-
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
-
     public override void OnConnectedToMaster()
     {
        Debug.Log(PhotonNetwork.LocalPlayer.NickName + " is connected to master");

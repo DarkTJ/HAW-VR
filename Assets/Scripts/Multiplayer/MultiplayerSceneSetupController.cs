@@ -35,11 +35,16 @@ public class MultiplayerSceneSetupController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
+    private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoad;
     }
 
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoad;
+    }
+    
     private void OnSceneLoad(Scene scene, LoadSceneMode loadSceneMode)
     {
         // When a scene is loaded this object is not ready
@@ -57,13 +62,13 @@ public class MultiplayerSceneSetupController : MonoBehaviour
     public void Setup()
     {
         Debug.Log("Creating Player model for " + PhotonNetwork.LocalPlayer.NickName);
-        
+
         //Ist noch ein Cube, aber hier kann später der Avatar stehen
         _playerCharacterObject = PhotonNetwork.Instantiate(Path.Combine("MultiplayerPrefabs", "PhotonPlayer"), Vector3.zero, Quaternion.identity);
         _playerCharacterObject.transform.parent = SceneReferences.PlayerObject;
         _playerCharacterObject.transform.localPosition = Vector3.zero;
 
-        // Fast fix for playing seeing himself
+        // Fast fix for player seeing himself
         // Feel free to change if this is for all other players too
         foreach (Renderer r in _playerCharacterObject.GetComponentsInChildren<Renderer>())
         {
