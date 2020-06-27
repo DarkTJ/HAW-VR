@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/New Render Texture.renderTexture.meta
 guid: 641fbe6ae8c79b14e8bef56e8e4caa09
+=======
+guid: e2027c6fbc2ac6a4ab8546a3798a75f1
+>>>>>>> d7bee593c8409d8eb0e3c344138d0a42e2c67d1b:Assets/Materials/Lobby/lobby floor.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0

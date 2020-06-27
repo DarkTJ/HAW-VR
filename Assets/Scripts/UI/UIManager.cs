@@ -7,11 +7,11 @@ using UnityEngine;
 [RequireComponent(typeof(UIPointer))]
 public class UIManager : MonoBehaviour
 {
-    // singleton pattern
+    /// <summary>
+    /// Static accessible instance of the UIManager (Singleton pattern)
+    /// </summary>
     public static UIManager Instance { get; private set; }
-
-    private Camera _cam;
-
+    
     [SerializeField]
     private GameObject _menuCanvas, textFieldCanvas;
 
@@ -39,18 +39,25 @@ public class UIManager : MonoBehaviour
 
         _textField = textFieldCanvas.GetComponentInChildren<TextMeshProUGUI>();
         _uiPointer = GetComponent<UIPointer>();
+        _keyboard = GetComponentInChildren<Keyboard>();
     }
 
     private void Start()
     {
-        _cam = Camera.main;
-        _keyboard = Keyboard.Instance;
-
         _menuCanvas.SetActive(false);
         textFieldCanvas.SetActive(false);
         
         _uiPointer.Disable();
+    }
+
+    private void OnEnable()
+    {
         InputManager.Instance.LeftController.OnMenuButtonDown += OnMenuButton;
+    }
+
+    private void OnDisable()
+    {
+        InputManager.Instance.LeftController.OnMenuButtonDown -= OnMenuButton;
     }
 
     private void OnMenuButton()
@@ -62,7 +69,6 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-
             PlaceUI(_menuCanvas.transform);
             _uiPointer.Enable();
         }
@@ -95,12 +101,14 @@ public class UIManager : MonoBehaviour
 
     private void PlaceUI(Transform uiObject)
     {
+        Transform camTransform = SceneReferences.PlayerCamera.transform;
+        
         Vector3 pos = uiObject.position;
-        Vector3 targetPosition = _cam.transform.position + (_cam.transform.forward * 3);
+        Vector3 targetPosition = camTransform.position + (camTransform.forward * 3);
         targetPosition.y = pos.y;
         uiObject.position = targetPosition;
 
-        Quaternion rot = Quaternion.LookRotation(_cam.transform.forward);
+        Quaternion rot = Quaternion.LookRotation(camTransform.forward);
         uiObject.rotation = Quaternion.Euler(0, rot.eulerAngles.y, 0);
 
         uiObject.gameObject.SetActive(true);
@@ -111,4 +119,4 @@ public class UIManager : MonoBehaviour
         OnTextSubmit?.Invoke(_textField.text);
         _textField.text = "";
     }
- }
+}

@@ -71,8 +71,8 @@ Thumbs.db
 Desktop.ini
 .DS_Store
 OVRBuildConfig.asset
+OVRBuildConfig.asset.meta
 
 # FMOD
 fmod.log
 fmod_editor.log
-

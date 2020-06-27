@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(MovementTrajectory))]
 public class MovementController : MonoBehaviour
@@ -9,6 +10,10 @@ public class MovementController : MonoBehaviour
     /// Static accessible instance of the MovementController (Singleton pattern)
     /// </summary>
     public static MovementController Instance { get; private set; }
+
+    private InputManager _inputManager;
+
+    private OVRScreenFade _screenFade;
     
     private MovementTrajectory _trajectory;
     private MovementCircle _circle;
@@ -17,7 +22,7 @@ public class MovementController : MonoBehaviour
     private float _lastTargetPositionResetCounter = 0;
 
     private int _floorLayer, _snapLayer;
-    private LayerMask _raycastLayers;
+    // private LayerMask _raycastLayers;
 
     [SerializeField] 
     private Color _indicatorColor;
@@ -27,14 +32,8 @@ public class MovementController : MonoBehaviour
     private int _indicatorResolution = 20;
 
     [SerializeField]
-    private Transform _playerController;
-
-    [SerializeField]
     private float _fadeDuration = 0.33f;
     
-    [SerializeField]
-    private OVRScreenFade _screenFade;
-
     public bool IsMoving { get; private set; }
     
     private void Awake()
@@ -58,7 +57,7 @@ public class MovementController : MonoBehaviour
 
         _floorLayer = LayerMask.NameToLayer("Floor");
         _snapLayer = LayerMask.NameToLayer("TeleportSnapPoint");
-        _raycastLayers = LayerMask.GetMask("Floor", "TeleportSnapPoint");
+        // _raycastLayers = LayerMask.GetMask("Floor", "TeleportSnapPoint");
     }
 
     private void Start()
@@ -70,13 +69,25 @@ public class MovementController : MonoBehaviour
         
         _trajectory.SetColor(_indicatorColor);
         _trajectory.SetResolution(_indicatorResolution);
-
-        InputManager.Instance.CurrentlyUsedController.OnStickMove += OnStickMove;
-        InputManager.Instance.CurrentlyUsedController.OnStickRelease += OnStickRelease;
-
     }
 
-    // // DEBUG
+    private void OnEnable()
+    {
+        _inputManager = InputManager.Instance;
+        _inputManager.CurrentlyUsedController.OnStickMove += OnStickMove;
+        _inputManager.CurrentlyUsedController.OnStickRelease += OnStickRelease;
+    }
+
+    private void OnDisable()
+    {
+        if (!_inputManager) 
+            return;
+        
+        _inputManager.CurrentlyUsedController.OnStickMove -= OnStickMove;
+        _inputManager.CurrentlyUsedController.OnStickRelease -= OnStickRelease;
+    }
+    
+    // DEBUG
     // private void Update()
     // {
     //     PreviewMovement(transform.position, transform.rotation);
@@ -86,7 +97,7 @@ public class MovementController : MonoBehaviour
     {
         if (stickAxis.y > 0.8f)
         {
-            PreviewMovement(InputManager.Instance.CurrentlyUsedController.Position, InputManager.Instance.CurrentlyUsedController.Rotation);
+            PreviewMovement(_inputManager.CurrentlyUsedController.Position, _inputManager.CurrentlyUsedController.Rotation);
             _lastTargetPositionResetCounter = 0;
         }
         else
@@ -109,44 +120,46 @@ public class MovementController : MonoBehaviour
     private void PreviewMovement(Vector3 raycastOrigin, Quaternion raycastRotation)
     {
         Ray ray = new Ray(raycastOrigin, raycastRotation * Vector3.forward);
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, 100, _raycastLayers))
+        if (!Physics.Raycast(ray, out RaycastHit hitInfo, 100))
         {
-            Quaternion rotation = Quaternion.identity;
-            
-            int hitLayer = hitInfo.transform.gameObject.layer;
-            if (hitLayer == _floorLayer)
-            {
-                _lastTargetPosition = hitInfo.point;
-                rotation = raycastRotation;
-            }
-            else if (hitLayer == _snapLayer)
-            {
-                Bounds bounds = hitInfo.collider.bounds;
-                Vector3 targetPosition = bounds.center;
-                targetPosition.y += bounds.extents.y;
-                
-                _lastTargetPosition = targetPosition;
-
-                Vector3 forward = _lastTargetPosition - raycastOrigin;
-                Quaternion lookRotation = Quaternion.LookRotation(forward);
-                
-                // Vector3 raycastRotationEuler = raycastRotation.eulerAngles;
-                // rotation = Quaternion.Euler(raycastRotationEuler.x, lookRotation.eulerAngles.y, raycastRotationEuler.z);
-                rotation = lookRotation;
-            }
-            
-            _circle.EnableLineRenderer();
-            _circleTransform.position = _lastTargetPosition;
-            
-            _trajectory.EnableLineRenderer();
-            _trajectory.DrawTrajectory(raycastOrigin, rotation, _lastTargetPosition);
-
+            return;
         }
-        else
+            
+        int hitLayer = hitInfo.transform.gameObject.layer;
+        if (hitLayer != _floorLayer && hitLayer != _snapLayer)
         {
             ResetPreview();
             _lastTargetPosition = Vector3.zero;
+            return;
         }
+            
+        Quaternion rotation = Quaternion.identity;
+        if (hitLayer == _floorLayer)
+        {
+            _lastTargetPosition = hitInfo.point;
+            rotation = raycastRotation;
+        }
+        else if (hitLayer == _snapLayer)
+        {
+            Bounds bounds = hitInfo.collider.bounds;
+            Vector3 targetPosition = bounds.center;
+            targetPosition.y += bounds.extents.y;
+                
+            _lastTargetPosition = targetPosition;
+
+            Vector3 forward = _lastTargetPosition - raycastOrigin;
+            Quaternion lookRotation = Quaternion.LookRotation(forward);
+                
+            // Vector3 raycastRotationEuler = raycastRotation.eulerAngles;
+            // rotation = Quaternion.Euler(raycastRotationEuler.x, lookRotation.eulerAngles.y, raycastRotationEuler.z);
+            rotation = lookRotation;
+        }
+            
+        _circle.EnableLineRenderer();
+        _circleTransform.position = _lastTargetPosition;
+            
+        _trajectory.EnableLineRenderer();
+        _trajectory.DrawTrajectory(raycastOrigin, rotation, _lastTargetPosition);
     }
 
     private void ResetPreview()
@@ -157,20 +170,37 @@ public class MovementController : MonoBehaviour
 
     private void Move()
     {
+        ResetPreview();
         if (IsMoving || _lastTargetPosition == Vector3.zero)
         {
             return;
         }
         
-        StartCoroutine(C_Move());
+        StartCoroutine(C_Move(_lastTargetPosition));
+    }
+
+    /// <summary>
+    /// Teleports the player with a fade to the target position.
+    /// Does not work if the player is already currently moving.
+    /// </summary>
+    /// <param name="target"></param>
+    public void Move(Vector3 target)
+    {
+        if (IsMoving)
+        {
+            return;
+        }
+        
+        StartCoroutine(C_Move(_lastTargetPosition));
     }
     
     /// <summary>
     /// Fades to black using the OVRScreenFade object, moves the player and fades back.
     /// </summary>
-    /// <returns></returns>
-    private IEnumerator C_Move()
+    private IEnumerator C_Move(Vector3 target)
     {
+        _screenFade = SceneReferences.ScreenFade;
+        
         IsMoving = true;
 
         float t = 0;
@@ -182,7 +212,7 @@ public class MovementController : MonoBehaviour
         }
         _screenFade.SetFadeLevel(1);
 
-        _playerController.position = _lastTargetPosition;
+        SceneReferences.PlayerObject.position = target;
         _lastTargetPosition = Vector3.zero;
         
         t = 1;

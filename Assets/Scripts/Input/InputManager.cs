@@ -15,7 +15,7 @@ public class InputManager : MonoBehaviour
     public XRInputDeviceController LeftController, RightController, CurrentlyUsedController;
     
     public event Action OnCurrentlyUsedControllerUpdate;
-    
+
     private void OnEnable()
     {
         InputDevices.deviceConnected += DeviceConnected;
@@ -58,7 +58,7 @@ public class InputManager : MonoBehaviour
         RightController = controllers[1];
         CurrentlyUsedController = controllers[2];
     }
-
+    
     private void Start()
     {
         StartCoroutine(FetchController(LeftController, InputDeviceCharacteristics.Left));
@@ -67,8 +67,7 @@ public class InputManager : MonoBehaviour
         LeftController.OnAnyKeyDown += UpdateCurrentlyUsedControllerLeft;
         RightController.OnAnyKeyDown += UpdateCurrentlyUsedControllerRight;
     }
-    
-    
+ 
     /// <summary>
     /// Called when a button is clicked on the left controller.
     /// Sets the device of the CurrentlyUsedController to the device of the left controller

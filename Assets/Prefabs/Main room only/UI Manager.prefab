@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 16781876}
   - component: {fileID: 16781875}
   - component: {fileID: 830820134}
-  - component: {fileID: 830820136}
+  - component: {fileID: 729716478}
   m_Layer: 5
   m_Name: Button_BackToLobby
   m_TagString: Untagged
@@ -126,7 +126,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 250, y: 35, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &830820136
+--- !u!114 &729716478
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,11 +135,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 16781872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a1b4914695b82f4ba75e8ac47dd769b, type: 3}
+  m_Script: {fileID: 11500000, guid: 39f10e17773cf024f90b6c6e410a0d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
-  _hoverColor: {r: 1, g: 0.66999996, b: 1, a: 1}
+  _hoverColor: {r: 1, g: 0.67058825, b: 1, a: 1}
   _pressedColor: {r: 1, g: 1, b: 1, a: 1}
   _disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   isEnabled: 1
