@@ -16,30 +16,27 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{4c03db99-f612-4654-9deb-654277a090b0}">
 		<relationship name="effects">
-			<destination>{76886509-7050-4429-8361-6189f9404ec5}</destination>
+			<destination>{5e2351d1-4dab-4506-99d0-9f7264f2d8d0}</destination>
 			<destination>{f6683cb8-4b93-4e28-a911-983780277fab}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{a1c7ac6d-4746-4816-a365-8cb18e1f323f}" />
-	<object class="PluginEffect" id="{76886509-7050-4429-8361-6189f9404ec5}">
-		<property name="bypass">
-			<value>true</value>
-		</property>
+	<object class="PluginEffect" id="{5e2351d1-4dab-4506-99d0-9f7264f2d8d0}">
 		<relationship name="plugin">
-			<destination>{bad519cd-1d2c-455f-abee-3248cf5e2a26}</destination>
+			<destination>{f74b75e8-ffc2-489a-94b7-e4dafbdb5214}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{f6683cb8-4b93-4e28-a911-983780277fab}" />
-	<object class="Plugin" id="{bad519cd-1d2c-455f-abee-3248cf5e2a26}">
+	<object class="Plugin" id="{f74b75e8-ffc2-489a-94b7-e4dafbdb5214}">
 		<property name="identifier">
 			<value>Resonance Audio Listener</value>
 		</property>
 		<relationship name="pluginParameters">
-			<destination>{257bbe7d-36fe-4ac9-a899-a45818e3a11d}</destination>
-			<destination>{37e114f8-e1f1-4329-957c-139e71c9eb04}</destination>
+			<destination>{23b529d2-0415-460a-bfef-9dd5b23a1651}</destination>
+			<destination>{f0742dfe-e1ee-4957-81eb-8263c08a40ce}</destination>
 		</relationship>
 	</object>
-	<object class="FloatPluginParameter" id="{257bbe7d-36fe-4ac9-a899-a45818e3a11d}">
+	<object class="FloatPluginParameter" id="{23b529d2-0415-460a-bfef-9dd5b23a1651}">
 		<property name="name">
 			<value>Gain</value>
 		</property>
@@ -50,11 +47,10 @@
 			<value>{(0.000000,-80.000000)(1.000000,0.000000)}</value>
 		</property>
 	</object>
-	<object class="DataPluginParameter" id="{37e114f8-e1f1-4329-957c-139e71c9eb04}">
+	<object class="DataPluginParameter" id="{f0742dfe-e1ee-4957-81eb-8263c08a40ce}">
 		<property name="name">
 			<value>Room Properties</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>0</value>
 		</property>

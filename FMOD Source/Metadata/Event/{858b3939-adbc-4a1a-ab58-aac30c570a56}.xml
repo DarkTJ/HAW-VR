@@ -53,7 +53,7 @@
 			<destination>{a4b2ba83-1c7a-4716-a7e7-1af17cfffceb}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{f05c215f-60ab-46ce-b0f3-3c42906e5ff9}</destination>
+			<destination>{4c97f498-90a4-483d-a3fb-910cefebc01d}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{d27e4e97-c952-46d7-95bc-9aff515055c8}" />
@@ -231,7 +231,6 @@
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -267,7 +266,6 @@
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>

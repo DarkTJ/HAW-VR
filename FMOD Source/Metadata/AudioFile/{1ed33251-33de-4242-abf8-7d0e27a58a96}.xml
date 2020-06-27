@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{1ed33251-33de-4242-abf8-7d0e27a58a96}">
+		<property name="assetPath">
+			<value>UI/Cancel_Escape/Escape_settings.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.68266666666666664</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{6f06f8e8-269e-4682-b215-c273239b8577}</destination>
+		</relationship>
+	</object>
+</objects>

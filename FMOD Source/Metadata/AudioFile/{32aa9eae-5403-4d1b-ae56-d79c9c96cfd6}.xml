@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{32aa9eae-5403-4d1b-ae56-d79c9c96cfd6}">
+		<property name="assetPath">
+			<value>UI/Keyboard_Typing/Keyboard_Erase.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.18285714285714286</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{6f06f8e8-269e-4682-b215-c273239b8577}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -29,6 +29,9 @@
 		</property>
 	</object>
 	<object class="PluginEffect" id="{81bed1c7-9f91-45ac-9a0f-9e08b5e1c6dc}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
 		<relationship name="plugin">
 			<destination>{19eb0019-262e-4f68-8d11-506f3c7a408e}</destination>
 		</relationship>
@@ -58,7 +61,6 @@
 		<property name="name">
 			<value>Room Properties</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>0</value>
 		</property>
