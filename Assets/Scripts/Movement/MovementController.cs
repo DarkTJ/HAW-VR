@@ -122,6 +122,8 @@ public class MovementController : MonoBehaviour
         Ray ray = new Ray(raycastOrigin, raycastRotation * Vector3.forward);
         if (!Physics.Raycast(ray, out RaycastHit hitInfo, 100))
         {
+            ResetPreview();
+            _lastTargetPosition = Vector3.zero;
             return;
         }
             
