@@ -438,8 +438,8 @@ GameObject:
   - component: {fileID: 506603250}
   - component: {fileID: 506603249}
   - component: {fileID: 506603248}
-  - component: {fileID: 506603252}
   - component: {fileID: 506603251}
+  - component: {fileID: 506603252}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -560,40 +560,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 506603246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: bb4409b65e283f34d88f587ced834481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 506603249}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  _normalColor: {r: 1, g: 1, b: 1, a: 1}
+  _hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  _pressedColor: {r: 1, g: 1, b: 1, a: 1}
+  _disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  isEnabled: 1
+  videoName: AVProVideoSamples/SampleSphere.mp4
+  canvas: {fileID: 1618400088}
+  mediaPlayer: {fileID: 1606679747}
 --- !u!1 &515860183
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,8 +901,8 @@ GameObject:
   - component: {fileID: 897181605}
   - component: {fileID: 897181604}
   - component: {fileID: 897181603}
-  - component: {fileID: 897181607}
   - component: {fileID: 897181606}
+  - component: {fileID: 897181607}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -1046,40 +1023,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 897181601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: bb4409b65e283f34d88f587ced834481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 897181604}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  _normalColor: {r: 1, g: 1, b: 1, a: 1}
+  _hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  _pressedColor: {r: 1, g: 1, b: 1, a: 1}
+  _disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  isEnabled: 1
+  videoName: AVProVideoSamples/Sample180.mp4
+  canvas: {fileID: 1618400088}
+  mediaPlayer: {fileID: 1606679747}
 --- !u!1 &913002029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1816,18 +1770,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1423728202}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1606679747}
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1423728206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1845,9 +1788,9 @@ MonoBehaviour:
   _pressedColor: {r: 1, g: 1, b: 1, a: 1}
   _disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   isEnabled: 1
-  videoName: 
-  canvas: {fileID: 0}
-  mediaPlayer: {fileID: 0}
+  videoName: AVProVideoSamples/Sample180.mp4
+  canvas: {fileID: 1618400088}
+  mediaPlayer: {fileID: 1606679747}
 --- !u!1 &1446845210
 GameObject:
   m_ObjectHideFlags: 0
@@ -2029,7 +1972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VideoLocation: 2
-  m_VideoPath: https://kutt.it/Wifw0I
+  m_VideoPath: AVProVideoSamples/SampleSphere.mp4
   m_AutoOpen: 1
   m_AutoStart: 1
   m_Loop: 0

@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8664719174332030325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/QuitGameButton
+  m_EditorClassIdentifier: 
+  Path: event:/UI/QuitGameButton
+  guid: 1b839c34cde59e40a5309b7bbb1199ee
+  Banks:
+  - {fileID: 8238678579575604803}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 39
 --- !u!114 &-8662645506524277398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,7 +58,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 1
   guid: 4f1699f7dd1a6c4ba837c31821b274dc
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -58,7 +81,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 6
   guid: 30e30e0fbe31b1478a030379bc484f8f
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -66,6 +89,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-8097748611335120619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Portal_Transport
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Portal_Transport
+  guid: a01006ac98a7594cbee9d0c7b5848e03
+  Banks:
+  - {fileID: 8238678579575604803}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2048
 --- !u!114 &-7807180590091203689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,7 +127,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 4
   guid: 47338c5d4e0d6b4dad02ab23ffc740f3
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -125,6 +171,52 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-7247278505557176674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/BackButton
+  m_EditorClassIdentifier: 
+  Path: event:/UI/BackButton
+  guid: b52b6249045e914a9c58dc0b957ef9bd
+  Banks:
+  - {fileID: 8238678579575604803}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &-6713474945285295487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Keyboard_Erase
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Keyboard_Erase
+  guid: 74f06a18abe50c49b09f81fc80cabdc7
+  Banks:
+  - {fileID: 8238678579575604803}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 182
 --- !u!114 &-6546495416109990632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +232,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 19
   guid: 66c9f5c6ad1af04d825a28e4e39cabb6
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -181,7 +273,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 11
   guid: a2d9eb90add236438fbf7f42115cb514
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -222,7 +314,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 14
   guid: 61fff2898fa9d84f8ca80f88ec8ea9ec
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -230,6 +322,52 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-5351414186262233200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/SettingsButton
+  m_EditorClassIdentifier: 
+  Path: event:/UI/SettingsButton
+  guid: 1a86a5961c4a69488abe72d2a6d99f73
+  Banks:
+  - {fileID: 8238678579575604803}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 682
+--- !u!114 &-5342470016030552812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Keyboard_HoverKey
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Keyboard_HoverKey
+  guid: 75b4104bdf469d4c890f32240043182f
+  Banks:
+  - {fileID: 8238678579575604803}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 40
 --- !u!114 &-5057051536937698119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,7 +383,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 10
   guid: e0c97a7218a8f64aa506df5a0b25aca7
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -268,7 +406,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 16
   guid: 3307ee7db279344880b65bf5dd26ca5b
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -291,7 +429,7 @@ MonoBehaviour:
   Path: event:/Videomapping Sounds/Videomapping - Change Room Style
   guid: 4ae1b9a8fdf10e49810d9718a0c7fe2e
   Banks:
-  - {fileID: -1812872985489466817}
+  - {fileID: 8238678579575604803}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -299,6 +437,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4999
+--- !u!114 &-4477212112857200087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Keyboard_TypeKey
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Keyboard_TypeKey
+  guid: 6dd3f060720c43499ec689b0b19743d7
+  Banks:
+  - {fileID: 8238678579575604803}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 91
 --- !u!114 &-4087358866741726096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,7 +475,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 18
   guid: 7a345587af3dd9408277cf23ce8bda8e
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -373,7 +534,7 @@ MonoBehaviour:
   Path: event:/Videomapping Sounds/Permanent Loop Organic
   guid: b6de4863b8502c42a849543feb9a99e1
   Banks:
-  - {fileID: -1812872985489466817}
+  - {fileID: 8238678579575604803}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -450,7 +611,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 23
   guid: 6668d8e638c8084a8e3f6ba12f93e491
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -476,6 +637,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-2497261921687969811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Portal_Saber
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Portal_Saber
+  guid: c2f7034b48870d48aff003a22e4858b6
+  Banks:
+  - {fileID: 8238678579575604803}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3413
 --- !u!114 &-2408087954866636317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,7 +675,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 22
   guid: 3d9c165a9bddb149b2eb7c568d0ebf38
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -516,7 +700,25 @@ MonoBehaviour:
   lastModified: 637282804940123764
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
+--- !u!114 &-1694674262759009726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Planetarium.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Source/Build/Desktop/Planetarium.bank
+  SubDir: 
+  lastModified: 637289359816467010
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-1443244828097401961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,7 +734,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 7
   guid: 47a615425b18a6419e726703eafba3e4
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -573,7 +775,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 12
   guid: 1a09b3ed629a0647bff859efe66c4f40
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -595,8 +797,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 8262954427617087285}
-  - {fileID: -1812872985489466817}
-  - {fileID: 5914131377486319432}
+  - {fileID: 8238678579575604803}
+  - {fileID: 414014875152073407}
   EditorEvents:
   - {fileID: 8434608771326160089}
   - {fileID: 6643904820672113612}
@@ -629,12 +831,24 @@ MonoBehaviour:
   - {fileID: -5057051536937698119}
   - {fileID: 8233314439959045423}
   - {fileID: 17038750382070657}
+  - {fileID: 6296393714600039258}
+  - {fileID: -5351414186262233200}
+  - {fileID: 7177809616345420613}
+  - {fileID: 1276150044538874976}
+  - {fileID: 2090916224293129410}
+  - {fileID: -4477212112857200087}
+  - {fileID: -6713474945285295487}
+  - {fileID: -5342470016030552812}
+  - {fileID: -8097748611335120619}
+  - {fileID: -7247278505557176674}
+  - {fileID: -2497261921687969811}
+  - {fileID: -8664719174332030325}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -1812872985489466817}
+  - {fileID: 8238678579575604803}
   StringsBanks:
   - {fileID: 8262954427617087285}
-  stringsBankWriteTime: 637282804940133686
+  stringsBankWriteTime: 637289374771570309
   cacheVersion: 3
 --- !u!114 &17038750382070657
 MonoBehaviour:
@@ -651,7 +865,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 3
   guid: fc7a339ef1111745b110844469ce39c6
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -695,6 +909,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &414014875152073407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Planetarium.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Source/Build/Desktop/Planetarium.bank
+  SubDir: 
+  lastModified: 637289374772110947
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &1087032725727824981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -713,6 +945,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &1276150044538874976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Trigger_Press
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Trigger_Press
+  guid: 500d1e0e84b52b45801dea3f2c747202
+  Banks:
+  - {fileID: 8238678579575604803}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 682
 --- !u!114 &1740927672615640272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -728,7 +983,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 20
   guid: 8ba26c7d7cd7964da99b6708ae6110f8
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -769,7 +1024,7 @@ MonoBehaviour:
   Path: event:/Videomapping Sounds/Permanent Loop Electronic
   guid: dd94ff25babba64e9e88fd8a7676055f
   Banks:
-  - {fileID: -1812872985489466817}
+  - {fileID: 8238678579575604803}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -777,6 +1032,51 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &2090916224293129410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/UIButton_Hover
+  m_EditorClassIdentifier: 
+  Path: event:/UI/UIButton_Hover
+  guid: 600ad8ad1264a943b9408ca0fefed18d
+  Banks:
+  - {fileID: 8238678579575604803}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 40
+--- !u!114 &2233441926014846629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/QuitGame
+  m_EditorClassIdentifier: 
+  Path: event:/UI/QuitGame
+  guid: 1b839c34cde59e40a5309b7bbb1199ee
+  Banks: []
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 39
 --- !u!114 &2750927475617124450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -792,7 +1092,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 5
   guid: 5191de2dcbe3af48b5b52fb4f8a83680
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -869,7 +1169,7 @@ MonoBehaviour:
   Path: event:/Lobby Sounds/UI/Entering Room
   guid: b37928266bb04540a189e5f0e6f62811
   Banks:
-  - {fileID: -1812872985489466817}
+  - {fileID: 8238678579575604803}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -892,7 +1192,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 8
   guid: a13f9b68c03b9a4f8cb84b88e7787a70
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -933,7 +1233,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 17
   guid: 185de5c518c0d344aaa13fcc560236a4
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -956,7 +1256,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 15
   guid: b60e251c6f463e448958466ac14ef78c
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -979,7 +1279,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 2
   guid: 3cfc545f4e904642bcf7a3b2569e6101
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1002,7 +1302,7 @@ MonoBehaviour:
   Path: event:/Lobby Sounds/UI/Button
   guid: efac6aab6909e1409ac20356cdec24b9
   Banks:
-  - {fileID: -1812872985489466817}
+  - {fileID: 8238678579575604803}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1027,7 +1327,48 @@ MonoBehaviour:
   lastModified: 637282804940277521
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
+--- !u!114 &5948079849129126499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Source/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637289359815668459
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &6296393714600039258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/CancelButton
+  m_EditorClassIdentifier: 
+  Path: event:/UI/CancelButton
+  guid: 0328e99353ccd44d93a74b92f4de00dd
+  Banks:
+  - {fileID: 8238678579575604803}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 182
 --- !u!114 &6491168033879653457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1043,7 +1384,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 21
   guid: 39398b85bcad1a4aab58aac30c570a56
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1066,7 +1407,7 @@ MonoBehaviour:
   Path: event:/Lobby Sounds/Ambience/Lobby Ambience
   guid: 32adacedd5dfe04f8e57ee7136bf5c3c
   Banks:
-  - {fileID: -1812872985489466817}
+  - {fileID: 8238678579575604803}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -1074,6 +1415,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 105947
+--- !u!114 &7177809616345420613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Trigger_PressOK
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Trigger_PressOK
+  guid: 47306239a6e86b44bc539c7603ad4a54
+  Banks:
+  - {fileID: 8238678579575604803}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 229
 --- !u!114 &7521216255270640932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1089,7 +1453,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 13
   guid: c3d534efe1f24b4bb79a094c284e4833
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1097,6 +1461,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &7881275501283142980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Source/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637289355379294632
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &8233314439959045423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1112,7 +1494,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 9
   guid: f6f8c466878ec24bb0ff105df62207f1
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1120,6 +1502,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &8238678579575604803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Source/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637289374771490959
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &8262954427617087285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1134,11 +1534,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMOD Source/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637282804940133686
+  lastModified: 637289374771570309
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 2004
+    Value: 2588
   Exists: 1
 --- !u!114 &8434608771326160089
 MonoBehaviour:
@@ -1155,7 +1555,7 @@ MonoBehaviour:
   Path: event:/Lobby Sounds/UI/Leaving Room
   guid: 2be8cceada98c24ab4c7402890e591e6
   Banks:
-  - {fileID: -1812872985489466817}
+  - {fileID: 8238678579575604803}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1178,7 +1578,7 @@ MonoBehaviour:
   Path: event:/Planetarium/Speaker 24
   guid: 445e7075c37de54fb3c03a9e49bd9831
   Banks:
-  - {fileID: 5914131377486319432}
+  - {fileID: 414014875152073407}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1204,6 +1604,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &8933742333379632923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Planetarium.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Source/Build/Desktop/Planetarium.bank
+  SubDir: 
+  lastModified: 637289355379949351
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &9069811371126516054
 MonoBehaviour:
   m_ObjectHideFlags: 0

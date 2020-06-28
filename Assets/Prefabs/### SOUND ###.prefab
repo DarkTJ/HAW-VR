@@ -97,7 +97,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa14d6d311c29d541bafd9efb8fc86d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonDownEvent: event:/Lobby Sounds/UI/Button
+  ButtonHover_Event: event:/UI/UIButton_Hover
+  TriggerPress_Event: event:/UI/Trigger_Press
+  TriggerPressOK_Event: event:/UI/Trigger_PressOK
+  QuitGameButton_Event: event:/UI/QuitGameButton
+  SettingsButton_Event: event:/UI/SettingsButton
+  CancelButton_Event: event:/UI/CancelButton
+  KeyboardEraseButton_Event: event:/UI/Keyboard_Erase
+  KeyboardHoverKey_Event: event:/UI/Keyboard_HoverKey
+  KeyboardTypeKey_Event: event:/UI/Keyboard_TypeKey
+  BackButton_Event: event:/UI/BackButton
+  PortalTransport_Event: event:/UI/Portal_Transport
+  PortalSaber_Event: event:/UI/Portal_Saber
 --- !u!1 &9112207014146750494
 GameObject:
   m_ObjectHideFlags: 0
