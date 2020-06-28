@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4ca673c465a41dd499c8a4a177e5a99c
+guid: e9f918f5846029548bf48cf874ec1a4a
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
@@ -7,23 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: _Car Paint
-    second: {fileID: 2100000, guid: 554820f0440d0a64e8e37a48b1549e58, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: _Emissive
-    second: {fileID: 2100000, guid: 074c9e2072b7240469cf10dbc40813e9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: _Glass_Window_Neutral
+      name: Sculpture
     second: {fileID: 2100000, guid: 1c13c90604156d1438ef962d185a1754, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: _wand boden
-    second: {fileID: 2100000, guid: e2027c6fbc2ac6a4ab8546a3798a75f1, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -64,7 +49,7 @@ ModelImporter:
     importCameras: 0
     importLights: 0
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
@@ -75,18 +60,18 @@ ModelImporter:
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
-    secondaryUVAreaDistortion: 15
+    secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVPackMargin: 16
+    secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 0
+    normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
-    normalSmoothingSource: 2
+    normalSmoothingSource: 0
   referencedClips: []
   importAnimation: 1
   humanDescription:
@@ -103,11 +88,11 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
   additionalBone: 0
