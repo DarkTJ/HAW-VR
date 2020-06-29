@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Lobby.unity
-    guid: 7658e6e6ea523bb42b25fc54a54bb649
-  - enabled: 1
     path: Assets/Scenes/Mapping-Raum.unity
     guid: dd2afc1e0378dca4eaaadb7f60f6104a
+  - enabled: 1
+    path: Assets/Scenes/Lobby-Android.unity
+    guid: 7658e6e6ea523bb42b25fc54a54bb649
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 582b6227d8c197f48bc7bc047173c76d,
       type: 2}

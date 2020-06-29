@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Loads and changes the active scenes.
+/// Also calls the MultiplayerRoomHandler to change the multiplayer rooms.
+/// </summary>
 public class SceneLoader : MonoBehaviour
 {
     /// <summary>
@@ -25,10 +29,6 @@ public class SceneLoader : MonoBehaviour
         
         // Always keep this object alive
         DontDestroyOnLoad(gameObject);
-    }
-
-    private void Start()
-    {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -41,9 +41,10 @@ public class SceneLoader : MonoBehaviour
         _isLoadingScene = true;
         
         _targetSceneIndex = index;
-        MultiplayerRoomHandler.Instance.LeaveRoom();
+        UIManager.Instance.HideUI();
         Fade(0, 1, () =>
         {
+            MultiplayerRoomHandler.Instance.LeaveRoom();
             SceneManager.LoadScene(index);
         });
     }

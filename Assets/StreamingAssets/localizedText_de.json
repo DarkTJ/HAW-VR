@@ -1,0 +1,19 @@
+{ "items": [
+	
+	{ "key" : "volume_text", "value" : "LAUTSTÄRKE" },
+	{ "key" : "voicechat_text", "value" : "SPRACH-CHAT" },
+	{ "key" : "backtolobby_button", "value" : "ZURÜCK ZUR LOBBY" },
+	{ "key" : "quitapp_button", "value" : "APP BEENDEN" },
+	
+    { "key" : "tutorial_1", "value" : "Hey! Drücke den Button am Rücken des Controllers. (Trigger)" },
+    { "key" : "tutorial_2", "value" : "Gut, so kannst du den Text weiterschalten und mit Sachen interagieren." },
+    { "key" : "tutorial_3", "value" : "Wenn du den Control Stick nach vorne drückst, kannst du dich gleich teleportieren." },
+    { "key" : "tutorial_4", "value" : "Bitte drücke den Control Stick jetzt einmal mit deinem Daumen nach vorne." },
+    { "key" : "tutorial_5", "value" : "Super! Dann gib jetzt noch deinen Namen an." },
+    { "key" : "tutorial_6", "value" : "Ziele dazu mit dem Strahl an deinem Controller auf die Buchstaben..." },
+    { "key" : "tutorial_7", "value" : "und drücke den Trigger, um den Buchstaben anzuklicken." },
+    { "key" : "tutorial_8", "value" : "Perfekt! Gehe gleich in die Mitte des Raumes, um einen Raum auszuwählen zu dem du möchtest." },
+    { "key" : "tutorial_9", "value" : "Dort steht eine Skulptur, mit der du interagieren kannst." },
+    { "key" : "tutorial_10", "value" : "Hast du einen Raum ausgewählt, öffnet sich eine Tür an der Wand." },
+    { "key" : "tutorial_11", "value" : "Durch diese Tür musst du dann gehen. Jetzt viel Spaß!" }
+]}

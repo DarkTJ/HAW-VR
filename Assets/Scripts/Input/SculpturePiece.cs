@@ -34,18 +34,10 @@ public class SculpturePiece : MonoBehaviour
         _glowRenderer = GetComponentsInChildren<MeshRenderer>()[1];
         _glowMaterial = _glowRenderer.material;
         _glowMaterial.color = _glowColor;
-    }
-
-    private void OnEnable()
-    {
+        
         InputManager.Instance.CurrentlyUsedController.OnTriggerDown += OnTriggerDown;
     }
-
-    private void OnDisable()
-    {
-        InputManager.Instance.CurrentlyUsedController.OnTriggerDown -= OnTriggerDown;
-    }
-
+    
     public void Setup(float defaultIntensity, float interactingIntensity, float defaultScaleMultiplier, float interactingScaleMultiplier)
     {
         _defaultIntensity = defaultIntensity;
@@ -120,6 +112,7 @@ public class SculpturePiece : MonoBehaviour
             return;
         }
         
+        _isControllerInteracting = false;
         SceneLoader.Instance.LoadScene(_targetSceneIndex);
     }
 

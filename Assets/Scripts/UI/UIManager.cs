@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(UIPointer))]
 public class UIManager : MonoBehaviour
@@ -14,6 +13,9 @@ public class UIManager : MonoBehaviour
     
     [SerializeField]
     private GameObject _menuCanvas, textFieldCanvas;
+
+    [SerializeField]
+    private UIInteractable[] _disableInLobby;
 
     private TextMeshProUGUI _textField;
 
@@ -40,6 +42,10 @@ public class UIManager : MonoBehaviour
         _textField = textFieldCanvas.GetComponentInChildren<TextMeshProUGUI>();
         _uiPointer = GetComponent<UIPointer>();
         _keyboard = GetComponentInChildren<Keyboard>();
+        
+        
+        InputManager.Instance.LeftController.OnMenuButtonDown += OnMenuButton;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Start()
@@ -48,16 +54,27 @@ public class UIManager : MonoBehaviour
         textFieldCanvas.SetActive(false);
         
         _uiPointer.Disable();
+        SetUIInteractableState(_disableInLobby, false);
     }
 
-    private void OnEnable()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
-        InputManager.Instance.LeftController.OnMenuButtonDown += OnMenuButton;
+        if (scene.buildIndex == 0)
+        {
+            SetUIInteractableState(_disableInLobby, false);
+        }
+        else
+        {
+            SetUIInteractableState(_disableInLobby, true);
+        }
     }
 
-    private void OnDisable()
+    private static void SetUIInteractableState(UIInteractable[] uiInteractables, bool state)
     {
-        InputManager.Instance.LeftController.OnMenuButtonDown -= OnMenuButton;
+        foreach (UIInteractable i in uiInteractables)
+        {
+            i.SetState(state);
+        }
     }
 
     private void OnMenuButton()
@@ -103,9 +120,7 @@ public class UIManager : MonoBehaviour
     {
         Transform camTransform = SceneReferences.PlayerCamera.transform;
         
-        Vector3 pos = uiObject.position;
         Vector3 targetPosition = camTransform.position + (camTransform.forward * 3);
-        targetPosition.y = pos.y;
         uiObject.position = targetPosition;
 
         Quaternion rot = Quaternion.LookRotation(camTransform.forward);
@@ -118,5 +133,14 @@ public class UIManager : MonoBehaviour
     {
         OnTextSubmit?.Invoke(_textField.text);
         _textField.text = "";
+    }
+
+    public void HideUI()
+    {
+        _isShowingMenu = false;
+        _menuCanvas.SetActive(false);
+        _keyboard.gameObject.SetActive(false);
+        textFieldCanvas.SetActive(false);
+        _uiPointer.Disable();
     }
 }

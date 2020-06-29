@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(TutorialController))]
 public class StartManager : MonoBehaviour
@@ -29,8 +28,12 @@ public class StartManager : MonoBehaviour
     
     private IEnumerator Start()
     {
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+    
+#elif UNITY_ANDROID
         _screenFade = SceneReferences.ScreenFade;
         _screenFade.SetFadeLevel(1);
+#endif
         
         yield return new WaitUntil(() => MultiplayerSceneSetupController.Instance.IsReady);
         _tutorial.SetControllers(false);
@@ -48,8 +51,13 @@ public class StartManager : MonoBehaviour
 
         LocalizationManager.Instance.LoadLocalizedTextFile(localizedTextFileName);
         
+        
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+    
+#elif UNITY_ANDROID
         // Enable fading from now on
         _screenFade.fadeOnStart = true;
+#endif
         
         // Loading
         while (!LocalizationManager.Instance.IsReady) {

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [RequireComponent(typeof(MovementTrajectory))]
 public class MovementController : MonoBehaviour
@@ -69,24 +68,12 @@ public class MovementController : MonoBehaviour
         
         _trajectory.SetColor(_indicatorColor);
         _trajectory.SetResolution(_indicatorResolution);
-    }
-
-    private void OnEnable()
-    {
+        
         _inputManager = InputManager.Instance;
         _inputManager.CurrentlyUsedController.OnStickMove += OnStickMove;
         _inputManager.CurrentlyUsedController.OnStickRelease += OnStickRelease;
     }
 
-    private void OnDisable()
-    {
-        if (!_inputManager) 
-            return;
-        
-        _inputManager.CurrentlyUsedController.OnStickMove -= OnStickMove;
-        _inputManager.CurrentlyUsedController.OnStickRelease -= OnStickRelease;
-    }
-    
     // DEBUG
     // private void Update()
     // {
@@ -122,6 +109,8 @@ public class MovementController : MonoBehaviour
         Ray ray = new Ray(raycastOrigin, raycastRotation * Vector3.forward);
         if (!Physics.Raycast(ray, out RaycastHit hitInfo, 100))
         {
+            ResetPreview();
+            _lastTargetPosition = Vector3.zero;
             return;
         }
             
@@ -206,11 +195,21 @@ public class MovementController : MonoBehaviour
         float t = 0;
         while (t < 1)
         {
+            
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+            
+#elif UNITY_ANDROID
             _screenFade.SetFadeLevel(t);
+#endif
             t += Time.deltaTime / _fadeDuration;
             yield return null;
         }
+        
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+            
+#elif UNITY_ANDROID
         _screenFade.SetFadeLevel(1);
+#endif
 
         SceneReferences.PlayerObject.position = target;
         _lastTargetPosition = Vector3.zero;
@@ -218,12 +217,21 @@ public class MovementController : MonoBehaviour
         t = 1;
         while (t > 0)
         {
+            
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+            
+#elif UNITY_ANDROID
             _screenFade.SetFadeLevel(t);
+#endif
             t -= Time.deltaTime / _fadeDuration;
             yield return null;
         }
-        _screenFade.SetFadeLevel(0);
-
+        
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+            
+#elif UNITY_ANDROID
+            _screenFade.SetFadeLevel(0);
+#endif
         IsMoving = false;
     }
 }

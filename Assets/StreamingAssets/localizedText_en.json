@@ -1,0 +1,19 @@
+{ "items": [
+
+	{ "key" : "volume_text", "value" : "volume" },
+	{ "key" : "voicechat_text", "value" : "voice-chat" },
+	{ "key" : "backtolobby_button", "value" : "back to lobby" },
+	{ "key" : "quitapp_button", "value" : "quit app" },
+
+    { "key" : "tutorial_1", "value" : "Hey! Press the button at the back of the controller. (Trigger)" },
+    { "key" : "tutorial_2", "value" : "Great, this way you can advance the text and interact with things." },
+    { "key" : "tutorial_3", "value" : "If you push the control stick forward you can teleport after this tutorial." },
+    { "key" : "tutorial_4", "value" : "Please push the control stick forward with your thumb now once." },
+    { "key" : "tutorial_5", "value" : "Perfect! Now enter your name." },
+    { "key" : "tutorial_6", "value" : "Aim with the ray on your controller at the letters..." },
+    { "key" : "tutorial_7", "value" : "and press the trigger to click a letter." },
+    { "key" : "tutorial_8", "value" : "Ok! After this, move to the center of the room, to select a room to go to." },
+    { "key" : "tutorial_9", "value" : "There is a sculpture that you can interact with." },
+    { "key" : "tutorial_10", "value" : "After you selected a room, a door will open at the walls." },
+    { "key" : "tutorial_11", "value" : "You then have to go trough that door. Have fun now!" }
+]}
