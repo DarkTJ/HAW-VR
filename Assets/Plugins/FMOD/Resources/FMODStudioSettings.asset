@@ -16,7 +16,7 @@ MonoBehaviour:
   HasSourceProject: 0
   HasPlatforms: 1
   sourceProjectPath: FMOD Source/haw-vr.fspro
-  sourceBankPath: FMOD Source/Build
+  sourceBankPath: FMOD Source\Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0

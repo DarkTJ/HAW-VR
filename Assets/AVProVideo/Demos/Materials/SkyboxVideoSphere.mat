@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: SkyboxVideoSphere
   m_Shader: {fileID: 4800000, guid: d7bb9d4ea887e4041877356986247bba, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: APPLY_GAMMA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
