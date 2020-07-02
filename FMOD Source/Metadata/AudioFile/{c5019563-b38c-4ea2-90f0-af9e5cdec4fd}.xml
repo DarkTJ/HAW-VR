@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{c5019563-b38c-4ea2-90f0-af9e5cdec4fd}">
+		<property name="assetPath">
+			<value>Planetarium/Test/09_Test.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>65</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{6f06f8e8-269e-4682-b215-c273239b8577}</destination>
+		</relationship>
+	</object>
+</objects>
