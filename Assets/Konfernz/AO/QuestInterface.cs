@@ -260,11 +260,11 @@ public class QuestInterface : MonoBehaviour
             o.SetForUser(uid);
             //o.mAdjustTransfrom += onTransformDelegate; ///
             o.SetEnable(true);
-            o.transform.Rotate(90, 0, 0);
+            o.transform.Rotate(270, -90, -90); // test 
             //float r = Random.Range (-5.0f, 5.0f); ///
             var videoQuadPos = GameObject.Find("VideoSpawn").transform.position;
             o.transform.position = videoQuadPos + new Vector3(numUsers * 0, 0, 0); //y wie x 0,95f
-            o.transform.localScale = new Vector3(0.50f, (0.28125f), (0.50f));//ohen die 5en  0.09475f  0.5f  0.094924f
+            o.transform.localScale = new Vector3(0.80f, (0.28125f), (0.450f));//ohen die 5en  0.09475f  0.5f  0.094924f
         }
 
         // mRemotePeer = uid;
