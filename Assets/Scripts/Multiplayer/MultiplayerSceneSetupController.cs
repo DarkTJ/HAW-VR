@@ -55,7 +55,7 @@ public class MultiplayerSceneSetupController : MonoBehaviour
         Debug.Log("Creating Player model for " + PhotonNetwork.LocalPlayer.NickName);
 
         //Ist noch ein Cube, aber hier kann später der Avatar stehen
-        _playerCharacterObject = PhotonNetwork.Instantiate(Path.Combine("MultiplayerPrefabs", "PhotonPlayer"), Vector3.zero, Quaternion.identity);
+        _playerCharacterObject = PhotonNetwork.Instantiate(Path.Combine("MultiplayerPrefabs", "Avatar"), Vector3.zero, Quaternion.identity);
         _playerCharacterObject.transform.parent = SceneReferences.PlayerObject;
         _playerCharacterObject.transform.localPosition = Vector3.zero;
 
