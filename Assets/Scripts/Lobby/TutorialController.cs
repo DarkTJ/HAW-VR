@@ -97,7 +97,7 @@ public class TutorialController : MonoBehaviour
         }
         
         _tutorialCanvas.gameObject.SetActive(false);
-        SceneLoader.Instance.Fade(1, 0);
+        SceneLoader.Fade(this, 1, 0);
         SetControllers(true);
     }
 

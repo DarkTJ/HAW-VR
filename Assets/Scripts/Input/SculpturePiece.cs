@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(SphereCollider))]
 public class SculpturePiece : MonoBehaviour
 {
+    private LobbyDoorController _lobbyDoorController;
+    
     private MeshRenderer _renderer;
     
     private MeshRenderer _glowRenderer;
@@ -21,7 +23,16 @@ public class SculpturePiece : MonoBehaviour
     private static readonly int ScaleYProperty = Shader.PropertyToID("_ScaleY");
     private static readonly int IntensityProperty = Shader.PropertyToID("_Intensity");
 
-    private bool _isControllerInteracting;
+    /// <summary>
+    /// Bool shared within the class to verify that the player only interacts with one piece at a time.
+    /// </summary>
+    private static bool _isAnyPieceInteractedWith;
+    
+    /// <summary>
+    /// Bool to verify that the player interacts with this piece.
+    /// Can only be true if _isAnyPieceInteractedWith was false before.
+    /// </summary>
+    private bool _isThisPieceInteractedWith;
     
     [SerializeField]
     private int _targetSceneIndex;
@@ -38,8 +49,10 @@ public class SculpturePiece : MonoBehaviour
         InputManager.Instance.CurrentlyUsedController.OnTriggerDown += OnTriggerDown;
     }
     
-    public void Setup(float defaultIntensity, float interactingIntensity, float defaultScaleMultiplier, float interactingScaleMultiplier)
+    public void Setup(LobbyDoorController lobbyDoorController, float defaultIntensity, float interactingIntensity, float defaultScaleMultiplier, float interactingScaleMultiplier)
     {
+        _lobbyDoorController = lobbyDoorController;
+        
         _defaultIntensity = defaultIntensity;
         _interactingIntensity = interactingIntensity;
         _glowMaterial.SetFloat(IntensityProperty, _defaultIntensity);
@@ -86,20 +99,34 @@ public class SculpturePiece : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // Only allow interaction if the player is not interacting with any other piece already
+        if (_isAnyPieceInteractedWith)
+        {
+            return;
+        }
+        
+        _isAnyPieceInteractedWith = true;
+        _isThisPieceInteractedWith = true;
+
         StopAllCoroutines();
         StartCoroutine(C_FadeIntensity(_interactingIntensity));
         StartCoroutine(C_FadeScale(_interactingSize));
-
-        _isControllerInteracting = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
+        // Can only be true if this piece was the only one the player interacted with
+        if (!_isThisPieceInteractedWith)
+        {
+            return;
+        }
+        
+        _isAnyPieceInteractedWith = false;
+        _isThisPieceInteractedWith = false;
+        
         StopAllCoroutines();
         StartCoroutine(C_FadeIntensity(_defaultIntensity));
         StartCoroutine(C_FadeScale(_defaultSize));
-
-        _isControllerInteracting = false;
     }
 
     /// <summary>
@@ -107,13 +134,20 @@ public class SculpturePiece : MonoBehaviour
     /// </summary>
     private void OnTriggerDown()
     {
-        if (!_isControllerInteracting)
+        if (!_isThisPieceInteractedWith)
         {
             return;
         }
         
-        _isControllerInteracting = false;
-        SceneLoader.Instance.LoadScene(_targetSceneIndex);
+        _isAnyPieceInteractedWith = false;
+
+        // Not using the rotation of the camera on purpose
+        Vector3 lookDirection = transform.position - SceneReferences.PlayerCamera.transform.position;
+        Vector3 lookRotation = Quaternion.LookRotation(lookDirection).eulerAngles;
+        _lobbyDoorController.OpenDoor(lookRotation.y);
+        
+        SceneLoader.SetTargetScene(_targetSceneIndex);
+        // SceneLoader.Instance.LoadScene(_targetSceneIndex);
     }
 
     private IEnumerator C_FadeIntensity(float target)
