@@ -19,11 +19,12 @@ public class UIManager : MonoBehaviour
 
     private TextMeshProUGUI _textField;
 
-    private bool _isShowingMenu;
+    public bool IsShowingMenu { get; private set; }
 
     private UIPointer _uiPointer;
     private Keyboard _keyboard;
-    
+
+    public event Action OnMenuToggle;
     public event Action<string> OnTextSubmit;
 
     private void Awake()
@@ -43,8 +44,11 @@ public class UIManager : MonoBehaviour
         _uiPointer = GetComponent<UIPointer>();
         _keyboard = GetComponentInChildren<Keyboard>();
         
-        
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        InputManager.Instance.OnMenuButtonDown += OnMenuButton;
+#elif UNITY_ANDROID
         InputManager.Instance.LeftController.OnMenuButtonDown += OnMenuButton;
+#endif
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -79,7 +83,8 @@ public class UIManager : MonoBehaviour
 
     private void OnMenuButton()
     {
-        if (_isShowingMenu)
+        OnMenuToggle?.Invoke();
+        if (IsShowingMenu)
         {
             _menuCanvas.SetActive(false);
             _uiPointer.Disable();
@@ -89,7 +94,7 @@ public class UIManager : MonoBehaviour
             PlaceUI(_menuCanvas.transform);
             _uiPointer.Enable();
         }
-        _isShowingMenu = !_isShowingMenu;
+        IsShowingMenu = !IsShowingMenu;
     }
 
     public void ShowKeyboard(bool hideMenu = true)
@@ -138,7 +143,7 @@ public class UIManager : MonoBehaviour
 
     public void HideUI()
     {
-        _isShowingMenu = false;
+        IsShowingMenu = false;
         _menuCanvas.SetActive(false);
         _keyboard.gameObject.SetActive(false);
         textFieldCanvas.SetActive(false);

@@ -29,10 +29,15 @@ public class TutorialController : MonoBehaviour
         
         _localizationManager = LocalizationManager.Instance;
         _uiManager = UIManager.Instance;
+        
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        // TODO: Think about windows tutorial
+        FinishTutorial();
+#elif UNITY_ANDROID
         InputManager.Instance.CurrentlyUsedController.OnTriggerDown += OnTriggerDown;
         InputManager.Instance.CurrentlyUsedController.OnStickMove += OnStickMove;
-
         StartCoroutine(Tutorial());
+#endif
     }
     
     private void OnTriggerDown()
@@ -97,6 +102,11 @@ public class TutorialController : MonoBehaviour
             yield return new WaitUntil(() => _isTriggerDown);
         }
         
+        FinishTutorial();
+    }
+
+    private void FinishTutorial()
+    {
         _tutorialCanvas.gameObject.SetActive(false);
         SceneLoader.Fade(this, 1, 0);
         SetControllers(true);

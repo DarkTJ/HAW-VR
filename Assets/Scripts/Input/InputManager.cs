@@ -11,11 +11,24 @@ public class InputManager : MonoBehaviour
     /// </summary>
     public static InputManager Instance { get; private set; }
     
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+    private KeyCode _mainButton = KeyCode.Mouse0,
+        _menuButton = KeyCode.Escape;
+    
+    public event Action OnAnyKeyDown;
+    public event Action OnMainButtonDown;
+    public event Action OnMainButton;
+    public event Action OnMainButtonUp;
+    public event Action OnMenuButtonDown;
+    public event Action OnMenuButton;
+    public event Action OnMenuButtonUp;
+#elif UNITY_ANDROID
+    
     [NonSerialized]
     public XRInputDeviceController LeftController, RightController, CurrentlyUsedController;
     
     public event Action OnCurrentlyUsedControllerUpdate;
-    
+
     // This manager needs three controllers to work.
     // Is called when the script is added to an object or the user resets the component.
     private void Reset()
@@ -28,7 +41,8 @@ public class InputManager : MonoBehaviour
             gameObject.AddComponent<XRInputDeviceController>();
         }
     }
-
+#endif
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -37,9 +51,58 @@ public class InputManager : MonoBehaviour
         } else {
             Instance = this;
         }
-        
+
         // Always keep this object alive
         DontDestroyOnLoad(gameObject);
+
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        
+#elif UNITY_ANDROID
+        InitializeVRControls();
+#endif
+    }
+    
+
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+    private void Update()
+    {
+        #region Main Button
+        if (Input.GetKeyDown(_mainButton))
+        {
+            OnMainButtonDown?.Invoke();
+            OnAnyKeyDown?.Invoke();
+        }
+
+        if (Input.GetKey(_mainButton))
+        {
+            OnMainButton?.Invoke();
+        }
+
+        if (Input.GetKey(_mainButton))
+        {
+            OnMainButtonUp?.Invoke();
+        }
+        #endregion
+        #region Menu Button
+        if (Input.GetKeyDown(_menuButton))
+        {
+            OnMenuButtonDown?.Invoke();
+            OnAnyKeyDown?.Invoke();
+        }
+
+        if (Input.GetKey(_menuButton))
+        {
+            OnMenuButton?.Invoke();
+        }
+
+        if (Input.GetKey(_menuButton))
+        {
+            OnMenuButtonUp?.Invoke();
+        }
+        #endregion
+    }
+#elif UNITY_ANDROID
+    private void InitializeVRControls() {
 
         XRInputDeviceController[] controllers = GetComponents<XRInputDeviceController>();
         LeftController = controllers[0];
@@ -50,8 +113,7 @@ public class InputManager : MonoBehaviour
         InputDevices.deviceDisconnected += DeviceDisconnected;
         LeftController.OnAnyKeyDown += UpdateCurrentlyUsedControllerLeft;
         RightController.OnAnyKeyDown += UpdateCurrentlyUsedControllerRight;
-    }
-    
+   }
     private void Start()
     {
         StartCoroutine(FetchController(LeftController, InputDeviceCharacteristics.Left));
@@ -128,7 +190,7 @@ public class InputManager : MonoBehaviour
             controller.SetDevice(device);
         }
     }
-    
+
     private void DeviceDisconnected(InputDevice device)
     {
         if (device == LeftController.GetDevice())
@@ -137,7 +199,7 @@ public class InputManager : MonoBehaviour
             {
                 CurrentlyUsedController.ResetDevice();
             }
-            
+
             LeftController.ResetDevice();
 
         }
@@ -147,8 +209,9 @@ public class InputManager : MonoBehaviour
             {
                 CurrentlyUsedController.ResetDevice();
             }
-            
+
             RightController.ResetDevice();
         }
     }
+#endif
 }

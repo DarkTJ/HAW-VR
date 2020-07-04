@@ -43,7 +43,11 @@ public class SculpturePiece : MonoBehaviour
         _glowMaterial = _glowRenderer.material;
         _glowMaterial.color = _glowColor;
         
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        InputManager.Instance.OnMainButtonDown += OnTriggerDown;
+#elif UNITY_ANDROID
         InputManager.Instance.CurrentlyUsedController.OnTriggerDown += OnTriggerDown;
+#endif
     }
     
     public void Setup(LobbyDoorController lobbyDoorController, float defaultIntensity, float interactingIntensity, float defaultScaleMultiplier, float interactingScaleMultiplier)

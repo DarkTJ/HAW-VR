@@ -59,7 +59,11 @@ public class ReturnToLobbyIcosahedron : MonoBehaviour
         float z = Random.Range(-_rotationSpeed, _rotationSpeed);
         _rotation = new Vector3(x, y, z);
 
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        InputManager.Instance.OnMainButtonDown += OnTriggerDown;
+#elif UNITY_ANDROID
         InputManager.Instance.CurrentlyUsedController.OnTriggerDown += OnTriggerDown;
+#endif
     }
     
     private void Update()
