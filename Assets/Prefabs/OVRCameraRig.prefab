@@ -253,9 +253,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3623189699029564488}
-  - component: {fileID: 3623189699029564491}
   - component: {fileID: 3623189699029564490}
   - component: {fileID: 3623189699029564489}
+  - component: {fileID: 8939697974727594505}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -277,14 +277,6 @@ Transform:
   m_Father: {fileID: 3623189700262190444}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &3623189699029564491
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3623189699029564495}
-  m_Enabled: 1
 --- !u!20 &3623189699029564490
 Camera:
   m_ObjectHideFlags: 0
@@ -344,6 +336,19 @@ MonoBehaviour:
   fadeColor: {r: 0.01, g: 0.01, b: 0.01, a: 1}
   fadeOnStart: 0
   renderQueue: 3999
+--- !u!114 &8939697974727594505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3623189699029564495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: -1
 --- !u!1 &3623189699035361980
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,15 +50,13 @@ public class FMODEventManager : MonoBehaviour
 
     private void Start()
     {
-        InputManager.Instance.RightController.OnTriggerDown += PlaySound_TriggerPress;
-        InputManager.Instance.LeftController.OnTriggerDown += PlaySound_TriggerPress;
+        InputManager.Instance.OnMainButtonDown += PlaySound_TriggerPress;
     }
 
 
     void OnDisable()
     {
-        InputManager.Instance.RightController.OnTriggerDown -= PlaySound_TriggerPress;
-        InputManager.Instance.LeftController.OnTriggerDown -= PlaySound_TriggerPress;
+        InputManager.Instance.OnMainButtonDown -= PlaySound_TriggerPress;
     }
 
 
