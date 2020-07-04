@@ -1,21 +1,26 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SphereCollider))]
-public class SculpturePiece : MonoBehaviour
+public class ReturnToLobbyIcosahedron : MonoBehaviour
 {
-    private LobbyDoorController _lobbyDoorController;
+    [SerializeField]
+    private float _defaultGlowIntensity = 1,
+        _interactingGlowIntensity = 2,
+        _defaultGlowScaleMultiplier = 2f,
+        _interactingGlowScaleMultiplier = 4f,
+        _rotationSpeed = 0.5f;
+    
+    [SerializeField]
+    private Color _glowColor = Color.white;
     
     private MeshRenderer _renderer;
     
     private MeshRenderer _glowRenderer;
     private Material _glowMaterial;
-    private float _defaultIntensity, _interactingIntensity;
     private Vector2 _initialSize, _defaultSize, _interactingSize;
+    private Vector3 _rotation;
 
-    [SerializeField]
-    private Color _glowColor = Color.white;
-    
     private static readonly int ScaleXProperty = Shader.PropertyToID("_ScaleX");
     private static readonly int ScaleYProperty = Shader.PropertyToID("_ScaleY");
     private static readonly int IntensityProperty = Shader.PropertyToID("_Intensity");
@@ -31,9 +36,6 @@ public class SculpturePiece : MonoBehaviour
     /// </summary>
     private bool _isThisPieceInteractedWith;
     
-    [SerializeField]
-    private int _targetSceneIndex;
-
     private void Awake()
     {
         _renderer = GetComponent<MeshRenderer>();
@@ -43,57 +45,28 @@ public class SculpturePiece : MonoBehaviour
         _glowMaterial = _glowRenderer.material;
         _glowMaterial.color = _glowColor;
         
-        InputManager.Instance.CurrentlyUsedController.OnTriggerDown += OnTriggerDown;
-    }
-    
-    public void Setup(LobbyDoorController lobbyDoorController, float defaultIntensity, float interactingIntensity, float defaultScaleMultiplier, float interactingScaleMultiplier)
-    {
-        _lobbyDoorController = lobbyDoorController;
-        
-        _defaultIntensity = defaultIntensity;
-        _interactingIntensity = interactingIntensity;
-        _glowMaterial.SetFloat(IntensityProperty, _defaultIntensity);
+        _glowMaterial.SetFloat(IntensityProperty, _defaultGlowIntensity);
         
         Vector3 meshSize = _renderer.bounds.size;
         _initialSize = new Vector2(meshSize.x, meshSize.y);
-        _defaultSize = _initialSize * defaultScaleMultiplier;
-        _interactingSize = _initialSize * interactingScaleMultiplier;
+        _defaultSize = _initialSize * _defaultGlowScaleMultiplier;
+        _interactingSize = _initialSize * _interactingGlowScaleMultiplier;
         _glowMaterial.SetFloat(ScaleXProperty, _defaultSize.x);
         _glowMaterial.SetFloat(ScaleYProperty, _defaultSize.y);
+        
+        float x = Random.Range(-_rotationSpeed, _rotationSpeed);
+        float y = Random.Range(-_rotationSpeed, _rotationSpeed);
+        float z = Random.Range(-_rotationSpeed, _rotationSpeed);
+        _rotation = new Vector3(x, y, z);
+
+        InputManager.Instance.CurrentlyUsedController.OnTriggerDown += OnTriggerDown;
     }
-
-
-    // DEBUG, ANIMATION PREVIEW
-    // private float x;
-    // private bool b;
-    // private void Update()
-    // {
-    //     if (!b)
-    //     {
-    //         x += Time.deltaTime;
-    //         if (x > 2)
-    //         {
-    //             StopAllCoroutines();
-    //             StartCoroutine(C_FadeIntensity(_interactingIntensity));
-    //             StartCoroutine(C_FadeScale(_interactingSize));
-    //             b = !b;
-    //             x = 0;
-    //         }
-    //     }
-    //     else
-    //     {
-    //         x += Time.deltaTime;
-    //         if (x > 2)
-    //         {
-    //             StopAllCoroutines();
-    //             StartCoroutine(C_FadeIntensity(_defaultIntensity));
-    //             StartCoroutine(C_FadeScale(_defaultSize));
-    //             b = !b;
-    //             x = 0;
-    //         }
-    //     }
-    // }
-
+    
+    private void Update()
+    {
+        transform.Rotate(_rotation);
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
         // Only allow interaction if the player is not interacting with any other piece already
@@ -106,7 +79,7 @@ public class SculpturePiece : MonoBehaviour
         _isThisPieceInteractedWith = true;
 
         StopAllCoroutines();
-        StartCoroutine(C_FadeIntensity(_interactingIntensity));
+        StartCoroutine(C_FadeIntensity(_interactingGlowIntensity));
         StartCoroutine(C_FadeScale(_interactingSize));
     }
 
@@ -122,7 +95,7 @@ public class SculpturePiece : MonoBehaviour
         _isThisPieceInteractedWith = false;
         
         StopAllCoroutines();
-        StartCoroutine(C_FadeIntensity(_defaultIntensity));
+        StartCoroutine(C_FadeIntensity(_defaultGlowIntensity));
         StartCoroutine(C_FadeScale(_defaultSize));
     }
 
@@ -137,14 +110,8 @@ public class SculpturePiece : MonoBehaviour
         }
         
         _isAnyPieceInteractedWith = false;
-
-        // Not using the rotation of the camera on purpose
-        Vector3 lookDirection = transform.position - SceneReferences.PlayerCamera.transform.position;
-        Vector3 lookRotation = Quaternion.LookRotation(lookDirection).eulerAngles;
-        _lobbyDoorController.OpenDoor(lookRotation.y);
         
-        SceneLoader.SetTargetScene(_targetSceneIndex);
-        // SceneLoader.Instance.LoadScene(_targetSceneIndex);
+        SceneLoader.LoadScene(this, 0);
     }
 
     private IEnumerator C_FadeIntensity(float target)

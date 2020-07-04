@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5950340992214146070}
-  - component: {fileID: 5295104342772234443}
   m_Layer: 0
   m_Name: Return to lobby icosahedron
   m_TagString: Untagged
@@ -32,22 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5295104342772234443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018259803099632755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ef31b0b7d19d2e47ba072485df3d316, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _defaultGlowIntensity: 0.8
-  _interactingGlowIntensity: 2
-  _defaultGlowScaleMultiplier: 2
-  _interactingGlowScaleMultiplier: 8
 --- !u!1 &5295104342206100137
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +122,7 @@ GameObject:
   - component: {fileID: 3383971091011462345}
   - component: {fileID: 2252308456565902785}
   - component: {fileID: 5295104342772234486}
-  - component: {fileID: 5295104342772234487}
+  - component: {fileID: 7212173149841819144}
   m_Layer: 0
   m_Name: Icosahedron
   m_TagString: Untagged
@@ -222,7 +205,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.30660057
   m_Center: {x: 0, y: -0.00000014901161, z: -0.00000023841858}
---- !u!114 &5295104342772234487
+--- !u!114 &7212173149841819144
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -231,8 +214,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8653620177287908197}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7551400739691e46bf3492641932779, type: 3}
+  m_Script: {fileID: 11500000, guid: 011c245e3a3a00448b3e92ed4a89f64f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _glowColor: {r: 0, g: 1, b: 0.83333325, a: 1}
-  _targetSceneIndex: 0
+  _defaultGlowIntensity: 0.8
+  _interactingGlowIntensity: 2
+  _defaultGlowScaleMultiplier: 2
+  _interactingGlowScaleMultiplier: 8
+  _rotationSpeed: 0.05
+  _glowColor: {r: 0, g: 1, b: 0.83137256, a: 1}
