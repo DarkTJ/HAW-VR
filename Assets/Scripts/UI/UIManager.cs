@@ -97,6 +97,7 @@ public class UIManager : MonoBehaviour
         _uiPointer.Enable();
         
         PlaceUI(_keyboard.transform);
+        _keyboard.transform.Translate(Vector3.down);
         PlaceUI(textFieldCanvas.transform);
 
         if (hideMenu)

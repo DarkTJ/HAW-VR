@@ -79,6 +79,7 @@ public class TutorialController : MonoBehaviour
         _tutorialCanvas.gameObject.SetActive(false);
         
         // Now let user enter their name
+        UIManager.Instance.gameObject.SetActive(true);
         _uiManager.OnTextSubmit += OnNameSubmit;
         _uiManager.ShowKeyboard();
         
