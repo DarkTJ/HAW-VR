@@ -9,6 +9,6 @@ public class BackToLobbyButton : UIButton
     {
         base.OnClick(hitPoint);
         FMODEventManager.Instance.PlaySound_BackButton();
-        SceneLoader.Instance.LoadScene(0);
+        SceneLoader.LoadScene(this, 0);
     }
 }

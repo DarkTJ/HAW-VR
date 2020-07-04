@@ -515,10 +515,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef31b0b7d19d2e47ba072485df3d316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lobbyDoorController: {fileID: 0}
   _defaultGlowIntensity: 0.8
   _interactingGlowIntensity: 2
   _defaultGlowScaleMultiplier: 2
   _interactingGlowScaleMultiplier: 8
+  _rotationSpeed: 0.05
+  _nonInteractableOrbitingPieces:
+  - {fileID: 5118554792387248019}
+  - {fileID: 5118554792777567003}
+  - {fileID: 5118554791151198121}
 --- !u!1 &5118554791067266997
 GameObject:
   m_ObjectHideFlags: 0

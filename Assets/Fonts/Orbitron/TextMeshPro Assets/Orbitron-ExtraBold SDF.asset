@@ -53,9 +53,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Orbitron-ExtraBold SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: 1050625522
   material: {fileID: 4857473252802036820}
-  materialHashCode: 0
+  materialHashCode: -2127169479
   m_Version: 1.1.0
   m_SourceFontFileGUID: 860f2c8b26c2e6c47bcacec9fd1e5c4f
   m_SourceFontFile_EditorRef: {fileID: 0}
@@ -2586,9 +2586,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.8
+    - _ScaleRatioB: 0.65
+    - _ScaleRatioC: 0.65
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0

@@ -5,6 +5,9 @@ using UnityEngine.XR;
 
 public class XRInputDeviceController : MonoBehaviour
 {
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+
+#elif UNITY_ANDROID
     public InputDevice controller;
     
     private Vector2 _controllerStickAxis = Vector2.zero;
@@ -195,4 +198,5 @@ public class XRInputDeviceController : MonoBehaviour
             OnMenuButtonUp?.Invoke();
         }
     }
+#endif
 }
