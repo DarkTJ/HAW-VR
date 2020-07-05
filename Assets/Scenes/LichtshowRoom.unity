@@ -585,8 +585,39 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingLight:(1,013-025)
       objectReference: {fileID: 0}
+    - target: {fileID: 1426188117688701897, guid: 6309919d02919024a9aa060fc6b33b03,
+        type: 3}
+      propertyPath: startChannel
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426188117688701897, guid: 6309919d02919024a9aa060fc6b33b03,
+        type: 3}
+      propertyPath: panRotater
+      value: 
+      objectReference: {fileID: 1098964161}
+    - target: {fileID: 1426188117688701897, guid: 6309919d02919024a9aa060fc6b33b03,
+        type: 3}
+      propertyPath: tiltRotater
+      value: 
+      objectReference: {fileID: 292627420}
+    - target: {fileID: 1426188117688701897, guid: 6309919d02919024a9aa060fc6b33b03,
+        type: 3}
+      propertyPath: rotSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426188117688701897, guid: 6309919d02919024a9aa060fc6b33b03,
+        type: 3}
+      propertyPath: myBeam
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6309919d02919024a9aa060fc6b33b03, type: 3}
+--- !u!4 &292627420 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1346575769944200005, guid: 6309919d02919024a9aa060fc6b33b03,
+    type: 3}
+  m_PrefabInstance: {fileID: 292627419}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &311143579 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6200486363174394838, guid: 7307df92acdb8c5469f7a5eb168933b8,
@@ -3283,8 +3314,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingLight:(1,026-038)
       objectReference: {fileID: 0}
+    - target: {fileID: 1426188117688701897, guid: 6309919d02919024a9aa060fc6b33b03,
+        type: 3}
+      propertyPath: startChannel
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426188117688701897, guid: 6309919d02919024a9aa060fc6b33b03,
+        type: 3}
+      propertyPath: tiltRotater
+      value: 
+      objectReference: {fileID: 1885602365}
+    - target: {fileID: 1426188117688701897, guid: 6309919d02919024a9aa060fc6b33b03,
+        type: 3}
+      propertyPath: rotSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426188117688701897, guid: 6309919d02919024a9aa060fc6b33b03,
+        type: 3}
+      propertyPath: thisObject
+      value: 
+      objectReference: {fileID: 1885602366}
+    - target: {fileID: 1426188117688701897, guid: 6309919d02919024a9aa060fc6b33b03,
+        type: 3}
+      propertyPath: myBeam
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6309919d02919024a9aa060fc6b33b03, type: 3}
+--- !u!4 &1885602365 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1346575769944200005, guid: 6309919d02919024a9aa060fc6b33b03,
+    type: 3}
+  m_PrefabInstance: {fileID: 1885602364}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1885602366 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1413810652018773102, guid: 6309919d02919024a9aa060fc6b33b03,
+    type: 3}
+  m_PrefabInstance: {fileID: 1885602364}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1908695910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3584,5 +3652,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingLight:(1,000-012)
       objectReference: {fileID: 0}
+    - target: {fileID: 1426188117688701897, guid: 6309919d02919024a9aa060fc6b33b03,
+        type: 3}
+      propertyPath: panRotater
+      value: 
+      objectReference: {fileID: 1577327791}
+    - target: {fileID: 1426188117688701897, guid: 6309919d02919024a9aa060fc6b33b03,
+        type: 3}
+      propertyPath: tiltRotater
+      value: 
+      objectReference: {fileID: 2108180621}
+    - target: {fileID: 1426188117688701897, guid: 6309919d02919024a9aa060fc6b33b03,
+        type: 3}
+      propertyPath: rotSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426188117688701897, guid: 6309919d02919024a9aa060fc6b33b03,
+        type: 3}
+      propertyPath: myBeam
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6309919d02919024a9aa060fc6b33b03, type: 3}
+--- !u!4 &2108180621 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1346575769944200005, guid: 6309919d02919024a9aa060fc6b33b03,
+    type: 3}
+  m_PrefabInstance: {fileID: 2108180620}
+  m_PrefabAsset: {fileID: 0}

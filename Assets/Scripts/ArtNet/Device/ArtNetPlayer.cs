@@ -1,5 +1,4 @@
-﻿ sec
- using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -49,6 +48,7 @@ public class ArtNetPlayer : MonoBehaviour
         }
 
         progres = 0;
+        Debug.Log("startPlayback");
         InvokeRepeating("PlayArtNet", 2.0f, 1.0f / 50.0f);   //1/50 ist paketanzahl.
         track[id - 1].Play();
     }
