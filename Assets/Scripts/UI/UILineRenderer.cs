@@ -5,13 +5,13 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class UILineRenderer : MonoBehaviour
 {
+    [SerializeField]
+    private float _defaultLength = 0.5f;
+    
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
 
 #elif UNITY_ANDROID
     private LineRenderer _renderer;
-
-    [SerializeField]
-    private float _defaultLength = 0.5f;
 
     private void Awake()
     {

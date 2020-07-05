@@ -50,13 +50,21 @@ public class FMODEventManager : MonoBehaviour
 
     private void Start()
     {
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
         InputManager.Instance.OnMainButtonDown += PlaySound_TriggerPress;
+#elif UNITY_ANDROID
+        InputManager.Instance.LeftController.OnMenuButtonDown += PlaySound_TriggerPress;
+#endif
     }
 
 
     void OnDisable()
     {
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
         InputManager.Instance.OnMainButtonDown -= PlaySound_TriggerPress;
+#elif UNITY_ANDROID
+        InputManager.Instance.LeftController.OnMenuButtonDown -= PlaySound_TriggerPress;
+#endif
     }
 
 

@@ -18,6 +18,6 @@ public class VolumeSlider : UISlider
         float pos = hitDistance / _width;
         _slider.value = pos;
 
-        AudioListener.volume = pos;
+        FMODUnity.RuntimeManager.GetBus("bus:/master").setVolume(pos);
     }
 }
