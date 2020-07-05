@@ -313,6 +313,7 @@ GameObject:
   - component: {fileID: 191141987}
   - component: {fileID: 191141986}
   - component: {fileID: 191141985}
+  - component: {fileID: 191141988}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -327,7 +328,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191141984}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &191141986
 Camera:
   m_ObjectHideFlags: 0
@@ -385,6 +386,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: -14.665001, y: -38.607002, z: 0}
+--- !u!114 &191141988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191141984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: -1
 --- !u!1001 &204811139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -774,7 +788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &413937582
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1208,6 +1222,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3196f7f816392b044b7b17d7624ea196, type: 3}
+--- !u!1001 &832282729
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1272639450747562888, guid: d036189327462c5499f769c7a0a1678b,
+        type: 3}
+      propertyPath: m_Name
+      value: '### SOUND Lightshow ###'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272639450747562889, guid: d036189327462c5499f769c7a0a1678b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272639450747562889, guid: d036189327462c5499f769c7a0a1678b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272639450747562889, guid: d036189327462c5499f769c7a0a1678b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272639450747562889, guid: d036189327462c5499f769c7a0a1678b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272639450747562889, guid: d036189327462c5499f769c7a0a1678b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272639450747562889, guid: d036189327462c5499f769c7a0a1678b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272639450747562889, guid: d036189327462c5499f769c7a0a1678b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272639450747562889, guid: d036189327462c5499f769c7a0a1678b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272639450747562889, guid: d036189327462c5499f769c7a0a1678b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272639450747562889, guid: d036189327462c5499f769c7a0a1678b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272639450747562889, guid: d036189327462c5499f769c7a0a1678b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d036189327462c5499f769c7a0a1678b, type: 3}
 --- !u!4 &883362404 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7665194352142444372, guid: 3196f7f816392b044b7b17d7624ea196,

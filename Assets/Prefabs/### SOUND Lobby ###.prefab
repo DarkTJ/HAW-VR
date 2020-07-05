@@ -65,7 +65,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9112207014146750495}
   m_Layer: 0
-  m_Name: '### SOUND ###'
+  m_Name: '### SOUND Lobby ###'
   m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -282,6 +282,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8763747611313749519, guid: 0489b952ff7e4944c8d0236971983fac,
+        type: 3}
+      propertyPath: TriggerOnce
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8763747611313749519, guid: 0489b952ff7e4944c8d0236971983fac,
+        type: 3}
+      propertyPath: Event
+      value: event:/Lobby Sounds/Ambience/Lobby Ambience
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0489b952ff7e4944c8d0236971983fac, type: 3}
