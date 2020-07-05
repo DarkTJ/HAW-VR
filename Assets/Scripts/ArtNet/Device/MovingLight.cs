@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using VLB;
 
-
+[ExecuteAlways]
 public class MovingLight : DMXDevice
 {
 
@@ -19,13 +19,15 @@ public class MovingLight : DMXDevice
     public float minRotSpeed = 1f;
     public float maxRotSpeed = 200f;
 
+    
+
     public float pan;
     public float tilt;
     public float rotSpeed;
 
     public GameObject thisObject;
     public VolumetricLightBeam myBeam;
-
+    public Color beamColor;
     //Channels kopiert von MH-360!
     // 1. Pan
     // 2. PanFine
@@ -45,15 +47,15 @@ public class MovingLight : DMXDevice
 
     private void Start()
     {
-        myBeam = thisObject.AddComponent<VLB.VolumetricLightBeam>();
+        myBeam = thisObject.GetComponent<VolumetricLightBeam>();
         rotSpeed = 100f;
         myBeam.noiseMode = VLB.NoiseMode.WorldSpace;
         myBeam.noiseIntensity = 0.75f;
         myBeam.noiseScaleUseGlobal = false;
         myBeam.noiseScaleLocal = 0.6f*Random.value;
-        myBeam.fallOffStart = 8f;
+        myBeam.fallOffStart = 11f;
         myBeam.fallOffEnd = myBeam.fallOffStart * 1.2f;
-        myBeam.spotAngle = 27f;
+        myBeam.spotAngle = 32f;
 
     }
 
@@ -117,7 +119,8 @@ public class MovingLight : DMXDevice
         {
             myBeam.color = new Vector4(r / 265f, g / 265f, b / 265f, 3*a/265f);
         }
-        
+
+        beamColor = myBeam.color;
         myBeam.UpdateAfterManualPropertyChange();
     }
     float GetColor(byte val, byte fineVal = 0)

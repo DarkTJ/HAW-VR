@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class UILineRenderer : MonoBehaviour
 {
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+
+#elif UNITY_ANDROID
     private LineRenderer _renderer;
 
     [SerializeField]
@@ -15,7 +18,6 @@ public class UILineRenderer : MonoBehaviour
         _renderer = GetComponent<LineRenderer>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
         transform.position = InputManager.Instance.CurrentlyUsedController.Position;
@@ -61,4 +63,5 @@ public class UILineRenderer : MonoBehaviour
             _renderer.SetPosition(i, target);
         }
     }
+#endif
 }
