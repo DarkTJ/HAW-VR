@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿ sec
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -91,7 +92,7 @@ public class ArtNetPlayer : MonoBehaviour
         {
             dmxcontroller.RecivefromLocalRecorder(playback.m_data[progres]);
             progres += 1;
-           // Debug.Log("data send: " + progres);
+            Debug.Log("data send: " + progres);
         } else if (progres > length)
         {
             Debug.Log("panik now pls");
@@ -100,6 +101,6 @@ public class ArtNetPlayer : MonoBehaviour
 
         
 
-        //send packet to server
+       
     }
 }
