@@ -113,11 +113,11 @@
 			}
 
 			float stars(in float2 uv, float time) {
-				float size = 1.;
+				float size = 5.0;
 				float map = 0.;
 				for (int i = 1; i <= 7; i++) {
-					float3 t = float3(0., 0., time + _Time.y * .4);
-					size *= 2.;
+					float3 t = float3(0., 0., time + _Time.y * .3);
+					size *= 1.2;
 					map += star(uv * size + t, 1. + t);
 				}
 
