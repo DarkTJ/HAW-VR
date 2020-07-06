@@ -347,7 +347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeDuration: 1
   _fadeColor: {r: 0.01, g: 0.01, b: 0.01, a: 1}
-  _fadeOnStart: 0
+  _fadeOnStart: 1
   _renderQueue: 3999
 --- !u!1 &3623189699035361980
 GameObject:
