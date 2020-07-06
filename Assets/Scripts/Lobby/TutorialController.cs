@@ -108,7 +108,7 @@ public class TutorialController : MonoBehaviour
     private void FinishTutorial()
     {
         _tutorialCanvas.gameObject.SetActive(false);
-        SceneLoader.Fade(this, 1, 0);
+        SceneReferences.ScreenFader.FadeIn();
         SetControllers(true);
     }
 

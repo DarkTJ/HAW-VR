@@ -115,7 +115,7 @@ public class ReturnToLobbyIcosahedron : MonoBehaviour
         
         _isAnyPieceInteractedWith = false;
         
-        SceneLoader.LoadScene(this, 0);
+        SceneLoader.LoadScene(0);
     }
 
     private IEnumerator C_FadeIntensity(float target)

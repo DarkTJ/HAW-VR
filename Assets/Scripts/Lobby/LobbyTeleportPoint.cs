@@ -9,6 +9,6 @@ public class LobbyTeleportPoint : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        SceneLoader.LoadTargetScene(this);
+        SceneLoader.LoadTargetScene();
     }
 }
