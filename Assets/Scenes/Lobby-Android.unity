@@ -594,6 +594,26 @@ PrefabInstance:
       propertyPath: _lobbyDoorController
       value: 
       objectReference: {fileID: 1331148112}
+    - target: {fileID: 5118554791093209342, guid: d4ac7fb7073950247987c5353b92cc22,
+        type: 3}
+      propertyPath: _glowColor.r
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5118554791093209342, guid: d4ac7fb7073950247987c5353b92cc22,
+        type: 3}
+      propertyPath: _glowColor.g
+      value: 0.83299327
+      objectReference: {fileID: 0}
+    - target: {fileID: 5118554791093209342, guid: d4ac7fb7073950247987c5353b92cc22,
+        type: 3}
+      propertyPath: _glowColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5118554791093209342, guid: d4ac7fb7073950247987c5353b92cc22,
+        type: 3}
+      propertyPath: _targetSceneIndex
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4ac7fb7073950247987c5353b92cc22, type: 3}
 --- !u!4 &1021147186 stripped
