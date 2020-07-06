@@ -23,9 +23,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Konferenz/offlineDemo.unity
     guid: 07ad3c72f931f41478d6245841456ce3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Konfernz/groMoLive.unity
     guid: 38e41e965dec4ac4fa90a5ec671a5098
+  - enabled: 0
+    path: Assets/Scenes/Konferenz/liveMultiMon.unity
+    guid: 6abdf231dc6d1934eae4fe57de6b742a
+  - enabled: 0
+    path: Assets/Konfernz/alleSachen.unity
+    guid: 1ee2341df8da2fb47b79f206f92371bc
+  - enabled: 1
+    path: Assets/Scenes/Konferenz/finalLiveKonferenz.unity
+    guid: 763661cf39888b84f8facab98c05f52d
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 582b6227d8c197f48bc7bc047173c76d,
       type: 2}

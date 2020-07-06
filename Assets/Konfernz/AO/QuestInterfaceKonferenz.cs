@@ -9,7 +9,7 @@ using UnityEngine.Android;
 
 using agora_gaming_rtc;
 
-public class QuestInterface : MonoBehaviour
+public class QuestInterfaceKonferenz : MonoBehaviour
 {
     // PLEASE KEEP THIS App ID IN SAFE PLACE
     // Get your own App ID at https://dashboard.agora.io/
@@ -17,17 +17,17 @@ public class QuestInterface : MonoBehaviour
     [SerializeField]
     private Transform[] _videoPositions;
 
-    private string appId = "ID here";
+    private string appId = "13d82353ae3a4c99972f58f3a9924fa4";
 
-    private string roomName = "room1";
+    private string roomName = "HAW-VR";
 
     private int numUsers = 0; //0
     private bool connected;
 
 
-    private static QuestInterface _AgoraInstance;
+    private static QuestInterfaceKonferenz _AgoraInstance;
 
-    public static QuestInterface Instance { get { return _AgoraInstance; } }
+    public static QuestInterfaceKonferenz Instance { get { return _AgoraInstance; } }
 
 
     private void Awake()
