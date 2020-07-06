@@ -14,6 +14,8 @@ public class KeyboardButton : UIButton
     private bool _isSpacebar,_isBackspace;
     
     private TextMeshProUGUI _targetTextField;
+    delegate void FMODSoundDelegate();
+    FMODSoundDelegate _PlayFMODClickSoundRef;
 
     protected override void Awake()
     {
@@ -24,10 +26,12 @@ public class KeyboardButton : UIButton
         {
             _character = ' ';
             _text.text = "";
+            _PlayFMODClickSoundRef = FMODEventManager.Instance.PlaySound_KeyboardTypeKey;
         }
         else if (_isBackspace)
         {
             _text.text = "del";
+            _PlayFMODClickSoundRef = FMODEventManager.Instance.PlaySound_KeyboardEraseButton;
         }
         else
         {
@@ -35,6 +39,7 @@ public class KeyboardButton : UIButton
             _character = char.ToLower(_character);
         
             _text.text = _character.ToString();
+            _PlayFMODClickSoundRef = FMODEventManager.Instance.PlaySound_KeyboardTypeKey;
         }
 
     }
@@ -53,6 +58,8 @@ public class KeyboardButton : UIButton
     {
         base.OnClick(hitPoint);
 
+        _PlayFMODClickSoundRef();
+
         if (_isBackspace)
         {
             _targetTextField.text = _targetTextField.text.Substring(0, _targetTextField.text.Length - 1);
@@ -61,5 +68,11 @@ public class KeyboardButton : UIButton
         {
             _targetTextField.text += _character;
         }
+    }
+
+    public override void OnPointerEnter()
+    {
+        base.OnPointerEnter();
+        FMODEventManager.Instance.PlaySound_ButtonHover();
     }
 }

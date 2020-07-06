@@ -202,7 +202,7 @@ namespace agora_gaming_rtc
         */
         public void SetGameFps(uint fps)
         {
-            gameFps = fps / 15; // 15 fix me according to the real video frame rate.
+            gameFps = fps / 90; // 15 fix me according to the real video frame rate.
         }
 
         // call this to render video stream from uid on this game object

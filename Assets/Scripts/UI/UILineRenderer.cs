@@ -5,17 +5,19 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class UILineRenderer : MonoBehaviour
 {
-    private LineRenderer _renderer;
-
     [SerializeField]
     private float _defaultLength = 0.5f;
+    
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+
+#elif UNITY_ANDROID
+    private LineRenderer _renderer;
 
     private void Awake()
     {
         _renderer = GetComponent<LineRenderer>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
         transform.position = InputManager.Instance.CurrentlyUsedController.Position;
@@ -61,4 +63,5 @@ public class UILineRenderer : MonoBehaviour
             _renderer.SetPosition(i, target);
         }
     }
+#endif
 }

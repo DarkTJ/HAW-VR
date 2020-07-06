@@ -8,6 +8,7 @@ public class BackToLobbyButton : UIButton
     public override void OnClick(Vector3 hitPoint)
     {
         base.OnClick(hitPoint);
-        SceneLoader.Instance.LoadScene(0);
+        FMODEventManager.Instance.PlaySound_BackButton();
+        SceneLoader.LoadScene(this, 0);
     }
 }

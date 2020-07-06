@@ -21,7 +21,6 @@ public class MovementController : MonoBehaviour
     private float _lastTargetPositionResetCounter = 0;
 
     private int _floorLayer, _snapLayer;
-    // private LayerMask _raycastLayers;
 
     [SerializeField] 
     private Color _indicatorColor;
@@ -56,7 +55,6 @@ public class MovementController : MonoBehaviour
 
         _floorLayer = LayerMask.NameToLayer("Floor");
         _snapLayer = LayerMask.NameToLayer("TeleportSnapPoint");
-        // _raycastLayers = LayerMask.GetMask("Floor", "TeleportSnapPoint");
     }
 
     private void Start()
@@ -70,16 +68,65 @@ public class MovementController : MonoBehaviour
         _trajectory.SetResolution(_indicatorResolution);
         
         _inputManager = InputManager.Instance;
+        
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        
+#elif UNITY_ANDROID
         _inputManager.CurrentlyUsedController.OnStickMove += OnStickMove;
         _inputManager.CurrentlyUsedController.OnStickRelease += OnStickRelease;
+#endif
     }
 
-    // DEBUG
-    // private void Update()
-    // {
-    //     PreviewMovement(transform.position, transform.rotation);
-    // }
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+    private void Update()
+    {
+        Transform playerCameraTransform = SceneReferences.PlayerCamera.transform;
+        // PreviewMovement(playerCameraTransform.position, playerCameraTransform.rotation);
+    }
+    
+    private void PreviewMovement(Vector3 raycastOrigin, Quaternion raycastRotation)
+    {
+        Ray ray = new Ray(raycastOrigin, raycastRotation * Vector3.forward);
+        if (!Physics.Raycast(ray, out RaycastHit hitInfo, 100))
+        {
+            ResetPreview();
+            _lastTargetPosition = Vector3.zero;
+            return;
+        }
+            
+        int hitLayer = hitInfo.transform.gameObject.layer;
+        Quaternion rotation = Quaternion.identity;
 
+        if (hitLayer == _snapLayer)
+        {
+            Bounds bounds = hitInfo.collider.bounds;
+            Vector3 targetPosition = bounds.center;
+            targetPosition.y += bounds.extents.y;
+                
+            _lastTargetPosition = targetPosition;
+
+            Vector3 forward = _lastTargetPosition - raycastOrigin;
+            Quaternion lookRotation = Quaternion.LookRotation(forward);
+                
+            // Vector3 raycastRotationEuler = raycastRotation.eulerAngles;
+            // rotation = Quaternion.Euler(raycastRotationEuler.x, lookRotation.eulerAngles.y, raycastRotationEuler.z);
+            rotation = lookRotation;
+        }
+        else
+        {
+            ResetPreview();
+            _lastTargetPosition = Vector3.zero;
+            return;
+        }
+            
+        _circle.EnableLineRenderer();
+        _circleTransform.position = _lastTargetPosition;
+            
+        _trajectory.EnableLineRenderer();
+        _trajectory.DrawTrajectory(raycastOrigin, rotation, _lastTargetPosition);
+    }
+    
+#elif UNITY_ANDROID
     private void OnStickMove(Vector2 stickAxis)
     {
         if (stickAxis.y > 0.8f)
@@ -103,7 +150,7 @@ public class MovementController : MonoBehaviour
     {
         Move();
     }
-    
+
     private void PreviewMovement(Vector3 raycastOrigin, Quaternion raycastRotation)
     {
         Ray ray = new Ray(raycastOrigin, raycastRotation * Vector3.forward);
@@ -150,7 +197,8 @@ public class MovementController : MonoBehaviour
         _trajectory.EnableLineRenderer();
         _trajectory.DrawTrajectory(raycastOrigin, rotation, _lastTargetPosition);
     }
-
+#endif
+    
     private void ResetPreview()
     {
         _trajectory.DisableLineRenderer();

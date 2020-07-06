@@ -91,7 +91,7 @@ public class ArtNetPlayer : MonoBehaviour
         {
             dmxcontroller.RecivefromLocalRecorder(playback.m_data[progres]);
             progres += 1;
-            Debug.Log("data send: " + progres);
+           // Debug.Log("data send: " + progres);
         } else if (progres > length)
         {
             Debug.Log("panik now pls");

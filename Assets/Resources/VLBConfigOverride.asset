@@ -27,8 +27,8 @@ MonoBehaviour:
   globalNoiseScale: 0.5
   globalNoiseVelocity: {x: 0.07, y: 0.18, z: 0.05}
   fadeOutCameraTag: MainCamera
-  noise3DData: {fileID: 4900000, guid: 91ed995e34859c846bb4dea7d34e9292, type: 3}
+  noise3DData: {fileID: 4900000, guid: 24426c07ded52c94cad9a55d35761541, type: 3}
   noise3DSize: 64
-  dustParticlesPrefab: {fileID: 19822582, guid: 472bc216b0f362147943a3cedc36711f,
+  dustParticlesPrefab: {fileID: 19822582, guid: 4431a60127bcc14458a09738a80a313d,
     type: 3}
   pluginVersion: 1810
