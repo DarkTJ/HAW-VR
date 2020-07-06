@@ -32,6 +32,7 @@ public class StartManager : MonoBehaviour
     {
         if (!_hasAppJustStarted)
         {
+            gameObject.SetActive(false);
             yield break;
         }
         
@@ -66,6 +67,7 @@ public class StartManager : MonoBehaviour
         {
             _screenFade.FadeIn();
             _tutorial.SetControllers(true);
+            gameObject.SetActive(false);
         }
         else
         {

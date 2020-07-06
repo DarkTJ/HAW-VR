@@ -117,7 +117,7 @@ public class TutorialController : MonoBehaviour
         PlayerPrefs.SetString("username", name);
         _hasEnteredName = true;
     }
-    
+
     /// <summary>
     /// Set states of controllers and managers that should be disabled before & during the tutorial
     /// </summary>

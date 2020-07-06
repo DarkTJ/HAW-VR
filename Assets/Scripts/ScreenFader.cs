@@ -80,7 +80,19 @@ public class ScreenFader : MonoBehaviour
 		mesh.uv = uv;
 		
 		_fadeOnStartStatic = _fadeOnStart;
+
+		CurrentAlpha = 0;
+		SetMaterialAlpha();
+
+		
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
 		SceneManager.sceneLoaded += OnSceneLoaded;
+#elif UNITY_ANDROID 
+		if (_fadeOnStartStatic)
+		{
+			FadeIn();
+		}
+#endif
 	}
 
 	public void SetFadeOnStart(bool state)
@@ -88,19 +100,17 @@ public class ScreenFader : MonoBehaviour
 		_fadeOnStart = state;
 		_fadeOnStartStatic = state;
 	}
-
 	
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
 	private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
 	{
-		Debug.Log("SCREEN FADER SCENE LOADED ############################");
-		Debug.Log("SCREEN FADER " + _fadeOnStartStatic + " ############################");
 		if (_fadeOnStartStatic)
 		{
-			Debug.Log("SCREEN FADER FADE IN ############################");
 			FadeIn();
 		}
 	}
-
+#endif
+	
 	/// <summary>
 	/// Cleans up the fade material
 	/// </summary>
