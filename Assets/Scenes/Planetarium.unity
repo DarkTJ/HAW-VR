@@ -320,7 +320,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59410757}
   m_LocalRotation: {x: -0, y: -0.8983458, z: -0, w: 0.43928894}
-  m_LocalPosition: {x: 0, y: 0, z: 212.5}
+  m_LocalPosition: {x: 0, y: 0, z: 220.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 967997296}
@@ -331,7 +331,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -127.883, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -365.4, y: -267}
+  m_AnchoredPosition: {x: -362.2, y: -267}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &59410759
@@ -346,15 +346,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4409b65e283f34d88f587ced834481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _normalColor: {r: 1, g: 1, b: 1, a: 1}
+  _normalColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   _hoverColor: {r: 1, g: 1, b: 1, a: 1}
-  _pressedColor: {r: 1, g: 1, b: 1, a: 1}
+  _pressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   _disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   isEnabled: 1
   videoName: /Planetarium Videos/07_V_360.mp4
   canvas: {fileID: 1618400088}
   mediaPlayer: {fileID: 1606679747}
-  pManager: {fileID: 0}
+  pManager: {fileID: 509415252918858119}
   buttonID: 4
 --- !u!65 &59410760
 BoxCollider:
@@ -844,15 +844,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4409b65e283f34d88f587ced834481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _normalColor: {r: 1, g: 1, b: 1, a: 1}
+  _normalColor: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
   _hoverColor: {r: 1, g: 1, b: 1, a: 1}
-  _pressedColor: {r: 1, g: 1, b: 1, a: 1}
+  _pressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   _disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   isEnabled: 1
   videoName: /Planetarium Videos/AdA_360_small.mp4
   canvas: {fileID: 1618400088}
   mediaPlayer: {fileID: 1606679747}
-  pManager: {fileID: 0}
+  pManager: {fileID: 509415252918858119}
   buttonID: 1
 --- !u!1 &526779726
 GameObject:
@@ -1197,15 +1197,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4409b65e283f34d88f587ced834481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _normalColor: {r: 1, g: 1, b: 1, a: 1}
+  _normalColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   _hoverColor: {r: 1, g: 1, b: 1, a: 1}
-  _pressedColor: {r: 1, g: 1, b: 1, a: 1}
+  _pressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   _disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   isEnabled: 1
   videoName: /Planetarium Videos/01_HU_360.mp4
   canvas: {fileID: 1618400088}
   mediaPlayer: {fileID: 1606679747}
-  pManager: {fileID: 0}
+  pManager: {fileID: 509415252918858119}
   buttonID: 2
 --- !u!1 &913002029
 GameObject:
@@ -2113,7 +2113,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423728199}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 122.8}
+  m_LocalPosition: {x: 0, y: 0, z: 121.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 913002030}
@@ -2124,7 +2124,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -334.7, y: -267}
+  m_AnchoredPosition: {x: -331.9, y: -267}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1423728201
@@ -2222,15 +2222,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4409b65e283f34d88f587ced834481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _normalColor: {r: 1, g: 1, b: 1, a: 1}
+  _normalColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   _hoverColor: {r: 1, g: 1, b: 1, a: 1}
-  _pressedColor: {r: 1, g: 1, b: 1, a: 1}
+  _pressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   _disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   isEnabled: 1
   videoName: /Planetarium Videos/02_LS_360.mp4
   canvas: {fileID: 1618400088}
   mediaPlayer: {fileID: 1606679747}
-  pManager: {fileID: 0}
+  pManager: {fileID: 509415252918858119}
   buttonID: 3
 --- !u!1 &1446845210
 GameObject:
@@ -3369,3 +3369,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4b5c8cb42223084f8ed4f0d3ad774a3, type: 3}
+--- !u!114 &509415252918858119 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1446191831, guid: e4b5c8cb42223084f8ed4f0d3ad774a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 509415252918858118}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55471954b7ec54f49bd63549ab6aa53d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
