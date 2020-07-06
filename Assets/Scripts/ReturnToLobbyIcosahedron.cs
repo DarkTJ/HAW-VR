@@ -99,6 +99,7 @@ public class ReturnToLobbyIcosahedron : MonoBehaviour
         _isThisPieceInteractedWith = false;
         
         StopAllCoroutines();
+        FMODEventManager.Instance.PlaySound_PortalSaber();
         StartCoroutine(C_FadeIntensity(_defaultGlowIntensity));
         StartCoroutine(C_FadeScale(_defaultSize));
     }
@@ -114,7 +115,8 @@ public class ReturnToLobbyIcosahedron : MonoBehaviour
         }
         
         _isAnyPieceInteractedWith = false;
-        
+        FMODEventManager.Instance.PlaySound_PortalTransport();
+
         SceneLoader.LoadScene(0);
     }
 

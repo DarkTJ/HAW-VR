@@ -26,6 +26,7 @@ public abstract class UIButton : UIInteractable
     {
         _image.color = _hoverColor;
         _isHovered = true;
+        FMODEventManager.Instance.PlaySound_ButtonHover();
     }
 
     public override void OnPointerLeave()

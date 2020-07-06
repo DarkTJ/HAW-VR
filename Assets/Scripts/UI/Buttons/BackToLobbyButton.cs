@@ -10,4 +10,10 @@ public class BackToLobbyButton : UIButton
         UIManager.Instance.OnBackToLobbyButton();
         SceneLoader.LoadScene(0);
     }
+
+    public override void OnPointerEnter()
+    {
+        base.OnPointerEnter();
+        FMODEventManager.Instance.PlaySound_ButtonHover();
+    }
 }

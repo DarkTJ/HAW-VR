@@ -23,6 +23,13 @@ public class VideoButton : UIButton
     public override void OnClick(Vector3 hitPoint)
     {
         base.OnClick(hitPoint);
+        FMODEventManager.Instance.PlaySound_TriggerPressOK();
+        PlayVideo(buttonID);
+    }
+
+    public override void OnPointerEnter()
+    {
+        base.OnPointerEnter();
         PlayVideo(buttonID);
     }
 

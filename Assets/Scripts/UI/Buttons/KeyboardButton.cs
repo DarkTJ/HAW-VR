@@ -69,10 +69,4 @@ public class KeyboardButton : UIButton
             _targetTextField.text += _character;
         }
     }
-
-    public override void OnPointerEnter()
-    {
-        base.OnPointerEnter();
-        FMODEventManager.Instance.PlaySound_ButtonHover();
-    }
 }
