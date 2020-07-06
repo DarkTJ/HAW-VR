@@ -44,7 +44,7 @@ public class PlayerControllerStandalone : MonoBehaviour
 
         if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hitInfo, 10, _layerMask))
         {
-            transform.position = hitInfo.point + (Vector3.up * _playerHeight);
+            Move(hitInfo.point);
         }
         
         Cursor.lockState = CursorLockMode.Locked;
@@ -122,8 +122,13 @@ public class PlayerControllerStandalone : MonoBehaviour
         Ray ray = new Ray(transform.position, rotation * dir);
         if (Physics.Raycast(ray, out RaycastHit hitInfo, 10, _layerMask))
         {
-            transform.position = hitInfo.point + (Vector3.up * _playerHeight);
+            Move(hitInfo.point);
         }
+    }
+
+    public void Move(Vector3 floorPos)
+    {
+        transform.position = floorPos + (Vector3.up * _playerHeight);
     }
 #elif UNITY_ANDROID
 
