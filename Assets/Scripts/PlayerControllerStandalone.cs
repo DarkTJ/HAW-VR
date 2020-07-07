@@ -5,12 +5,11 @@ using UnityEngine;
 public class PlayerControllerStandalone : MonoBehaviour
 {
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
-    /// <summary>
-    /// Static accessible instance of the PlayerControllerStandalone (Singleton pattern)
-    /// </summary>
-    public static PlayerControllerStandalone Instance { get; private set; }
     
     private Transform _cam;
+
+    [SerializeField] 
+    private UIManager _uiManager;
     
     [SerializeField] 
     private float _playerHeight = 1.6f;
@@ -28,17 +27,6 @@ public class PlayerControllerStandalone : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-        }
-
-        DontDestroyOnLoad(gameObject);
-        
         _cam = GetComponentInChildren<Camera>().transform;
         _layerMask = LayerMask.GetMask("Floor");
 
@@ -52,8 +40,17 @@ public class PlayerControllerStandalone : MonoBehaviour
 
     private void Start()
     {
-       UIManager.Instance.OnMenuToggle += OnMenuToggle;
        _movementCoroutine = StartCoroutine(C_Movement());
+    }
+
+    private void OnEnable()
+    {
+        _uiManager.OnMenuToggle += OnMenuToggle;
+    }
+
+    private void OnDisable()
+    {
+        _uiManager.OnMenuToggle -= OnMenuToggle;
     }
 
     private void OnMenuToggle()

@@ -1,17 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(MovementTrajectory))]
 public class MovementController : MonoBehaviour
 {
-    /// <summary>
-    /// Static accessible instance of the MovementController (Singleton pattern)
-    /// </summary>
-    public static MovementController Instance { get; private set; }
-
     private InputManager _inputManager;
-
     private ScreenFader _screenFade;
+    
+    [SerializeField]
+    private PlayerControllerStandalone _playerControllerStandalone;
+
+    [SerializeField] 
+    private UIManager _uiManager;
     
     private MovementTrajectory _trajectory;
     private MovementCircle _circle;
@@ -33,18 +34,10 @@ public class MovementController : MonoBehaviour
     
     public bool IsMoving { get; private set; }
     
+    private bool _IsAllowedToMove = true;
+    
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        } else {
-            Instance = this;
-        }
-        
-        // Always keep this object alive
-        DontDestroyOnLoad(gameObject);
-        
         IsMoving = false;
         _trajectory = GetComponent<MovementTrajectory>();
         _circle = GetComponentInChildren<MovementCircle>();
@@ -66,6 +59,14 @@ public class MovementController : MonoBehaviour
         _trajectory.SetColor(_indicatorColor);
         _trajectory.SetResolution(_indicatorResolution);
         
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        StartCoroutine(C_Check());
+#endif
+    }
+    
+    private void OnEnable()
+    {
+        _uiManager.OnMenuToggle += OnMenuToggle;
         _inputManager = InputManager.Instance;
         
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
@@ -76,11 +77,53 @@ public class MovementController : MonoBehaviour
 #endif
     }
 
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN
-    private void Update()
+    private void OnDisable()
     {
-        Transform playerCameraTransform = SceneReferences.PlayerCamera.transform;
-        PreviewMovement(playerCameraTransform.position + playerCameraTransform.forward, playerCameraTransform.rotation);
+        _uiManager.OnMenuToggle -= OnMenuToggle;
+
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        _inputManager.OnMainButton -= Move;
+#elif UNITY_ANDROID
+        _inputManager.CurrentlyUsedController.OnStickMove -= OnStickMove;
+        _inputManager.CurrentlyUsedController.OnStickRelease -= Move;
+#endif
+    }
+
+    private void OnMenuToggle()
+    {
+        if (_IsAllowedToMove)
+        {
+            _IsAllowedToMove = false;
+            
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+            StopCoroutine(nameof(C_Check));
+#elif UNITY_ANDROID
+            _inputManager.CurrentlyUsedController.OnStickMove -= OnStickMove;
+            _inputManager.CurrentlyUsedController.OnStickRelease -= Move;
+#endif
+        }
+        else
+        {
+            _IsAllowedToMove = true;
+            
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+            StartCoroutine(nameof(C_Check));
+#elif UNITY_ANDROID
+            _inputManager.CurrentlyUsedController.OnStickMove += OnStickMove;
+            _inputManager.CurrentlyUsedController.OnStickRelease += Move;
+#endif
+        }
+    }
+
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+    private IEnumerator C_Check()
+    {
+        while (true)
+        {
+            Transform playerCameraTransform = SceneReferences.PlayerCamera.transform;
+            PreviewMovement(playerCameraTransform.position + playerCameraTransform.forward, playerCameraTransform.rotation);
+            yield return null;
+        }
     }
     
     private void PreviewMovement(Vector3 raycastOrigin, Quaternion raycastRotation)
@@ -234,7 +277,7 @@ public class MovementController : MonoBehaviour
         yield return new WaitForSeconds(_fadeDuration);
         
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
-        PlayerControllerStandalone.Instance.Move(target);
+        _playerControllerStandalone.Move(target);
 #elif UNITY_ANDROID
         SceneReferences.PlayerObject.position = target;
 #endif

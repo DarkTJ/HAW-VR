@@ -56,8 +56,7 @@ public class SceneLoader : MonoBehaviour
         _isLoadingScene = true;
         
         _targetSceneIndex = index;
-        UIManager.Instance.HideUI();
-        
+
         SceneReferences.ScreenFader.FadeOut(() =>
         {
             MultiplayerRoomHandler.Instance.LeaveRoom();

@@ -55,11 +55,11 @@ public class MultiplayerSceneSetupController : MonoBehaviour
         Debug.Log("Creating Player model for " + PhotonNetwork.LocalPlayer.NickName);
 
         _playerCharacterObject = PhotonNetwork.Instantiate(Path.Combine("MultiplayerPrefabs", "Avatar"), Vector3.zero, Quaternion.identity);
-        _playerCharacterObject.transform.parent = SceneReferences.PlayerObject;
-        _playerCharacterObject.transform.localPosition = Vector3.zero;
+        SceneReferences.AvatarTransformController.SetAvatarTransform(_playerCharacterObject.transform);
         
         // Locally disable renderers
         _playerCharacterObject.GetComponent<AvatarController>().SetRenderers(false);
+        _playerCharacterObject.GetComponent<AvatarController>().SetName();
         
         IsReady = true;
     }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
 public class UILineRenderer : MonoBehaviour
@@ -8,15 +6,19 @@ public class UILineRenderer : MonoBehaviour
     [SerializeField]
     private float _defaultLength = 0.5f;
     
+    private void Awake()
+    {
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        gameObject.SetActive(false);
+#elif UNITY_ANDROID
+        _renderer = GetComponent<LineRenderer>();
+#endif
+    }
+    
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
 
 #elif UNITY_ANDROID
     private LineRenderer _renderer;
-
-    private void Awake()
-    {
-        _renderer = GetComponent<LineRenderer>();
-    }
 
     private void Update()
     {
