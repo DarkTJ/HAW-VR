@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
+using ExitGames.Client.Photon;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
@@ -8,6 +8,7 @@ public class SculpturePiece : MonoBehaviour
     private LobbyDoorController _lobbyDoorController;
     
     private MeshRenderer _renderer;
+    private CanvasGroup _canvasGroup;
     
     private MeshRenderer _glowRenderer;
     private Material _glowMaterial;
@@ -16,7 +17,7 @@ public class SculpturePiece : MonoBehaviour
 
     [SerializeField]
     private Color _glowColor = Color.white;
-    
+
     private static readonly int ScaleXProperty = Shader.PropertyToID("_ScaleX");
     private static readonly int ScaleYProperty = Shader.PropertyToID("_ScaleY");
     private static readonly int IntensityProperty = Shader.PropertyToID("_Intensity");
@@ -34,12 +35,13 @@ public class SculpturePiece : MonoBehaviour
     
     [SerializeField]
     private int _targetSceneIndex;
-
+    
     private void Awake()
     {
         _renderer = GetComponent<MeshRenderer>();
+        _canvasGroup = GetComponentInChildren<CanvasGroup>();
         
-        // [1] -> Ignore this object, [0] would be equal to  GetComponent<MeshRenderer>()
+        // [1] -> Ignore this object, [0] would be equal to GetComponent<MeshRenderer>()
         _glowRenderer = GetComponentsInChildren<MeshRenderer>()[1];
         _glowMaterial = _glowRenderer.material;
         _glowMaterial.color = _glowColor;
@@ -125,6 +127,9 @@ public class SculpturePiece : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(C_FadeIntensity(_interactingIntensity));
         StartCoroutine(C_FadeScale(_interactingSize));
+
+        _canvasGroup.transform.rotation = SceneReferences.PlayerCamera.transform.rotation;
+        StartCoroutine(C_FadeRoomName(1));
     }
 
     private void OnTriggerExit(Collider other)
@@ -141,6 +146,7 @@ public class SculpturePiece : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(C_FadeIntensity(_defaultIntensity));
         StartCoroutine(C_FadeScale(_defaultSize));
+        StartCoroutine(C_FadeRoomName(0));
     }
 
     /// <summary>
@@ -153,12 +159,12 @@ public class SculpturePiece : MonoBehaviour
             return;
         }
         
-        _isAnyPieceInteractedWith = false;
-
         // Not using the rotation of the camera on purpose
         Vector3 lookDirection = transform.position - SceneReferences.PlayerCamera.transform.position;
         Vector3 lookRotation = Quaternion.LookRotation(lookDirection).eulerAngles;
         _lobbyDoorController.OpenDoor(lookRotation.y);
+        
+        OnTriggerExit(null);
         
         SceneLoader.SetTargetScene(_targetSceneIndex);
     }
@@ -166,7 +172,6 @@ public class SculpturePiece : MonoBehaviour
     private IEnumerator C_FadeIntensity(float target)
     {
         float start = _glowMaterial.GetFloat(IntensityProperty);
-        
         float t = 0;
         while (t < 1)
         {
@@ -177,7 +182,6 @@ public class SculpturePiece : MonoBehaviour
         }
 
         _glowMaterial.SetFloat(IntensityProperty, target);
-
     }
     
     private IEnumerator C_FadeScale(Vector2 target)
@@ -197,5 +201,20 @@ public class SculpturePiece : MonoBehaviour
         
         _glowMaterial.SetFloat(ScaleXProperty, target.x);
         _glowMaterial.SetFloat(ScaleYProperty, target.y);
+    }
+
+    private IEnumerator C_FadeRoomName(float target)
+    {
+        float start = _canvasGroup.alpha;
+
+        float t = 0;
+        while (t < 1)
+        {
+            _canvasGroup.alpha = Mathf.Lerp(start, target, t);
+            t += Time.deltaTime;
+            yield return null;
+        }
+
+        _canvasGroup.alpha = target;
     }
 }
