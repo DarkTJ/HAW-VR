@@ -2930,8 +2930,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menuCanvas: {fileID: 1771902918}
   textFieldCanvas: {fileID: 829149186}
-  _disableInLobby:
-  - {fileID: 729716478}
 --- !u!114 &1094059855231173313
 MonoBehaviour:
   m_ObjectHideFlags: 0
