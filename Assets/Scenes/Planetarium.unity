@@ -3007,9 +3007,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VideoLocation: 2
-  m_VideoPath: Planetarium Videos/AdA_360_small.mp4
+  m_VideoPath: 
   m_AutoOpen: 1
-  m_AutoStart: 0
+  m_AutoStart: 1
   m_Loop: 0
   m_Volume: 0
   m_Balance: 0
