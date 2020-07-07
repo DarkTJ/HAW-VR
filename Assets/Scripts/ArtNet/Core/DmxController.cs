@@ -19,6 +19,8 @@ public class DmxController : MonoBehaviour
     public bool isServer;
 
     ArtNetSocket artnet;
+    public TCPTestClient server;
+    //public ArtNetRecorder recorder;
     [Header("send/recieved DMX data for debug")]
     [SerializeField] ArtNetDmxPacket latestReceivedDMX;
     [SerializeField] ArtNetDmxPacket dmxToSend;
@@ -75,6 +77,13 @@ public class DmxController : MonoBehaviour
             if (e.Packet.OpCode == ArtNet.Enums.ArtNetOpCodes.Dmx)
             {
                 var packet = latestReceivedDMX = e.Packet as ArtNetDmxPacket;
+
+
+                //Recorder,sendet alle Artnepakete an die aufnahem
+                //recorder.DatatoRecord(packet);
+
+                //send to tcp server
+                server.ArtNetDatatoSend(packet);
 
                 if (packet.DmxData != _dmxData)
                     _dmxData = packet.DmxData;

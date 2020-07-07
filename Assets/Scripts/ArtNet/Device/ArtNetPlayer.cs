@@ -48,7 +48,7 @@ public class ArtNetPlayer : MonoBehaviour
         rec2 = JsonUtility.FromJson<DMXDataPacketRecorder>(save2.text);
         rec3 = JsonUtility.FromJson<DMXDataPacketRecorder>(save3.text);
 
-        StartPlayback(2);
+        //StartPlayback(2);
 
     }
 

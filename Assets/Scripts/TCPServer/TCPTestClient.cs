@@ -26,13 +26,7 @@ public class TCPTestClient : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (Touch touch in Input.touches)
-        {
-            if (touch.phase == TouchPhase.Began)
-            {
-                SendMessage();
-            }
-        }
+        
     }
     /// <summary> 	
     /// Setup socket connection. 	
@@ -81,7 +75,7 @@ public class TCPTestClient : MonoBehaviour
                         //Debug.Log(serverMessage);
                         //Debug.Log(serverMessage[serverMessage.Length - 1] + " " + serverMessage[0]);
                         //Debug.Log(serverMessage[serverMessage.Length - 1].ToString().Equals("}") + " " + serverMessage[0].ToString().Equals("{"));
-                        if (serverMessage[serverMessage.Length -1].ToString().Equals("}") && serverMessage[0].ToString().Equals("{"))
+                        /*if (serverMessage[serverMessage.Length -1].ToString().Equals("}") && serverMessage[0].ToString().Equals("{"))
                         {
                             dart = JsonUtility.FromJson<ArtNetDmxPacket>(serverMessage);
                             dmxcontroller.RecivefromLocalRecorder(dart);
@@ -89,7 +83,8 @@ public class TCPTestClient : MonoBehaviour
                         } else
                         {
                             Debug.Log("broken Message");
-                        }
+                        }*/
+                        Debug.Log("recieved message, but ignoring it LOL");
                         //change message to ArtNetOPacket and send it to DMX Controller
 
                         
@@ -105,10 +100,11 @@ public class TCPTestClient : MonoBehaviour
     /// <summary> 	
     /// Send message to server using socket connection. 	
     /// </summary> 	
-    private void SendMessage()
+    new private void SendMessage(string messagetoSend)
     {
         if (socketConnection == null)
         {
+            Debug.Log("no connection, but tryid it ....");
             return;
         }
         try
@@ -117,12 +113,12 @@ public class TCPTestClient : MonoBehaviour
             NetworkStream stream = socketConnection.GetStream();
             if (stream.CanWrite)
             {
-                string clientMessage = "This is a message from one of your clients.";
-                // Convert string message to byte array.                 
-                byte[] clientMessageAsByteArray = Encoding.ASCII.GetBytes(clientMessage);
-                // Write byte array to socketConnection stream.                 
-                stream.Write(clientMessageAsByteArray, 0, clientMessageAsByteArray.Length);
-                Debug.Log("Client sent his message - should be received by server");
+                Debug.Log("jsonlengthLenth: " + messagetoSend.Length);
+                byte[] serverMessageAsByteArray = Encoding.ASCII.GetBytes(messagetoSend);
+                // Write byte array to socketConnection stream.   
+                Debug.Log("serverSendMessageLenth: " + serverMessageAsByteArray.Length);
+                stream.Write(serverMessageAsByteArray, 0, serverMessageAsByteArray.Length);
+                Debug.Log("Server sent his message - should be received by client");
             }
         }
         catch (SocketException socketException)
@@ -134,5 +130,12 @@ public class TCPTestClient : MonoBehaviour
     void OnApplicationQuit()
     {
         clientReceiveThread.Abort();
+    }
+
+    public void ArtNetDatatoSend(ArtNetDmxPacket e)
+    {
+        string dat = JsonUtility.ToJson(e);
+        Debug.Log(e);
+        SendMessage(dat);
     }
 }
