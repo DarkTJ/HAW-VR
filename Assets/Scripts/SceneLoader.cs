@@ -10,21 +10,18 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class SceneLoader : MonoBehaviour
 {
-    /// <summary>
-    /// Static accessible instance of the SceneLoader (Singleton pattern)
-    /// </summary>
-    public static SceneLoader Instance { get; private set; }
-
+    private static SceneLoader _instance;
+    
     private static int _targetSceneIndex = -1;
     private static bool _isLoadingScene;
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (_instance != null && _instance != this)
         {
             Destroy(gameObject);
         } else {
-            Instance = this;
+            _instance = this;
         }
         
         // Always keep this object alive
@@ -32,7 +29,25 @@ public class SceneLoader : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    public void LoadScene(int index)
+    public static void SetTargetScene(int index)
+    {
+        _targetSceneIndex = index;
+    }
+
+    /// <summary>
+    /// Loads the scene at the target scene index. 
+    /// </summary>
+    /// <param name="callingBehaviour">MonoBehaviour that calls this method.</param>
+    public static void LoadTargetScene()
+    {
+        LoadScene(_targetSceneIndex);
+    }
+
+    /// <summary>
+    /// Loads the scene at the given index.
+    /// </summary>
+    /// <param name="index">Scene index to load.</param>
+    public static void LoadScene(int index)
     {
         if (_isLoadingScene)
         {
@@ -41,8 +56,8 @@ public class SceneLoader : MonoBehaviour
         _isLoadingScene = true;
         
         _targetSceneIndex = index;
-        UIManager.Instance.HideUI();
-        Fade(0, 1, () =>
+
+        SceneReferences.ScreenFader.FadeOut(() =>
         {
             MultiplayerRoomHandler.Instance.LeaveRoom();
             SceneManager.LoadScene(index);
@@ -60,26 +75,5 @@ public class SceneLoader : MonoBehaviour
         
         MultiplayerRoomHandler.Instance.JoinRoom(_targetSceneIndex);
         _targetSceneIndex = -1;
-    }
-
-    public void Fade(float startAlpha, float targetAlpha, Action callback = null)
-    {
-        StartCoroutine(C_Fade(startAlpha, targetAlpha, callback));
-    }
-    
-    private IEnumerator C_Fade(float start, float target, Action callback)
-    {
-        OVRScreenFade _screenFade = SceneReferences.ScreenFade;
-        
-        float t = 0;
-        while (t < 1)
-        {
-            _screenFade.SetFadeLevel(Mathf.Lerp(start, target, t));
-            t += Time.deltaTime;
-            yield return null;
-        }
-        
-        _screenFade.SetFadeLevel(target);
-        callback?.Invoke();
     }
 }

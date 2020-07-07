@@ -5,14 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(MovementTrajectory))]
 public class MovementController : MonoBehaviour
 {
-    /// <summary>
-    /// Static accessible instance of the MovementController (Singleton pattern)
-    /// </summary>
-    public static MovementController Instance { get; private set; }
-
     private InputManager _inputManager;
+    private ScreenFader _screenFade;
+    
+    [SerializeField]
+    private PlayerControllerStandalone _playerControllerStandalone;
 
-    private OVRScreenFade _screenFade;
+    [SerializeField] 
+    private UIManager _uiManager;
     
     private MovementTrajectory _trajectory;
     private MovementCircle _circle;
@@ -21,7 +21,6 @@ public class MovementController : MonoBehaviour
     private float _lastTargetPositionResetCounter = 0;
 
     private int _floorLayer, _snapLayer;
-    // private LayerMask _raycastLayers;
 
     [SerializeField] 
     private Color _indicatorColor;
@@ -35,18 +34,10 @@ public class MovementController : MonoBehaviour
     
     public bool IsMoving { get; private set; }
     
+    private bool _IsAllowedToMove = true;
+    
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        } else {
-            Instance = this;
-        }
-        
-        // Always keep this object alive
-        DontDestroyOnLoad(gameObject);
-        
         IsMoving = false;
         _trajectory = GetComponent<MovementTrajectory>();
         _circle = GetComponentInChildren<MovementCircle>();
@@ -56,7 +47,6 @@ public class MovementController : MonoBehaviour
 
         _floorLayer = LayerMask.NameToLayer("Floor");
         _snapLayer = LayerMask.NameToLayer("TeleportSnapPoint");
-        // _raycastLayers = LayerMask.GetMask("Floor", "TeleportSnapPoint");
     }
 
     private void Start()
@@ -69,17 +59,114 @@ public class MovementController : MonoBehaviour
         _trajectory.SetColor(_indicatorColor);
         _trajectory.SetResolution(_indicatorResolution);
         
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        StartCoroutine(C_Check());
+#endif
+    }
+    
+    private void OnEnable()
+    {
+        _uiManager.OnMenuToggle += OnMenuToggle;
         _inputManager = InputManager.Instance;
+        
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        _inputManager.OnMainButton += Move;
+#elif UNITY_ANDROID
         _inputManager.CurrentlyUsedController.OnStickMove += OnStickMove;
-        _inputManager.CurrentlyUsedController.OnStickRelease += OnStickRelease;
+        _inputManager.CurrentlyUsedController.OnStickRelease += Move;
+#endif
     }
 
-    // DEBUG
-    // private void Update()
-    // {
-    //     PreviewMovement(transform.position, transform.rotation);
-    // }
+    private void OnDisable()
+    {
+        _uiManager.OnMenuToggle -= OnMenuToggle;
 
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        _inputManager.OnMainButton -= Move;
+#elif UNITY_ANDROID
+        _inputManager.CurrentlyUsedController.OnStickMove -= OnStickMove;
+        _inputManager.CurrentlyUsedController.OnStickRelease -= Move;
+#endif
+    }
+
+    private void OnMenuToggle()
+    {
+        if (_IsAllowedToMove)
+        {
+            _IsAllowedToMove = false;
+            
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+            StopCoroutine(nameof(C_Check));
+#elif UNITY_ANDROID
+            _inputManager.CurrentlyUsedController.OnStickMove -= OnStickMove;
+            _inputManager.CurrentlyUsedController.OnStickRelease -= Move;
+#endif
+        }
+        else
+        {
+            _IsAllowedToMove = true;
+            
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+            StartCoroutine(nameof(C_Check));
+#elif UNITY_ANDROID
+            _inputManager.CurrentlyUsedController.OnStickMove += OnStickMove;
+            _inputManager.CurrentlyUsedController.OnStickRelease += Move;
+#endif
+        }
+    }
+
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+    private IEnumerator C_Check()
+    {
+        while (true)
+        {
+            Transform playerCameraTransform = SceneReferences.PlayerCamera.transform;
+            PreviewMovement(playerCameraTransform.position + playerCameraTransform.forward, playerCameraTransform.rotation);
+            yield return null;
+        }
+    }
+    
+    private void PreviewMovement(Vector3 raycastOrigin, Quaternion raycastRotation)
+    {
+        Ray ray = new Ray(raycastOrigin, raycastRotation * Vector3.forward);
+        if (!Physics.Raycast(ray, out RaycastHit hitInfo, 5))
+        {
+            ResetPreview();
+            _lastTargetPosition = Vector3.zero;
+            return;
+        }
+            
+        int hitLayer = hitInfo.transform.gameObject.layer;
+        Quaternion rotation = Quaternion.identity;
+
+        if (hitLayer == _snapLayer)
+        {
+            Bounds bounds = hitInfo.collider.bounds;
+            Vector3 targetPosition = bounds.center;
+            targetPosition.y += bounds.extents.y;
+                
+            _lastTargetPosition = targetPosition;
+
+            Vector3 forward = _lastTargetPosition - raycastOrigin;
+            Quaternion lookRotation = Quaternion.LookRotation(forward);
+            
+            rotation = lookRotation;
+        }
+        else
+        {
+            ResetPreview();
+            _lastTargetPosition = Vector3.zero;
+            return;
+        }
+            
+        _circle.EnableLineRenderer();
+        _circleTransform.position = _lastTargetPosition;
+            
+        _trajectory.EnableLineRenderer();
+        _trajectory.DrawTrajectory(raycastOrigin, rotation, _lastTargetPosition);
+    }
+    
+#elif UNITY_ANDROID
     private void OnStickMove(Vector2 stickAxis)
     {
         if (stickAxis.y > 0.8f)
@@ -99,11 +186,6 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    private void OnStickRelease()
-    {
-        Move();
-    }
-    
     private void PreviewMovement(Vector3 raycastOrigin, Quaternion raycastRotation)
     {
         Ray ray = new Ray(raycastOrigin, raycastRotation * Vector3.forward);
@@ -138,9 +220,7 @@ public class MovementController : MonoBehaviour
 
             Vector3 forward = _lastTargetPosition - raycastOrigin;
             Quaternion lookRotation = Quaternion.LookRotation(forward);
-                
-            // Vector3 raycastRotationEuler = raycastRotation.eulerAngles;
-            // rotation = Quaternion.Euler(raycastRotationEuler.x, lookRotation.eulerAngles.y, raycastRotationEuler.z);
+
             rotation = lookRotation;
         }
             
@@ -150,7 +230,8 @@ public class MovementController : MonoBehaviour
         _trajectory.EnableLineRenderer();
         _trajectory.DrawTrajectory(raycastOrigin, rotation, _lastTargetPosition);
     }
-
+#endif
+    
     private void ResetPreview()
     {
         _trajectory.DisableLineRenderer();
@@ -184,54 +265,27 @@ public class MovementController : MonoBehaviour
     }
     
     /// <summary>
-    /// Fades to black using the OVRScreenFade object, moves the player and fades back.
+    /// Fades to black, moves the player and fades back.
     /// </summary>
     private IEnumerator C_Move(Vector3 target)
     {
-        _screenFade = SceneReferences.ScreenFade;
+        _screenFade = SceneReferences.ScreenFader;
         
         IsMoving = true;
-
-        float t = 0;
-        while (t < 1)
-        {
-            
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN
-            
-#elif UNITY_ANDROID
-            _screenFade.SetFadeLevel(t);
-#endif
-            t += Time.deltaTime / _fadeDuration;
-            yield return null;
-        }
+        
+        _screenFade.FadeOut(_fadeDuration);
+        yield return new WaitForSeconds(_fadeDuration);
         
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
-            
+        _playerControllerStandalone.Move(target);
 #elif UNITY_ANDROID
-        _screenFade.SetFadeLevel(1);
-#endif
-
         SceneReferences.PlayerObject.position = target;
+#endif
+        
         _lastTargetPosition = Vector3.zero;
-        
-        t = 1;
-        while (t > 0)
-        {
-            
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN
-            
-#elif UNITY_ANDROID
-            _screenFade.SetFadeLevel(t);
-#endif
-            t -= Time.deltaTime / _fadeDuration;
-            yield return null;
-        }
-        
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN
-            
-#elif UNITY_ANDROID
-            _screenFade.SetFadeLevel(0);
-#endif
+        _screenFade.FadeIn(_fadeDuration);
+        yield return new WaitForSeconds(_fadeDuration);
+  
         IsMoving = false;
     }
 }

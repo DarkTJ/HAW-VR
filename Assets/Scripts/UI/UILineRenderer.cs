@@ -1,21 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
 public class UILineRenderer : MonoBehaviour
 {
-    private LineRenderer _renderer;
-
     [SerializeField]
     private float _defaultLength = 0.5f;
-
+    
     private void Awake()
     {
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        gameObject.SetActive(false);
+#elif UNITY_ANDROID
         _renderer = GetComponent<LineRenderer>();
+#endif
     }
+    
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
 
-    // Update is called once per frame
+#elif UNITY_ANDROID
+    private LineRenderer _renderer;
+
     private void Update()
     {
         transform.position = InputManager.Instance.CurrentlyUsedController.Position;
@@ -61,4 +65,5 @@ public class UILineRenderer : MonoBehaviour
             _renderer.SetPosition(i, target);
         }
     }
+#endif
 }

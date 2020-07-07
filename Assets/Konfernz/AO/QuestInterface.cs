@@ -14,9 +14,12 @@ public class QuestInterface : MonoBehaviour
     // PLEASE KEEP THIS App ID IN SAFE PLACE
     // Get your own App ID at https://dashboard.agora.io/
 
-    private string appId = "8a39e16c8f4d48e0852e73774c5482fc";
+    [SerializeField]
+    private Transform[] _videoPositions;
 
-    private string roomName = "r1";
+    private string appId = "ID here";
+
+    private string roomName = "room1";
 
     private int numUsers = 0; //0
     private bool connected;
@@ -260,11 +263,14 @@ public class QuestInterface : MonoBehaviour
             o.SetForUser(uid);
             //o.mAdjustTransfrom += onTransformDelegate; ///
             o.SetEnable(true);
-            o.transform.Rotate(270, -90, -90); // test 
+
+            go.transform.position = _videoPositions[numUsers].position;
+            go.transform.rotation = _videoPositions[numUsers].rotation;
+            go.transform.localScale = _videoPositions[numUsers].localScale;
             //float r = Random.Range (-5.0f, 5.0f); ///
-            var videoQuadPos = GameObject.Find("VideoSpawn").transform.position;
-            o.transform.position = videoQuadPos + new Vector3(numUsers * 0, 0, 0); //y wie x 0,95f
-            o.transform.localScale = new Vector3(0.80f, (0.28125f), (0.450f));//ohen die 5en  0.09475f  0.5f  0.094924f
+           // var videoQuadPos = _videoPositions[numUsers].position;
+            //o.transform.position = videoQuadPos + new Vector3(numUsers * 0, 0, 0); //y wie x 0,95f
+                                                                                   //            o.transform.localScale = new Vector3(0.80f, (0.28125f), (0.450f));//ohen die 5en  0.09475f  0.5f  0.094924f
         }
 
         // mRemotePeer = uid;

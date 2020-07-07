@@ -1,10 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class AvatarController : MonoBehaviour
 {
+    private Transform _copyTransform;
+    
+    private Renderer[] _renderers;
+    private Graphic[] _graphics;
+    private TextMeshProUGUI _nameField;
+    
     [Header("Face Textures")] 
     
     [SerializeField]
@@ -35,11 +44,58 @@ public class AvatarController : MonoBehaviour
     {
         _animationWaitTime = 1f / _animationFps;
         _idleBlinkingWaitRange = new Vector2(60f / _idleBlinkingFrequencyRange.x, 60f / _idleBlinkingFrequencyRange.y);
+
+        _renderers = GetComponentsInChildren<Renderer>();
+        _graphics = GetComponentsInChildren<Graphic>();
+        _nameField = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     private void Start()
     {
         IdleFace();
+    }
+
+    public void SetCopyTransform(Transform copy)
+    {
+        _copyTransform = copy;
+    }
+    
+    public void SetName()
+    {
+        if (PlayerPrefs.HasKey("username"))
+        {
+            SetName(PlayerPrefs.GetString("username"));
+        }
+        else
+        {
+            StartCoroutine(C_WaitForUsername());
+        }
+    }
+    
+    private IEnumerator C_WaitForUsername()
+    {
+        yield return new WaitUntil(() => PlayerPrefs.HasKey("username"));
+        SetName(PlayerPrefs.GetString("username"));
+    }
+
+    private void SetName(string name)
+    {
+        _nameField.text = name;
+    }
+
+    public void SetRenderers(bool state)
+    {
+        foreach (Renderer r in _renderers)
+        {
+            r.enabled = state;
+        }
+        
+        foreach (Graphic g in _graphics)
+        {
+            g.enabled = state;
+        }
+
+        _nameField.enabled = state;
     }
     
     public void IdleFace()

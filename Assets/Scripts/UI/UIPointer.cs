@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class UIPointer : MonoBehaviour
 {
@@ -21,13 +19,22 @@ public class UIPointer : MonoBehaviour
     {
         int layer = LayerMask.GetMask("UI");
 
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        Ray ray = SceneReferences.PlayerCamera.ScreenPointToRay(Input.mousePosition);
+#elif UNITY_ANDROID
         Vector3 forward = InputManager.Instance.CurrentlyUsedController.Rotation * Vector3.forward;
         Ray ray = new Ray(InputManager.Instance.CurrentlyUsedController.Position, forward);
+#endif
 
         if (Physics.Raycast(ray, out RaycastHit hitInfo, 100, layer))
         {
             _lastHitPoint = hitInfo.point;
+            
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+            
+#elif UNITY_ANDROID
             _uiLineRenderer.SetTarget(_lastHitPoint);
+#endif
 
             UIInteractable target = hitInfo.transform.GetComponent<UIInteractable>();
             if (target && target.isEnabled)
@@ -52,7 +59,12 @@ public class UIPointer : MonoBehaviour
         else if (_lastHitInteractable)
         {
             ResetLastHit();
+            
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+            
+#elif UNITY_ANDROID
             _uiLineRenderer.ClearTarget();
+#endif
         }
     }
 
@@ -67,19 +79,33 @@ public class UIPointer : MonoBehaviour
 
     public void Enable()
     {
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        InputManager.Instance.OnMainButtonDown += OnButtonClick;
+        InputManager.Instance.OnMainButton += OnButton;
+        InputManager.Instance.OnMainButtonUp += OnButtonUp;
+#elif UNITY_ANDROID
         InputManager.Instance.CurrentlyUsedController.OnTriggerDown += OnButtonClick;
         InputManager.Instance.CurrentlyUsedController.OnTrigger += OnButton;
         InputManager.Instance.CurrentlyUsedController.OnTriggerUp += OnButtonUp;
         _uiLineRenderer.Enable();
+#endif
+
         enabled = true;
     }
 
     public void Disable()
     {
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        InputManager.Instance.OnMainButtonDown -= OnButtonClick;
+        InputManager.Instance.OnMainButton -= OnButton;
+        InputManager.Instance.OnMainButtonUp -= OnButtonUp;
+#elif UNITY_ANDROID
         InputManager.Instance.CurrentlyUsedController.OnTriggerDown -= OnButtonClick;
         InputManager.Instance.CurrentlyUsedController.OnTrigger -= OnButton;
         InputManager.Instance.CurrentlyUsedController.OnTriggerUp -= OnButtonUp;
         _uiLineRenderer.Disable();
+#endif
+
         enabled = false;
     }
 

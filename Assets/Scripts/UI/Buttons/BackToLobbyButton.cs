@@ -1,13 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class BackToLobbyButton : UIButton
 {
+    private UIManager _uiManager;
+    
+    private void Start()
+    {
+        _uiManager = GetComponentInParent<UIManager>();
+    }
+    
     public override void OnClick(Vector3 hitPoint)
     {
         base.OnClick(hitPoint);
-        SceneLoader.Instance.LoadScene(0);
+        FMODEventManager.Instance.PlaySound_BackButton();
+        
+        _uiManager.OnBackToLobbyButton();
+        SceneLoader.LoadScene(0);
+    }
+
+    public override void OnPointerEnter()
+    {
+        base.OnPointerEnter();
+        FMODEventManager.Instance.PlaySound_ButtonHover();
     }
 }

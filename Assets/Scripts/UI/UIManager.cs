@@ -1,51 +1,28 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(UIPointer))]
 public class UIManager : MonoBehaviour
 {
-    /// <summary>
-    /// Static accessible instance of the UIManager (Singleton pattern)
-    /// </summary>
-    public static UIManager Instance { get; private set; }
-    
     [SerializeField]
     private GameObject _menuCanvas, textFieldCanvas;
-
-    [SerializeField]
-    private UIInteractable[] _disableInLobby;
-
+    
     private TextMeshProUGUI _textField;
 
-    private bool _isShowingMenu;
+    public bool IsShowingMenu { get; private set; }
 
     private UIPointer _uiPointer;
     private Keyboard _keyboard;
-    
+
+    public event Action OnMenuToggle;
     public event Action<string> OnTextSubmit;
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-        }
-
-        DontDestroyOnLoad(gameObject);
-
         _textField = textFieldCanvas.GetComponentInChildren<TextMeshProUGUI>();
         _uiPointer = GetComponent<UIPointer>();
         _keyboard = GetComponentInChildren<Keyboard>();
-        
-        
-        InputManager.Instance.LeftController.OnMenuButtonDown += OnMenuButton;
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Start()
@@ -54,42 +31,48 @@ public class UIManager : MonoBehaviour
         textFieldCanvas.SetActive(false);
         
         _uiPointer.Disable();
-        SetUIInteractableState(_disableInLobby, false);
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+    private void OnEnable()
     {
-        if (scene.buildIndex == 0)
-        {
-            SetUIInteractableState(_disableInLobby, false);
-        }
-        else
-        {
-            SetUIInteractableState(_disableInLobby, true);
-        }
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        InputManager.Instance.OnMenuButtonDown += OnMenuButton;
+#elif UNITY_ANDROID
+        InputManager.Instance.LeftController.OnMenuButtonDown += OnMenuButton;
+#endif
     }
 
-    private static void SetUIInteractableState(UIInteractable[] uiInteractables, bool state)
+    private void OnDisable()
     {
-        foreach (UIInteractable i in uiInteractables)
-        {
-            i.SetState(state);
-        }
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        InputManager.Instance.OnMenuButtonDown -= OnMenuButton;
+#elif UNITY_ANDROID
+        InputManager.Instance.LeftController.OnMenuButtonDown -= OnMenuButton;
+#endif
     }
 
     private void OnMenuButton()
     {
-        if (_isShowingMenu)
+        OnMenuToggle?.Invoke();
+        if (IsShowingMenu)
         {
             _menuCanvas.SetActive(false);
             _uiPointer.Disable();
+            SceneReferences.ScreenFader.SetAlpha(0);
         }
         else
         {
+            Debug.Log(_menuCanvas.name);
             PlaceUI(_menuCanvas.transform);
             _uiPointer.Enable();
+            SceneReferences.ScreenFader.SetAlpha(0.5f);
         }
-        _isShowingMenu = !_isShowingMenu;
+        IsShowingMenu = !IsShowingMenu;
+    }
+
+    public void OnBackToLobbyButton()
+    {
+        OnMenuButton();
     }
 
     public void ShowKeyboard(bool hideMenu = true)
@@ -97,6 +80,7 @@ public class UIManager : MonoBehaviour
         _uiPointer.Enable();
         
         PlaceUI(_keyboard.transform);
+        _keyboard.transform.Translate(Vector3.down);
         PlaceUI(textFieldCanvas.transform);
 
         if (hideMenu)
@@ -124,7 +108,7 @@ public class UIManager : MonoBehaviour
         uiObject.position = targetPosition;
 
         Quaternion rot = Quaternion.LookRotation(camTransform.forward);
-        uiObject.rotation = Quaternion.Euler(0, rot.eulerAngles.y, 0);
+        uiObject.rotation = rot;
 
         uiObject.gameObject.SetActive(true);
     }
@@ -137,7 +121,7 @@ public class UIManager : MonoBehaviour
 
     public void HideUI()
     {
-        _isShowingMenu = false;
+        IsShowingMenu = false;
         _menuCanvas.SetActive(false);
         _keyboard.gameObject.SetActive(false);
         textFieldCanvas.SetActive(false);

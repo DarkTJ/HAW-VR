@@ -1,0 +1,1503 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8729324454722726416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Trigger_PressOK
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Trigger_PressOK
+  guid: 47306239a6e86b44bc539c7603ad4a54
+  Banks:
+  - {fileID: 6126199130051734920}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 229
+--- !u!114 &-8658354533679771800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Baum/Bild 1 v2
+  m_EditorClassIdentifier: 
+  Path: event:/Baum/Bild 1 v2
+  guid: f2540d58b691de459e61738c45da5290
+  Banks:
+  - {fileID: 138663086896813004}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 69821
+--- !u!114 &-8508148683901584962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Baum/Bild 6 v3
+  m_EditorClassIdentifier: 
+  Path: event:/Baum/Bild 6 v3
+  guid: 504d9c00f2699c4c9ec21b1d51148df5
+  Banks:
+  - {fileID: 138663086896813004}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 78283
+--- !u!114 &-8202639671670111644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Planetarium.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Source/Build/Desktop/Planetarium.bank
+  SubDir: 
+  lastModified: 637295492974568955
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-8146204510494768070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Lobby Sounds/UI/Button
+  m_EditorClassIdentifier: 
+  Path: event:/Lobby Sounds/UI/Button
+  guid: efac6aab6909e1409ac20356cdec24b9
+  Banks:
+  - {fileID: 6126199130051734920}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 500
+--- !u!114 &-8104442229812439089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Planetarium/Speaker 14
+  m_EditorClassIdentifier: 
+  Path: event:/Planetarium/Speaker 14
+  guid: 74fbb74db4966242839211340167cbfa
+  Banks:
+  - {fileID: -8202639671670111644}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 650000
+--- !u!114 &-7985405498081793435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/QuitGameButton
+  m_EditorClassIdentifier: 
+  Path: event:/UI/QuitGameButton
+  guid: 1b839c34cde59e40a5309b7bbb1199ee
+  Banks:
+  - {fileID: 6126199130051734920}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 39
+--- !u!114 &-7845756095831633649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Planetarium/Speaker 9
+  m_EditorClassIdentifier: 
+  Path: event:/Planetarium/Speaker 9
+  guid: cf699330ea3ad14d9c1433f6548d3c0a
+  Banks:
+  - {fileID: -8202639671670111644}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 650000
+--- !u!114 &-7795869037225789585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/BackButton
+  m_EditorClassIdentifier: 
+  Path: event:/UI/BackButton
+  guid: b52b6249045e914a9c58dc0b957ef9bd
+  Banks:
+  - {fileID: 6126199130051734920}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &-7759668490343837892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Portal_Saber
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Portal_Saber
+  guid: c2f7034b48870d48aff003a22e4858b6
+  Banks:
+  - {fileID: 6126199130051734920}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3413
+--- !u!114 &-7507916663973225306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Planetarium/Speaker 11
+  m_EditorClassIdentifier: 
+  Path: event:/Planetarium/Speaker 11
+  guid: 4035ae6372a2734d83ec7ab788feaab5
+  Banks:
+  - {fileID: -8202639671670111644}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 650000
+--- !u!114 &-7092132968878544893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/SettingsButton
+  m_EditorClassIdentifier: 
+  Path: event:/UI/SettingsButton
+  guid: 1a86a5961c4a69488abe72d2a6d99f73
+  Banks:
+  - {fileID: 6126199130051734920}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 682
+--- !u!114 &-7026018694426867210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: Planetarium_Video
+  m_EditorClassIdentifier: 
+  Name: Planetarium_Video
+  Min: 0
+  Max: 5
+  Default: 0
+  Exists: 1
+--- !u!114 &-6870219623676458073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Lightshow Sounds/Light_Romm_Kamikatzi
+  m_EditorClassIdentifier: 
+  Path: event:/Lightshow Sounds/Light_Romm_Kamikatzi
+  guid: 60f80a4d0a709148a25efb2e4fb5a7ce
+  Banks:
+  - {fileID: 5458895066089576559}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 199079
+--- !u!114 &-6798528403884846847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Planetarium/Speaker LFE
+  m_EditorClassIdentifier: 
+  Path: event:/Planetarium/Speaker LFE
+  guid: 9c08fd27e02b134e88ab806757543f40
+  Banks:
+  - {fileID: -8202639671670111644}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 650000
+--- !u!114 &-6165669152157477540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Planetarium/Speaker 5
+  m_EditorClassIdentifier: 
+  Path: event:/Planetarium/Speaker 5
+  guid: 0f32b30806378947b7fd8bda28ad0a2b
+  Banks:
+  - {fileID: -8202639671670111644}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 650000
+--- !u!114 &-5975974562357788677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Videomapping Sounds/Blue 3
+  m_EditorClassIdentifier: 
+  Path: event:/Videomapping Sounds/Blue 3
+  guid: 0195c280901d154096773d989db13905
+  Banks:
+  - {fileID: 2497257241699771812}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 23104
+--- !u!114 &-5911789870958494647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Baum/Bild 3 v4
+  m_EditorClassIdentifier: 
+  Path: event:/Baum/Bild 3 v4
+  guid: c768e879c40b8d418b55ec2ab9cb6666
+  Banks:
+  - {fileID: 138663086896813004}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 75782
+--- !u!114 &-5910899604899974692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Planetarium/Speaker 7
+  m_EditorClassIdentifier: 
+  Path: event:/Planetarium/Speaker 7
+  guid: bef67a5a0ba38449864d4194b72558dc
+  Banks:
+  - {fileID: -8202639671670111644}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 650000
+--- !u!114 &-5269577613564589771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Keyboard_HoverKey
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Keyboard_HoverKey
+  guid: 75b4104bdf469d4c890f32240043182f
+  Banks:
+  - {fileID: 6126199130051734920}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 40
+--- !u!114 &-5228895558869347741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Planetarium/Speaker 8
+  m_EditorClassIdentifier: 
+  Path: event:/Planetarium/Speaker 8
+  guid: ca1f75312a0c7a49b16fa8b58ab62237
+  Banks:
+  - {fileID: -8202639671670111644}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 650000
+--- !u!114 &-4498541078911995772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Baum/Atmo
+  m_EditorClassIdentifier: 
+  Path: event:/Baum/Atmo
+  guid: c2e8f327d68c4c42a701af0bcb496c84
+  Banks:
+  - {fileID: 138663086896813004}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 73419
+--- !u!114 &-3550210399001816300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/CancelButton
+  m_EditorClassIdentifier: 
+  Path: event:/UI/CancelButton
+  guid: 0328e99353ccd44d93a74b92f4de00dd
+  Banks:
+  - {fileID: 6126199130051734920}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 182
+--- !u!114 &-3295602079663697313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Keyboard_Erase
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Keyboard_Erase
+  guid: 74f06a18abe50c49b09f81fc80cabdc7
+  Banks:
+  - {fileID: 6126199130051734920}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 182
+--- !u!114 &-2971990763253198942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/UIButton_Hover
+  m_EditorClassIdentifier: 
+  Path: event:/UI/UIButton_Hover
+  guid: 600ad8ad1264a943b9408ca0fefed18d
+  Banks:
+  - {fileID: 6126199130051734920}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 40
+--- !u!114 &-2873986773215087374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Videomapping Sounds/Blue 4
+  m_EditorClassIdentifier: 
+  Path: event:/Videomapping Sounds/Blue 4
+  guid: 558302d63959114cabb5626753d812a8
+  Banks:
+  - {fileID: 2497257241699771812}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 22705
+--- !u!114 &-2403696711297111248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Videomapping Sounds/Red 2
+  m_EditorClassIdentifier: 
+  Path: event:/Videomapping Sounds/Red 2
+  guid: 6e988fb011bd6d44bc75d6b8e5b6189f
+  Banks:
+  - {fileID: 2497257241699771812}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 23595
+--- !u!114 &-1884905381594318936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Videomapping Sounds/Red 3
+  m_EditorClassIdentifier: 
+  Path: event:/Videomapping Sounds/Red 3
+  guid: 625b9febe0e6c3408e4c936e66c3f470
+  Banks:
+  - {fileID: 2497257241699771812}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 22889
+--- !u!114 &-1737350203025803662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Videomapping Sounds/Blue 1
+  m_EditorClassIdentifier: 
+  Path: event:/Videomapping Sounds/Blue 1
+  guid: 7b3877f34fc5d64fa1ab4549a7528c8c
+  Banks:
+  - {fileID: 2497257241699771812}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 22920
+--- !u!114 &-1175209776291606249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Baum/Bild 4 v3
+  m_EditorClassIdentifier: 
+  Path: event:/Baum/Bild 4 v3
+  guid: 067c5218d93e3d428302404e28b53c96
+  Banks:
+  - {fileID: 138663086896813004}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 78935
+--- !u!114 &-954005664708670736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Videomapping Sounds/Green 2
+  m_EditorClassIdentifier: 
+  Path: event:/Videomapping Sounds/Green 2
+  guid: f0dc35ad9ffb4b49bd4b1ed1c88928d6
+  Banks:
+  - {fileID: 2497257241699771812}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 116571
+--- !u!114 &-856609955844803177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Videomapping Sounds/Red 4
+  m_EditorClassIdentifier: 
+  Path: event:/Videomapping Sounds/Red 4
+  guid: 0e417f3c5eb7334ab394e6c3d27aec6a
+  Banks:
+  - {fileID: 2497257241699771812}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 22613
+--- !u!114 &-210674233646019529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Planetarium/Speaker 16
+  m_EditorClassIdentifier: 
+  Path: event:/Planetarium/Speaker 16
+  guid: de5c443a0f8f674f9ed59cc0db7810c4
+  Banks:
+  - {fileID: -8202639671670111644}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 650000
+--- !u!114 &-89453170300380673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Portal_Transport
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Portal_Transport
+  guid: a01006ac98a7594cbee9d0c7b5848e03
+  Banks:
+  - {fileID: 6126199130051734920}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2048
+--- !u!114 &-79406383828714662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Baum/Bild 5 v2
+  m_EditorClassIdentifier: 
+  Path: event:/Baum/Bild 5 v2
+  guid: adc0d1acb119984c8dfb2b948fbd177a
+  Banks:
+  - {fileID: 138663086896813004}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 78118
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: 4732969369355564876}
+  - {fileID: 138663086896813004}
+  - {fileID: 5458895066089576559}
+  - {fileID: 2497257241699771812}
+  - {fileID: 6126199130051734920}
+  - {fileID: -8202639671670111644}
+  EditorEvents:
+  - {fileID: -1175209776291606249}
+  - {fileID: -8508148683901584962}
+  - {fileID: 1462981599548743820}
+  - {fileID: -79406383828714662}
+  - {fileID: -4498541078911995772}
+  - {fileID: -5911789870958494647}
+  - {fileID: -8658354533679771800}
+  - {fileID: -6870219623676458073}
+  - {fileID: 2671604302088655299}
+  - {fileID: -5975974562357788677}
+  - {fileID: 1498816281029945341}
+  - {fileID: -856609955844803177}
+  - {fileID: 2755257141402379154}
+  - {fileID: 7456690288388682414}
+  - {fileID: 7567881823159080390}
+  - {fileID: -2873986773215087374}
+  - {fileID: -1884905381594318936}
+  - {fileID: -2403696711297111248}
+  - {fileID: -1737350203025803662}
+  - {fileID: 2605323238384338622}
+  - {fileID: 4246837008257325992}
+  - {fileID: 4083929148525170120}
+  - {fileID: -954005664708670736}
+  - {fileID: -3550210399001816300}
+  - {fileID: -7092132968878544893}
+  - {fileID: -7985405498081793435}
+  - {fileID: 7686453030864383653}
+  - {fileID: 7326951029912983542}
+  - {fileID: -8729324454722726416}
+  - {fileID: 3210829956676147336}
+  - {fileID: -2971990763253198942}
+  - {fileID: 5699907416756164626}
+  - {fileID: -3295602079663697313}
+  - {fileID: -5269577613564589771}
+  - {fileID: -89453170300380673}
+  - {fileID: 1995513039081095641}
+  - {fileID: -7795869037225789585}
+  - {fileID: -7759668490343837892}
+  - {fileID: -8146204510494768070}
+  - {fileID: 3616127203582040388}
+  - {fileID: -6165669152157477540}
+  - {fileID: 8828647764874098563}
+  - {fileID: 1510388373377407290}
+  - {fileID: 3735440159538846428}
+  - {fileID: -7507916663973225306}
+  - {fileID: 8495992741547198452}
+  - {fileID: 7833628895576839199}
+  - {fileID: -8104442229812439089}
+  - {fileID: 8972886713499963320}
+  - {fileID: -6798528403884846847}
+  - {fileID: 1010283541589051077}
+  - {fileID: -5910899604899974692}
+  - {fileID: -5228895558869347741}
+  - {fileID: -7845756095831633649}
+  - {fileID: -210674233646019529}
+  - {fileID: 5384367817019887855}
+  EditorParameters:
+  - {fileID: -7026018694426867210}
+  MasterBanks:
+  - {fileID: 6126199130051734920}
+  StringsBanks:
+  - {fileID: 4732969369355564876}
+  stringsBankWriteTime: 637297556548864888
+  cacheVersion: 3
+--- !u!114 &138663086896813004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Baum.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Source/Build/Desktop/Baum.bank
+  SubDir: 
+  lastModified: 637297556545294977
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &1010283541589051077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Planetarium/Speaker 15
+  m_EditorClassIdentifier: 
+  Path: event:/Planetarium/Speaker 15
+  guid: a945f4271d571240841c866c88bddb3f
+  Banks:
+  - {fileID: -8202639671670111644}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 650000
+--- !u!114 &1462981599548743820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Baum/Bild 2 v3
+  m_EditorClassIdentifier: 
+  Path: event:/Baum/Bild 2 v3
+  guid: a6dc06360beba04cbecf6456471f9b52
+  Banks:
+  - {fileID: 138663086896813004}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 74069
+--- !u!114 &1498816281029945341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Videomapping Sounds/Blue 5
+  m_EditorClassIdentifier: 
+  Path: event:/Videomapping Sounds/Blue 5
+  guid: 02268a46d253b8408a0d7008735b131e
+  Banks:
+  - {fileID: 2497257241699771812}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 22950
+--- !u!114 &1510388373377407290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Planetarium/Speaker 2
+  m_EditorClassIdentifier: 
+  Path: event:/Planetarium/Speaker 2
+  guid: 370a67568058ec4e8872da9de4bed269
+  Banks:
+  - {fileID: -8202639671670111644}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 650000
+--- !u!114 &1995513039081095641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Lobby Sounds/UI/Entering Room
+  m_EditorClassIdentifier: 
+  Path: event:/Lobby Sounds/UI/Entering Room
+  guid: b37928266bb04540a189e5f0e6f62811
+  Banks:
+  - {fileID: 6126199130051734920}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &2497257241699771812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Mapping.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Source/Build/Desktop/Mapping.bank
+  SubDir: 
+  lastModified: 637295491901695169
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &2605323238384338622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Videomapping Sounds/Green 3
+  m_EditorClassIdentifier: 
+  Path: event:/Videomapping Sounds/Green 3
+  guid: b060f6609dcd92449542a0758510264a
+  Banks:
+  - {fileID: 2497257241699771812}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 22500
+--- !u!114 &2671604302088655299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Lightshow Sounds/Light_Room_Mama
+  m_EditorClassIdentifier: 
+  Path: event:/Lightshow Sounds/Light_Room_Mama
+  guid: d4755e54ba3b5a44a8dff7de691b7ed4
+  Banks:
+  - {fileID: 5458895066089576559}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 188395
+--- !u!114 &2755257141402379154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Videomapping Sounds/Blue 2
+  m_EditorClassIdentifier: 
+  Path: event:/Videomapping Sounds/Blue 2
+  guid: 19fe98ac2fe95042a9e3cc1c09c1fdb0
+  Banks:
+  - {fileID: 2497257241699771812}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 23104
+--- !u!114 &3210829956676147336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Trigger_Press
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Trigger_Press
+  guid: 500d1e0e84b52b45801dea3f2c747202
+  Banks:
+  - {fileID: 6126199130051734920}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 682
+--- !u!114 &3616127203582040388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Planetarium/Speaker 13
+  m_EditorClassIdentifier: 
+  Path: event:/Planetarium/Speaker 13
+  guid: 09e139a8cec36543b0abdb7e81feca0b
+  Banks:
+  - {fileID: -8202639671670111644}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 650000
+--- !u!114 &3735440159538846428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Planetarium/Speaker 3
+  m_EditorClassIdentifier: 
+  Path: event:/Planetarium/Speaker 3
+  guid: 397663c0e8e7c846b7bee362fd10e5e0
+  Banks:
+  - {fileID: -8202639671670111644}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 650000
+--- !u!114 &4083929148525170120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Videomapping Sounds/Green 4
+  m_EditorClassIdentifier: 
+  Path: event:/Videomapping Sounds/Green 4
+  guid: d4716e36938f2d448fd53995cfddf6c1
+  Banks:
+  - {fileID: 2497257241699771812}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 20500
+--- !u!114 &4246837008257325992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Videomapping Sounds/Green 5
+  m_EditorClassIdentifier: 
+  Path: event:/Videomapping Sounds/Green 5
+  guid: b43bc484f74ed44e88d4dbd62a9fb9c4
+  Banks:
+  - {fileID: 2497257241699771812}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 25159
+--- !u!114 &4732969369355564876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Source/Build/Desktop/Master.strings.bank
+  SubDir: 
+  lastModified: 637297556548864888
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 3310
+  - Name: Mobile
+    Value: 3310
+  Exists: 1
+--- !u!114 &5384367817019887855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Planetarium/Speaker 10
+  m_EditorClassIdentifier: 
+  Path: event:/Planetarium/Speaker 10
+  guid: f12c8d4962021c41b6639d0a8249b3dc
+  Banks:
+  - {fileID: -8202639671670111644}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 650000
+--- !u!114 &5458895066089576559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Light.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Source/Build/Desktop/Light.bank
+  SubDir: 
+  lastModified: 637297557603280650
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &5699907416756164626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Keyboard_TypeKey
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Keyboard_TypeKey
+  guid: 6dd3f060720c43499ec689b0b19743d7
+  Banks:
+  - {fileID: 6126199130051734920}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 91
+--- !u!114 &6126199130051734920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Source/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637295491900835198
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &7326951029912983542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Lobby Sounds/Ambience/Lobby Ambience
+  m_EditorClassIdentifier: 
+  Path: event:/Lobby Sounds/Ambience/Lobby Ambience
+  guid: 32adacedd5dfe04f8e57ee7136bf5c3c
+  Banks:
+  - {fileID: 6126199130051734920}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 212000
+--- !u!114 &7456690288388682414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Videomapping Sounds/Green 1
+  m_EditorClassIdentifier: 
+  Path: event:/Videomapping Sounds/Green 1
+  guid: 2ab0609f1d670e4e9a35dc6b2ed82f2d
+  Banks:
+  - {fileID: 2497257241699771812}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 30500
+--- !u!114 &7567881823159080390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Videomapping Sounds/Red 1
+  m_EditorClassIdentifier: 
+  Path: event:/Videomapping Sounds/Red 1
+  guid: 5056ba965fc7f54496066d5c80713c47
+  Banks:
+  - {fileID: 2497257241699771812}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 24000
+--- !u!114 &7686453030864383653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Lobby Sounds/UI/Leaving Room
+  m_EditorClassIdentifier: 
+  Path: event:/Lobby Sounds/UI/Leaving Room
+  guid: 2be8cceada98c24ab4c7402890e591e6
+  Banks:
+  - {fileID: 6126199130051734920}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &7833628895576839199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Planetarium/Speaker 4
+  m_EditorClassIdentifier: 
+  Path: event:/Planetarium/Speaker 4
+  guid: 65d264646c327340973a5d71d7fe4bf4
+  Banks:
+  - {fileID: -8202639671670111644}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 650000
+--- !u!114 &8495992741547198452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Planetarium/Speaker 1
+  m_EditorClassIdentifier: 
+  Path: event:/Planetarium/Speaker 1
+  guid: 4f1699f7dd1a6c4ba837c31821b274dc
+  Banks:
+  - {fileID: -8202639671670111644}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 650000
+--- !u!114 &8828647764874098563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Planetarium/Speaker 12
+  m_EditorClassIdentifier: 
+  Path: event:/Planetarium/Speaker 12
+  guid: 10a2f1cef2a4124292641b32929975d3
+  Banks:
+  - {fileID: -8202639671670111644}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 650000
+--- !u!114 &8972886713499963320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Planetarium/Speaker 6
+  m_EditorClassIdentifier: 
+  Path: event:/Planetarium/Speaker 6
+  guid: 93a9169767e35b4b99b39a729250c653
+  Banks:
+  - {fileID: -8202639671670111644}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 650000

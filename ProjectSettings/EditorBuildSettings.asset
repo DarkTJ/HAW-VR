@@ -5,27 +5,24 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Scenes/Lobby.unity
+    guid: d0bf403895caf3541b088912832ce507
+  - enabled: 1
     path: Assets/Scenes/Mapping-Raum.unity
     guid: dd2afc1e0378dca4eaaadb7f60f6104a
-  - enabled: 0
-    path: Assets/Scenes/Lobby-Android.unity
-    guid: 7658e6e6ea523bb42b25fc54a54bb649
-  - enabled: 0
-    path: Assets/Konfernz/B.unity
-    guid: 76d127bdbb3cffc488a159029eed12a0
-  - enabled: 0
-    path: Assets/Konfernz/A.unity
-    guid: 7069dcd921d14f94686244ae73e30c44
-  - enabled: 0
-    path: Assets/Konfernz/oflineFlicht.unity
-    guid: 8b2db1c49ea89ef448207e67290064e1
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Konferenz/offlineDemo.unity
     guid: 07ad3c72f931f41478d6245841456ce3
   - enabled: 1
-    path: Assets/Konfernz/groMoLive.unity
-    guid: 38e41e965dec4ac4fa90a5ec671a5098
+    path: Assets/Scenes/LichtshowRoom.unity
+    guid: 07521c30e832aa849939520819a8bab0
+  - enabled: 1
+    path: Assets/Scenes/Planetarium.unity
+    guid: 65373dd7f686d0440adfe208fc05050c
+  - enabled: 1
+    path: Assets/Baum/Scene/Baum.unity
+    guid: 1eb0691c2711753499c58fdeb9465665
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 582b6227d8c197f48bc7bc047173c76d,
       type: 2}

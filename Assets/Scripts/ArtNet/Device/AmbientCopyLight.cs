@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VLB;
 
 public class AmbientCopyLight : MonoBehaviour
 {
 
-
+    public float range = 5f;
 
     private Light lamp;
 
@@ -19,7 +20,7 @@ public class AmbientCopyLight : MonoBehaviour
     {
         lamp = this.GetComponent<Light>();
 
-        objectToSample = FindGameObjectsInsideRange(this.transform.position, 5f);
+        objectToSample = FindGameObjectsInsideRange(this.transform.position, range);
     }
 
     // Update is called once per frame
@@ -28,14 +29,27 @@ public class AmbientCopyLight : MonoBehaviour
         color = Color.black;
         for (int i = 0;i < objectToSample.Length; i++)
         {
-            //color = Color.white - (Color.white - color) * (Color.white - objectToSample[i].GetComponentInChildren<Renderer>().material.GetColor("_EmissionColor"));
-            //color = color + ((Vector3.Distance(this.transform.position,objectToSample[i].GetComponentInChildren<Renderer>().transform.position)/5f + 0.2f) * objectToSample[i].GetComponentInChildren<Renderer>().material.GetColor("_EmissionColor"));
-            color = color + (objectToSample[i].GetComponentInChildren<Renderer>().material.GetColor("_EmissionColor"));
+
+            if (objectToSample[i].TryGetComponent<VolumetricLightBeam>(out VolumetricLightBeam vlb))
+            {
+                color = color + vlb.color;
+            } else if (objectToSample[i].transform.parent.TryGetComponent<CylLight>(out CylLight cyl))
+            {
+                //color = Color.white - (Color.white - color) * (Color.white - objectToSample[i].GetComponentInChildren<Renderer>().material.GetColor("_EmissionColor"));
+                //color = color + ((Vector3.Distance(this.transform.position,objectToSample[i].GetComponentInChildren<Renderer>().transform.position)/5f + 0.2f) * objectToSample[i].GetComponentInChildren<Renderer>().material.GetColor("_EmissionColor"));
+                color = color + (objectToSample[i].GetComponentInChildren<Renderer>().material.GetColor("_EmissionColor"));
+            } else
+            {
+                
+            }
+                
+               
             //Debug.Log( Vector3.Distance(this.transform.position, objectToSample[i].GetComponentInChildren<Renderer>().transform.position) / 5f + 0.2f);
         }
 
         color = color / objectToSample.Length;
         lamp.color = color;
+
     }
 
 
@@ -43,7 +57,9 @@ public class AmbientCopyLight : MonoBehaviour
 
 
     //mybe this works ??
+
     GameObject[] FindGameObjectsInsideRange(Vector3 center,float radius) {
+
     Collider[] cols  = Physics.OverlapSphere(center, radius);
     var q = cols.Length; // q = how many colliders were found
     //coppy gameobject into array

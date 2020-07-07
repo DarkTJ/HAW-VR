@@ -54,17 +54,12 @@ public class MultiplayerSceneSetupController : MonoBehaviour
     {
         Debug.Log("Creating Player model for " + PhotonNetwork.LocalPlayer.NickName);
 
-        //Ist noch ein Cube, aber hier kann später der Avatar stehen
         _playerCharacterObject = PhotonNetwork.Instantiate(Path.Combine("MultiplayerPrefabs", "Avatar"), Vector3.zero, Quaternion.identity);
-        _playerCharacterObject.transform.parent = SceneReferences.PlayerObject;
-        _playerCharacterObject.transform.localPosition = Vector3.zero;
-
-        // Fast fix for player seeing himself
-        // Feel free to change if this is for all other players too
-        foreach (Renderer r in _playerCharacterObject.GetComponentsInChildren<Renderer>())
-        {
-            r.enabled = false;
-        }
+        SceneReferences.AvatarTransformController.SetAvatarTransform(_playerCharacterObject.transform);
+        
+        // Locally disable renderers
+        _playerCharacterObject.GetComponent<AvatarController>().SetRenderers(false);
+        _playerCharacterObject.GetComponent<AvatarController>().SetName();
         
         IsReady = true;
     }
