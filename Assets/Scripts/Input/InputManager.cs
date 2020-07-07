@@ -78,7 +78,7 @@ public class InputManager : MonoBehaviour
             OnMainButton?.Invoke();
         }
 
-        if (Input.GetKey(_mainButton))
+        if (Input.GetKeyUp(_mainButton))
         {
             OnMainButtonUp?.Invoke();
         }
@@ -95,7 +95,7 @@ public class InputManager : MonoBehaviour
             OnMenuButton?.Invoke();
         }
 
-        if (Input.GetKey(_menuButton))
+        if (Input.GetKeyUp(_menuButton))
         {
             OnMenuButtonUp?.Invoke();
         }
