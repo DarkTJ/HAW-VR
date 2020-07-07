@@ -40,7 +40,7 @@ public class AmbientCopyLight : MonoBehaviour
                 color = color + (objectToSample[i].GetComponentInChildren<Renderer>().material.GetColor("_EmissionColor"));
             } else
             {
-                Debug.Log("heir ist ein objekt was ich nicht will: " + objectToSample[i]);
+                
             }
                 
                
@@ -49,6 +49,7 @@ public class AmbientCopyLight : MonoBehaviour
 
         color = color / objectToSample.Length;
         lamp.color = color;
+
     }
 
 
