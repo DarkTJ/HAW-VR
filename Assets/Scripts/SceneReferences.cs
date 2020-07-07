@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneReferences : MonoBehaviour
@@ -12,11 +8,8 @@ public class SceneReferences : MonoBehaviour
     public static Camera PlayerCamera { get; private set; }
     public static Transform PlayerObject { get; private set; }
     
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN
-    public static OVRScreenFade ScreenFade { get; private set; }
-#elif UNITY_ANDROID
-    public static OVRScreenFade ScreenFade { get; private set; }
-#endif
+    public static ScreenFader ScreenFader { get; private set; }
+
     public static RoomController RoomController { get; private set; }
     
     private void Awake()
@@ -48,11 +41,11 @@ public class SceneReferences : MonoBehaviour
         
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
         PlayerObject = PlayerCamera.transform;
-        ScreenFade = null;
 #elif UNITY_ANDROID
         PlayerObject = OVRManager.instance.transform;
-        ScreenFade = OVRManager.instance.GetComponentInChildren<OVRScreenFade>();
 #endif
+        ScreenFader = PlayerCamera.GetComponent<ScreenFader>();
+
         RoomController = GameObject.Find("Room Controller").GetComponent<RoomController>();
     }
 }

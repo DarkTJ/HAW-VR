@@ -108,7 +108,7 @@ public class TutorialController : MonoBehaviour
     private void FinishTutorial()
     {
         _tutorialCanvas.gameObject.SetActive(false);
-        SceneLoader.Fade(this, 1, 0);
+        SceneReferences.ScreenFader.FadeIn();
         SetControllers(true);
     }
 
@@ -117,7 +117,7 @@ public class TutorialController : MonoBehaviour
         PlayerPrefs.SetString("username", name);
         _hasEnteredName = true;
     }
-    
+
     /// <summary>
     /// Set states of controllers and managers that should be disabled before & during the tutorial
     /// </summary>

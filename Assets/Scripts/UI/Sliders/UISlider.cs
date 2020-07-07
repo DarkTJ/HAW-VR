@@ -29,6 +29,7 @@ public abstract class UISlider : UIInteractable
     {
         _colorFeedbackImage.color = _hoverColor;
         _isHovered = true;
+        FMODEventManager.Instance.PlaySound_ButtonHover();
     }
 
     public override void OnPointerLeave()

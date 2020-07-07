@@ -254,8 +254,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3623189699029564488}
   - component: {fileID: 3623189699029564490}
-  - component: {fileID: 3623189699029564489}
   - component: {fileID: 8939697974727594505}
+  - component: {fileID: 6022415891435293084}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -320,22 +320,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &3623189699029564489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3623189699029564495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df8e1d778abf442e4bec449c360e9e1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeTime: 2
-  fadeColor: {r: 0.01, g: 0.01, b: 0.01, a: 1}
-  fadeOnStart: 0
-  renderQueue: 3999
 --- !u!114 &8939697974727594505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,6 +333,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ListenerNumber: -1
+--- !u!114 &6022415891435293084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3623189699029564495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f38ff7629a593645b08aed1db9cc36d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeDuration: 1
+  _fadeColor: {r: 0.01, g: 0.01, b: 0.01, a: 1}
+  _fadeOnStart: 1
+  _renderQueue: 3999
 --- !u!1 &3623189699035361980
 GameObject:
   m_ObjectHideFlags: 0

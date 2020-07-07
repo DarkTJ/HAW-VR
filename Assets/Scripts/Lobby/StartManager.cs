@@ -13,9 +13,11 @@ public class StartManager : MonoBehaviour
     [SerializeField] 
     private SystemLanguage _language;
     
-    private OVRScreenFade _screenFade;
+    private ScreenFader _screenFade;
     
     private TutorialController _tutorial;
+
+    private static bool _hasAppJustStarted = true;
     
     private void Awake()
     {
@@ -28,12 +30,14 @@ public class StartManager : MonoBehaviour
     
     private IEnumerator Start()
     {
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN
-    
-#elif UNITY_ANDROID
-        _screenFade = SceneReferences.ScreenFade;
-        _screenFade.SetFadeLevel(1);
-#endif
+        if (!_hasAppJustStarted)
+        {
+            gameObject.SetActive(false);
+            yield break;
+        }
+        
+        _screenFade = SceneReferences.ScreenFader;
+        _screenFade.SetAlpha(1);
         
         yield return new WaitUntil(() => MultiplayerSceneSetupController.Instance.IsReady);
         _tutorial.SetControllers(false);
@@ -51,14 +55,9 @@ public class StartManager : MonoBehaviour
 
         LocalizationManager.Instance.LoadLocalizedTextFile(localizedTextFileName);
         
-        
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN
-    
-#elif UNITY_ANDROID
         // Enable fading from now on
-        _screenFade.fadeOnStart = true;
-#endif
-        
+        _screenFade.SetFadeOnStart(true);
+
         // Loading
         while (!LocalizationManager.Instance.IsReady) {
             yield return null;
@@ -66,25 +65,15 @@ public class StartManager : MonoBehaviour
         
         if (PlayerPrefs.HasKey("username") && !_forceTutorial)
         {
-            StartCoroutine(C_FadeIn());
+            _screenFade.FadeIn();
             _tutorial.SetControllers(true);
+            gameObject.SetActive(false);
         }
         else
         {
             _tutorial.SetupAndStart();
         }
-    }
-    
-    private IEnumerator C_FadeIn()
-    {
-        float t = 0;
-        while (t < 1)
-        {
-            _screenFade.SetFadeLevel(1 - t);
-            t += Time.deltaTime;
-            yield return null;
-        }
         
-        _screenFade.SetFadeLevel(0);
+        _hasAppJustStarted = false;
     }
 }

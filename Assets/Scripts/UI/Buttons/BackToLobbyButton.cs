@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class BackToLobbyButton : UIButton
 {
@@ -9,6 +6,14 @@ public class BackToLobbyButton : UIButton
     {
         base.OnClick(hitPoint);
         FMODEventManager.Instance.PlaySound_BackButton();
-        SceneLoader.LoadScene(this, 0);
+        
+        UIManager.Instance.OnBackToLobbyButton();
+        SceneLoader.LoadScene(0);
+    }
+
+    public override void OnPointerEnter()
+    {
+        base.OnPointerEnter();
+        FMODEventManager.Instance.PlaySound_ButtonHover();
     }
 }

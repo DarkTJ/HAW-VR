@@ -1289,6 +1289,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7509265101762201310, guid: d036189327462c5499f769c7a0a1678b,
+        type: 3}
+      propertyPath: Event
+      value: event:/Lightshow Sounds/Light_Romm_Kamikatzi
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d036189327462c5499f769c7a0a1678b, type: 3}
 --- !u!4 &883362404 stripped

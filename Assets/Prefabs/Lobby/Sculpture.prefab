@@ -711,8 +711,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7551400739691e46bf3492641932779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _glowColor: {r: 0, g: 1, b: 0.83333325, a: 1}
-  _targetSceneIndex: 0
+  _glowColor: {r: 0.75, g: 0.83299327, b: 1, a: 1}
+  _targetSceneIndex: 2
 --- !u!1 &5118554791151198120
 GameObject:
   m_ObjectHideFlags: 0

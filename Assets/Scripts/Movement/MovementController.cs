@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(MovementTrajectory))]
@@ -12,7 +11,7 @@ public class MovementController : MonoBehaviour
 
     private InputManager _inputManager;
 
-    private OVRScreenFade _screenFade;
+    private ScreenFader _screenFade;
     
     private MovementTrajectory _trajectory;
     private MovementCircle _circle;
@@ -70,10 +69,10 @@ public class MovementController : MonoBehaviour
         _inputManager = InputManager.Instance;
         
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
-        
+        _inputManager.OnMainButton += Move;
 #elif UNITY_ANDROID
         _inputManager.CurrentlyUsedController.OnStickMove += OnStickMove;
-        _inputManager.CurrentlyUsedController.OnStickRelease += OnStickRelease;
+        _inputManager.CurrentlyUsedController.OnStickRelease += Move;
 #endif
     }
 
@@ -81,13 +80,13 @@ public class MovementController : MonoBehaviour
     private void Update()
     {
         Transform playerCameraTransform = SceneReferences.PlayerCamera.transform;
-        // PreviewMovement(playerCameraTransform.position, playerCameraTransform.rotation);
+        PreviewMovement(playerCameraTransform.position + playerCameraTransform.forward, playerCameraTransform.rotation);
     }
     
     private void PreviewMovement(Vector3 raycastOrigin, Quaternion raycastRotation)
     {
         Ray ray = new Ray(raycastOrigin, raycastRotation * Vector3.forward);
-        if (!Physics.Raycast(ray, out RaycastHit hitInfo, 100))
+        if (!Physics.Raycast(ray, out RaycastHit hitInfo, 5))
         {
             ResetPreview();
             _lastTargetPosition = Vector3.zero;
@@ -107,9 +106,7 @@ public class MovementController : MonoBehaviour
 
             Vector3 forward = _lastTargetPosition - raycastOrigin;
             Quaternion lookRotation = Quaternion.LookRotation(forward);
-                
-            // Vector3 raycastRotationEuler = raycastRotation.eulerAngles;
-            // rotation = Quaternion.Euler(raycastRotationEuler.x, lookRotation.eulerAngles.y, raycastRotationEuler.z);
+            
             rotation = lookRotation;
         }
         else
@@ -146,11 +143,6 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    private void OnStickRelease()
-    {
-        Move();
-    }
-
     private void PreviewMovement(Vector3 raycastOrigin, Quaternion raycastRotation)
     {
         Ray ray = new Ray(raycastOrigin, raycastRotation * Vector3.forward);
@@ -185,9 +177,7 @@ public class MovementController : MonoBehaviour
 
             Vector3 forward = _lastTargetPosition - raycastOrigin;
             Quaternion lookRotation = Quaternion.LookRotation(forward);
-                
-            // Vector3 raycastRotationEuler = raycastRotation.eulerAngles;
-            // rotation = Quaternion.Euler(raycastRotationEuler.x, lookRotation.eulerAngles.y, raycastRotationEuler.z);
+
             rotation = lookRotation;
         }
             
@@ -232,54 +222,27 @@ public class MovementController : MonoBehaviour
     }
     
     /// <summary>
-    /// Fades to black using the OVRScreenFade object, moves the player and fades back.
+    /// Fades to black, moves the player and fades back.
     /// </summary>
     private IEnumerator C_Move(Vector3 target)
     {
-        _screenFade = SceneReferences.ScreenFade;
+        _screenFade = SceneReferences.ScreenFader;
         
         IsMoving = true;
-
-        float t = 0;
-        while (t < 1)
-        {
-            
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN
-            
-#elif UNITY_ANDROID
-            _screenFade.SetFadeLevel(t);
-#endif
-            t += Time.deltaTime / _fadeDuration;
-            yield return null;
-        }
+        
+        _screenFade.FadeOut(_fadeDuration);
+        yield return new WaitForSeconds(_fadeDuration);
         
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
-            
+        PlayerControllerStandalone.Instance.Move(target);
 #elif UNITY_ANDROID
-        _screenFade.SetFadeLevel(1);
-#endif
-
         SceneReferences.PlayerObject.position = target;
+#endif
+        
         _lastTargetPosition = Vector3.zero;
-        
-        t = 1;
-        while (t > 0)
-        {
-            
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN
-            
-#elif UNITY_ANDROID
-            _screenFade.SetFadeLevel(t);
-#endif
-            t -= Time.deltaTime / _fadeDuration;
-            yield return null;
-        }
-        
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN
-            
-#elif UNITY_ANDROID
-            _screenFade.SetFadeLevel(0);
-#endif
+        _screenFade.FadeIn(_fadeDuration);
+        yield return new WaitForSeconds(_fadeDuration);
+  
         IsMoving = false;
     }
 }

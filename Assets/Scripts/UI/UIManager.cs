@@ -91,10 +91,16 @@ public class UIManager : MonoBehaviour
         }
         else
         {
+            Debug.Log(_menuCanvas.name);
             PlaceUI(_menuCanvas.transform);
             _uiPointer.Enable();
         }
         IsShowingMenu = !IsShowingMenu;
+    }
+
+    public void OnBackToLobbyButton()
+    {
+        OnMenuButton();
     }
 
     public void ShowKeyboard(bool hideMenu = true)
