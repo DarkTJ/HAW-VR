@@ -24,12 +24,6 @@ public class SceneReferences : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
-
-    private void Start()
-    {
-        CurrentSceneIndex = 0;
-        SetReferences();
-    }
     
     private static void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode) 
     {
