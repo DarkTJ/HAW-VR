@@ -90,6 +90,7 @@ MonoBehaviour:
   rotSpeed: 100
   thisObject: {fileID: 1413810652018773102}
   myBeam: {fileID: 6885454099124964020}
+  beamColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1413810652018773102
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,6 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6322961016231401543}
   - component: {fileID: 6885454099124964020}
+  - component: {fileID: 5653346023150811097}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -171,7 +173,7 @@ MonoBehaviour:
   intensityOutside: 1
   blendingMode: 0
   spotAngleFromLight: 1
-  spotAngle: 38
+  spotAngle: 32
   coneRadiusStart: 0.1
   geomMeshType: 0
   geomCustomSides: 18
@@ -180,8 +182,8 @@ MonoBehaviour:
   fallOffEndFromLight: 1
   attenuationEquation: 1
   attenuationCustomBlending: 0.5
-  fallOffStart: 16
-  fallOffEnd: 19.2
+  fallOffStart: 11
+  fallOffEnd: 13.200001
   depthBlendDistance: 2
   cameraClippingDistance: 0.5
   glareFrontal: 0.5
@@ -191,7 +193,7 @@ MonoBehaviour:
   _DEPRECATED_NoiseEnabled: 0
   noiseIntensity: 0.75
   noiseScaleUseGlobal: 0
-  noiseScaleLocal: 0.2566248
+  noiseScaleLocal: 0.2478393
   noiseVelocityUseGlobal: 1
   noiseVelocityLocal: {x: 0.07, y: 0.18, z: 0.05}
   pluginVersion: 1810
@@ -200,3 +202,16 @@ MonoBehaviour:
   _SortingOrder: 0
   _FadeOutBegin: -150
   _FadeOutEnd: -200
+--- !u!65 &5653346023150811097
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413810652018773102}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
