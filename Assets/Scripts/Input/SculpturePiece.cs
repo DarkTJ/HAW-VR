@@ -40,6 +40,7 @@ public class SculpturePiece : MonoBehaviour
     {
         _renderer = GetComponent<MeshRenderer>();
         _canvasGroup = GetComponentInChildren<CanvasGroup>();
+        _canvasGroup.transform.parent = transform.parent;
         
         // [1] -> Ignore this object, [0] would be equal to GetComponent<MeshRenderer>()
         _glowRenderer = GetComponentsInChildren<MeshRenderer>()[1];
@@ -80,39 +81,7 @@ public class SculpturePiece : MonoBehaviour
         InputManager.Instance.CurrentlyUsedController.OnTriggerDown -= OnTriggerDown;
 #endif
     }
-
-
-    // DEBUG, ANIMATION PREVIEW
-    // private float x;
-    // private bool b;
-    // private void Update()
-    // {
-    //     if (!b)
-    //     {
-    //         x += Time.deltaTime;
-    //         if (x > 2)
-    //         {
-    //             StopAllCoroutines();
-    //             StartCoroutine(C_FadeIntensity(_interactingIntensity));
-    //             StartCoroutine(C_FadeScale(_interactingSize));
-    //             b = !b;
-    //             x = 0;
-    //         }
-    //     }
-    //     else
-    //     {
-    //         x += Time.deltaTime;
-    //         if (x > 2)
-    //         {
-    //             StopAllCoroutines();
-    //             StartCoroutine(C_FadeIntensity(_defaultIntensity));
-    //             StartCoroutine(C_FadeScale(_defaultSize));
-    //             b = !b;
-    //             x = 0;
-    //         }
-    //     }
-    // }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         // Only allow interaction if the player is not interacting with any other piece already
