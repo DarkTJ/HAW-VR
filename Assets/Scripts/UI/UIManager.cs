@@ -1,22 +1,13 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(UIPointer))]
 public class UIManager : MonoBehaviour
 {
-    /// <summary>
-    /// Static accessible instance of the UIManager (Singleton pattern)
-    /// </summary>
-    public static UIManager Instance { get; private set; }
-    
     [SerializeField]
     private GameObject _menuCanvas, textFieldCanvas;
-
-    [SerializeField]
-    private UIInteractable[] _disableInLobby;
-
+    
     private TextMeshProUGUI _textField;
 
     public bool IsShowingMenu { get; private set; }
@@ -29,27 +20,9 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-        }
-
-        DontDestroyOnLoad(gameObject);
-
         _textField = textFieldCanvas.GetComponentInChildren<TextMeshProUGUI>();
         _uiPointer = GetComponent<UIPointer>();
         _keyboard = GetComponentInChildren<Keyboard>();
-        
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN
-        InputManager.Instance.OnMenuButtonDown += OnMenuButton;
-#elif UNITY_ANDROID
-        InputManager.Instance.LeftController.OnMenuButtonDown += OnMenuButton;
-#endif
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Start()
@@ -58,27 +31,24 @@ public class UIManager : MonoBehaviour
         textFieldCanvas.SetActive(false);
         
         _uiPointer.Disable();
-        SetUIInteractableState(_disableInLobby, false);
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+    private void OnEnable()
     {
-        if (scene.buildIndex == 0)
-        {
-            SetUIInteractableState(_disableInLobby, false);
-        }
-        else
-        {
-            SetUIInteractableState(_disableInLobby, true);
-        }
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        InputManager.Instance.OnMenuButtonDown += OnMenuButton;
+#elif UNITY_ANDROID
+        InputManager.Instance.LeftController.OnMenuButtonDown += OnMenuButton;
+#endif
     }
 
-    private static void SetUIInteractableState(UIInteractable[] uiInteractables, bool state)
+    private void OnDisable()
     {
-        foreach (UIInteractable i in uiInteractables)
-        {
-            i.SetState(state);
-        }
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        InputManager.Instance.OnMenuButtonDown -= OnMenuButton;
+#elif UNITY_ANDROID
+        InputManager.Instance.LeftController.OnMenuButtonDown -= OnMenuButton;
+#endif
     }
 
     private void OnMenuButton()

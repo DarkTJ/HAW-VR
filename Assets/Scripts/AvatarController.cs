@@ -1,12 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
-using UnityEngine.XR;
+using Random = UnityEngine.Random;
 
 public class AvatarController : MonoBehaviour
 {
+    private Transform _copyTransform;
+    
     private Renderer[] _renderers;
     private Graphic[] _graphics;
     private TextMeshProUGUI _nameField;
@@ -50,7 +53,15 @@ public class AvatarController : MonoBehaviour
     private void Start()
     {
         IdleFace();
-        
+    }
+
+    public void SetCopyTransform(Transform copy)
+    {
+        _copyTransform = copy;
+    }
+    
+    public void SetName()
+    {
         if (PlayerPrefs.HasKey("username"))
         {
             SetName(PlayerPrefs.GetString("username"));
@@ -60,7 +71,7 @@ public class AvatarController : MonoBehaviour
             StartCoroutine(C_WaitForUsername());
         }
     }
-
+    
     private IEnumerator C_WaitForUsername()
     {
         yield return new WaitUntil(() => PlayerPrefs.HasKey("username"));

@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ReturnToLobbyIcosahedron : MonoBehaviour
 {
@@ -58,14 +60,26 @@ public class ReturnToLobbyIcosahedron : MonoBehaviour
         float y = Random.Range(-_rotationSpeed, _rotationSpeed);
         float z = Random.Range(-_rotationSpeed, _rotationSpeed);
         _rotation = new Vector3(x, y, z);
+    }
 
+    private void OnEnable()
+    {
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
         InputManager.Instance.OnMainButtonDown += OnTriggerDown;
 #elif UNITY_ANDROID
         InputManager.Instance.CurrentlyUsedController.OnTriggerDown += OnTriggerDown;
 #endif
     }
-    
+
+    private void OnDisable()
+    {
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        InputManager.Instance.OnMainButtonDown -= OnTriggerDown;
+#elif UNITY_ANDROID
+        InputManager.Instance.CurrentlyUsedController.OnTriggerDown -= OnTriggerDown;
+#endif
+    }
+
     private void Update()
     {
         transform.Rotate(_rotation);

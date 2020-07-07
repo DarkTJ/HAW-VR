@@ -4,13 +4,13 @@ using UnityEngine.SceneManagement;
 public class SceneReferences : MonoBehaviour
 {
     private static SceneReferences _instance;
-    
+
+    public static int CurrentSceneIndex { get; private set; }
     public static Camera PlayerCamera { get; private set; }
     public static Transform PlayerObject { get; private set; }
-    
     public static ScreenFader ScreenFader { get; private set; }
-
     public static RoomController RoomController { get; private set; }
+    public static AvatarTransformController AvatarTransformController { get; private set; }
     
     private void Awake()
     {
@@ -27,11 +27,13 @@ public class SceneReferences : MonoBehaviour
 
     private void Start()
     {
+        CurrentSceneIndex = 0;
         SetReferences();
     }
     
     private static void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode) 
     {
+        CurrentSceneIndex = scene.buildIndex;
         SetReferences();
     }
 
@@ -47,5 +49,6 @@ public class SceneReferences : MonoBehaviour
         ScreenFader = PlayerCamera.GetComponent<ScreenFader>();
 
         RoomController = GameObject.Find("Room Controller").GetComponent<RoomController>();
+        AvatarTransformController = GameObject.Find("Avatar Transform Controller").GetComponent<AvatarTransformController>();
     }
 }

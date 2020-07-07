@@ -7,7 +7,13 @@ using UnityEngine.XR;
 public class TutorialController : MonoBehaviour
 {
     private LocalizationManager _localizationManager;
+    
+    [SerializeField] 
+    private MovementController _movementController;
+    
+    [SerializeField]
     private UIManager _uiManager;
+    
     private Camera _cam;
     
     [SerializeField]
@@ -28,8 +34,7 @@ public class TutorialController : MonoBehaviour
         _cam = Camera.main;
         
         _localizationManager = LocalizationManager.Instance;
-        _uiManager = UIManager.Instance;
-        
+
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
         // TODO: Think about windows tutorial
         FinishTutorial();
@@ -40,6 +45,16 @@ public class TutorialController : MonoBehaviour
 #endif
     }
     
+    private void OnDisable()
+    {
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+
+#elif UNITY_ANDROID
+        InputManager.Instance.CurrentlyUsedController.OnTriggerDown -= OnTriggerDown;
+        InputManager.Instance.CurrentlyUsedController.OnStickMove -= OnStickMove;
+#endif
+    }
+
     private void OnTriggerDown()
     {
         _isTriggerDown = true;
@@ -84,7 +99,7 @@ public class TutorialController : MonoBehaviour
         _tutorialCanvas.gameObject.SetActive(false);
         
         // Now let user enter their name
-        UIManager.Instance.gameObject.SetActive(true);
+        _uiManager.gameObject.SetActive(true);
         _uiManager.OnTextSubmit += OnNameSubmit;
         _uiManager.ShowKeyboard();
         
@@ -124,7 +139,7 @@ public class TutorialController : MonoBehaviour
     /// <param name="state"></param>
     public void SetControllers(bool state)
     {
-        MovementController.Instance.gameObject.SetActive(state);
-        UIManager.Instance.gameObject.SetActive(state);
+        _movementController.gameObject.SetActive(state);
+        _uiManager.gameObject.SetActive(state);
     }
 }

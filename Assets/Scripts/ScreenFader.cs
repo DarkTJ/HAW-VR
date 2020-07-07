@@ -83,16 +83,11 @@ public class ScreenFader : MonoBehaviour
 
 		CurrentAlpha = 0;
 		SetMaterialAlpha();
-
 		
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN
-		SceneManager.sceneLoaded += OnSceneLoaded;
-#elif UNITY_ANDROID 
 		if (_fadeOnStartStatic)
 		{
 			FadeIn();
 		}
-#endif
 	}
 
 	public void SetFadeOnStart(bool state)
@@ -100,16 +95,6 @@ public class ScreenFader : MonoBehaviour
 		_fadeOnStart = state;
 		_fadeOnStartStatic = state;
 	}
-	
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN
-	private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
-	{
-		if (_fadeOnStartStatic)
-		{
-			FadeIn();
-		}
-	}
-#endif
 	
 	/// <summary>
 	/// Cleans up the fade material

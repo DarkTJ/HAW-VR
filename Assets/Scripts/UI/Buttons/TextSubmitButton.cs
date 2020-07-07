@@ -6,7 +6,7 @@ public class TextSubmitButton : UIButton
 
     private void Start()
     {
-        _uiManager = UIManager.Instance;
+        _uiManager = GetComponentInParent<UIManager>();
     }
 
     public override void OnClick(Vector3 hitPoint)

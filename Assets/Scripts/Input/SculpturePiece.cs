@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
@@ -42,12 +43,6 @@ public class SculpturePiece : MonoBehaviour
         _glowRenderer = GetComponentsInChildren<MeshRenderer>()[1];
         _glowMaterial = _glowRenderer.material;
         _glowMaterial.color = _glowColor;
-        
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN
-        InputManager.Instance.OnMainButtonDown += OnTriggerDown;
-#elif UNITY_ANDROID
-        InputManager.Instance.CurrentlyUsedController.OnTriggerDown += OnTriggerDown;
-#endif
     }
     
     public void Setup(LobbyDoorController lobbyDoorController, float defaultIntensity, float interactingIntensity, float defaultScaleMultiplier, float interactingScaleMultiplier)
@@ -64,6 +59,24 @@ public class SculpturePiece : MonoBehaviour
         _interactingSize = _initialSize * interactingScaleMultiplier;
         _glowMaterial.SetFloat(ScaleXProperty, _defaultSize.x);
         _glowMaterial.SetFloat(ScaleYProperty, _defaultSize.y);
+    }
+
+    private void OnEnable()
+    {
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        InputManager.Instance.OnMainButtonDown += OnTriggerDown;
+#elif UNITY_ANDROID
+        InputManager.Instance.CurrentlyUsedController.OnTriggerDown += OnTriggerDown;
+#endif
+    }
+
+    private void OnDisable()
+    {
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+        InputManager.Instance.OnMainButtonDown -= OnTriggerDown;
+#elif UNITY_ANDROID
+        InputManager.Instance.CurrentlyUsedController.OnTriggerDown -= OnTriggerDown;
+#endif
     }
 
 
@@ -148,7 +161,6 @@ public class SculpturePiece : MonoBehaviour
         _lobbyDoorController.OpenDoor(lookRotation.y);
         
         SceneLoader.SetTargetScene(_targetSceneIndex);
-        // SceneLoader.Instance.LoadScene(_targetSceneIndex);
     }
 
     private IEnumerator C_FadeIntensity(float target)
