@@ -58,12 +58,14 @@ public class UIManager : MonoBehaviour
         {
             _menuCanvas.SetActive(false);
             _uiPointer.Disable();
+            SceneReferences.ScreenFader.SetAlpha(0);
         }
         else
         {
             Debug.Log(_menuCanvas.name);
             PlaceUI(_menuCanvas.transform);
             _uiPointer.Enable();
+            SceneReferences.ScreenFader.SetAlpha(0.5f);
         }
         IsShowingMenu = !IsShowingMenu;
     }
@@ -106,7 +108,7 @@ public class UIManager : MonoBehaviour
         uiObject.position = targetPosition;
 
         Quaternion rot = Quaternion.LookRotation(camTransform.forward);
-        uiObject.rotation = Quaternion.Euler(0, rot.eulerAngles.y, 0);
+        uiObject.rotation = rot;
 
         uiObject.gameObject.SetActive(true);
     }
