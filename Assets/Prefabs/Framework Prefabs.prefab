@@ -294,6 +294,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 829149186, guid: bc0f6f4bfadde4c48bacdff534e5781d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1023818471, guid: bc0f6f4bfadde4c48bacdff534e5781d, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4282003766
@@ -442,6 +446,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1999687019, guid: bc0f6f4bfadde4c48bacdff534e5781d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1094059855159809033, guid: bc0f6f4bfadde4c48bacdff534e5781d,
         type: 3}
       propertyPath: _normalColor.r
@@ -536,6 +544,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6492221858332512319, guid: bc0f6f4bfadde4c48bacdff534e5781d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc0f6f4bfadde4c48bacdff534e5781d, type: 3}
@@ -686,6 +699,11 @@ PrefabInstance:
       propertyPath: _playerControllerStandalone
       value: 
       objectReference: {fileID: 3314703255017389955}
+    - target: {fileID: 7239129613789280516, guid: 972a27963b988fc4caee5565a53c37d3,
+        type: 3}
+      propertyPath: _uiManager
+      value: 
+      objectReference: {fileID: 2391077872850080805}
     - target: {fileID: 7239129613789280517, guid: 972a27963b988fc4caee5565a53c37d3,
         type: 3}
       propertyPath: m_LocalPosition.x
