@@ -65,9 +65,11 @@ public class StartManager : MonoBehaviour
         
         if (PlayerPrefs.HasKey("username") && !_forceTutorial)
         {
-            _screenFade.FadeIn();
-            _tutorial.SetControllers(true);
-            gameObject.SetActive(false);
+            _screenFade.FadeIn(() =>
+            {
+                _tutorial.SetControllers(true);
+                gameObject.SetActive(false);
+            });
         }
         else
         {
