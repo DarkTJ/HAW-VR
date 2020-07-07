@@ -1,9 +1,14 @@
 { "items": [
-	
 	{ "key" : "volume_text", "value" : "LAUTSTÄRKE" },
 	{ "key" : "voicechat_text", "value" : "SPRACH-CHAT" },
 	{ "key" : "backtolobby_button", "value" : "ZURÜCK ZUR LOBBY" },
 	{ "key" : "quitapp_button", "value" : "APP BEENDEN" },
+
+    { "key" : "room_mapping", "value" : "Projection Mapping"},
+    { "key" : "room_conference", "value" : "Konferenzraum"},
+    { "key" : "room_lightshow", "value" : "Lichtshow"},
+    { "key" : "room_planetarium", "value" : "Planetarium"},
+    { "key" : "room_biosphere", "value" : "Biosphere"},
 	
     { "key" : "tutorial_1", "value" : "Hey! Drücke den Button am Rücken des Controllers. (Trigger)" },
     { "key" : "tutorial_2", "value" : "Gut, so kannst du den Text weiterschalten und mit Sachen interagieren." },
