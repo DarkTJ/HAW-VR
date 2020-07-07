@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 509415252543131427}
   m_Layer: 0
   m_Name: '### SOUND Planetarium ###'
-  m_TagString: EditorOnly
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
