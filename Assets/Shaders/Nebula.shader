@@ -1,8 +1,11 @@
-﻿Shader "Unlit/NebulaConvert"
+﻿Shader "Unlit/SkyNebula"
 {
 	Properties
 	{
 		_MainTex("Texture", 2D) = "white" {}
+		_Color1("Main Color HSL", Vector) = (223.3, 100., 37.3)
+		_Color2("Secondary Color HSL", Vector) = (170.7, 80, 85.7)
+		_NebulaSpeed("Nebula Speed", float) = 0.0006
 	}
 		SubShader
 	{
@@ -20,6 +23,10 @@
 			#include "UnityCG.cginc"
 
 			#define MOD3 float3(.1031,.11369,.13787)
+
+			float3 _Color1;
+			float3 _Color2;
+			float _NebulaSpeed;
 
 			struct appdata
 			{
@@ -92,12 +99,12 @@
 
 			float nebula(in float2 uv) {
 				float offset = 1.;
-				float size = .6;
+				float size = .5;
 				float map = 0.;
 				float t;
 				for (int i = 1; i <= 3; i++) {
 					t = _Time.y * .05;
-					size *= 2.5;
+					size *= 2;
 					map += voronoi(float3(uv * size, 0.6) + float3(t, t, t)) * offset;
 					offset *= .25;
 				}
@@ -105,20 +112,21 @@
 			}
 
 			float star(float2 uv, float time) {
-				float2 twinkle = frac(uv * time) - 0.2;
-				float2 n = floor(uv * time);
-				twinkle += float2(sin(hash12(n) * 200.23) * .3, sin(hash12(n) * 914.19) * .3);
-				float map = .1 * abs(sin(time * 250.12)) * .5 / length(twinkle) * .025;
-				return map;
+				float starSize = 1.6;
+				float2 twinkle = frac(uv * starSize) - 0.6;
+				float2 n = floor(uv * starSize);
+				twinkle += float2(sin(hash12(n) * 150) * .3, sin(hash12(n) * 800) * .3);
+				float map = .1 * abs(sin(time * 550)) * .5 / length(twinkle) * .025;
+				return pow(map, 1.3);
 			}
 
 			float stars(in float2 uv, float time) {
-				float size = 5.0;
+				float size = 1.4;
 				float map = 0.;
 				for (int i = 1; i <= 7; i++) {
-					float3 t = float3(0., 0., time + _Time.y * .3);
-					size *= 1.2;
-					map += star(uv * size + t, 1. + t);
+					float3 t = float3(0., 0., time + _Time.y * .25);
+					size *= 1.22;
+					map += star(uv * size + t, 2.1 + t);
 				}
 
 				return map;
@@ -129,8 +137,8 @@
 				float2 uv = i.uv;
 				float3 col = .0;
 
-				float3 col1 = normalize(float3(223.3, 100., 37.3)) * nebula(uv);
-				float3 col2 = normalize(float3(170.7, 80, 85.7)) * nebula(uv + float2(0., 0.05 * _Time.y));
+				float3 col1 = normalize(_Color1) * nebula(uv);
+				float3 col2 = normalize(_Color2) * nebula(uv + float2(0., _NebulaSpeed * _Time.y));
 				col2 = pow(col2, 1.2);
 				col += lerp(col1, col2, 2.5);
 				float m = stars(uv, _Time.y * 2.);
