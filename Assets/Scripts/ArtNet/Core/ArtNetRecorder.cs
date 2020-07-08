@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using ArtNet.Packets;
+using FMODUnity;
 
 public class ArtNetRecorder : MonoBehaviour
 {
@@ -12,7 +13,12 @@ public class ArtNetRecorder : MonoBehaviour
     public Button save1Button;
     public Button save2Button;
     public Button save3Button;
-   
+
+    public StudioEventEmitter[] track;
+
+
+
+    public int RecordRate = 10;
 
     int saveNumber = 1;
 
@@ -29,6 +35,9 @@ public class ArtNetRecorder : MonoBehaviour
     {
         public List<ArtNetDmxPacket> m_data = new List<ArtNetDmxPacket>();
     }
+
+    private ArtNetDmxPacket latestUniverse0Paket;
+    private ArtNetDmxPacket latestUniverse1Paket;
 
     DMXDataPacketRecorder rec = new DMXDataPacketRecorder();
 
@@ -69,17 +78,24 @@ public class ArtNetRecorder : MonoBehaviour
             //save m_data to File
             Debug.Log(rec);
             
+            //start invoke to save at the definded rate
+            if (IsInvoking("saveLatestToFile"))
+            {
+                CancelInvoke("saveLatestToFile");
+            }
+            track[0].Stop();
+            track[1].Stop();
+            track[2].Stop();
+
+            //save it to the right file
             string potion = JsonUtility.ToJson(rec);
             Debug.Log(potion);
             System.IO.File.WriteAllText(Application.persistentDataPath + savePath[saveNumber -1], potion);
 
-            Debug.Log(rec.m_data[2]);
-            string portion2 = JsonUtility.ToJson(rec.m_data[2]);
-            System.IO.File.WriteAllText(Application.persistentDataPath + savePath[saveNumber], portion2);
 
 
             // TODO CLEAR DATA 
-
+            // nö, mach ich jetzt nicht, sollte auch so gehn, wenn am ende vom recording alle slider auf null sind, sodass einige nullpakete ankommen!!
 
         }
         else  //start Recording
@@ -92,6 +108,9 @@ public class ArtNetRecorder : MonoBehaviour
             {
                 saveButtons[i].interactable = false;
             }
+
+            InvokeRepeating("saveLatestToFile", 2.0f, 1.0f / RecordRate);   //1/50 ist paketanzahl.
+            track[saveNumber - 1].Play();
         }
     }
 
@@ -116,15 +135,29 @@ public class ArtNetRecorder : MonoBehaviour
 
         if (recording == true)
         {
-            //einfach mal hoffen das record und playback speed stimmt :D
-            rec.m_data.Add(dmxPacket);
+            if (dmxPacket.Universe == 0)
+            {
+                latestUniverse0Paket = dmxPacket;
+            }else if (dmxPacket.Universe == 1)
+            {
+                latestUniverse1Paket = dmxPacket;
+            }
+
             recievedDMX = dmxPacket;
 
-            Debug.Log("added:" + recievedDMX);
         }
         
     
 
+    }
+
+    //inovke this funktion to save the latest dmx to file.
+    //can be invoked as often as you like, playback speed shoould match save speed *2, because 2 univeres are saved, but playback just grabs 1 packet, diregarding if its universe 0 or 1
+
+    private void saveLatestToFile()
+    {
+        rec.m_data.Add(latestUniverse0Paket);
+        rec.m_data.Add(latestUniverse0Paket);
     }
 
    
