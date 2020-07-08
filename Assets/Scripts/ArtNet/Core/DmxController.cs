@@ -20,7 +20,7 @@ public class DmxController : MonoBehaviour
 
     ArtNetSocket artnet;
     public TCPTestClient server;
-    //public ArtNetRecorder recorder;
+    public ArtNetRecorder recorder;
     [Header("send/recieved DMX data for debug")]
     [SerializeField] ArtNetDmxPacket latestReceivedDMX;
     [SerializeField] ArtNetDmxPacket dmxToSend;
@@ -80,7 +80,7 @@ public class DmxController : MonoBehaviour
 
 
                 //Recorder,sendet alle Artnepakete an die aufnahem
-                //recorder.DatatoRecord(packet);
+                recorder.DatatoRecord(packet);
 
                 //send to tcp server
                 server.ArtNetDatatoSend(packet);
