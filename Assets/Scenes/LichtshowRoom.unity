@@ -2801,7 +2801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useBroadcast: 0
-  remoteIP: 192.168.178.165
+  remoteIP: 2.214.216.2
   universes:
   - universeName: CylinderLamp
     universe: 0
@@ -6413,6 +6413,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serverIP: 173.212.192.241
+  paketeProSekunde: 10
+  dmxZwischenspeicherUniverse0: 
+  dmxZwischenspeicherUniverse1: 
   dmxcontroller: {fileID: 390693511}
 --- !u!4 &1087585506
 Transform:

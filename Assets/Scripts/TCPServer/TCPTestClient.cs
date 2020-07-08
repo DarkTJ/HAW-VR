@@ -7,6 +7,7 @@ using System.Threading;
 using UnityEngine;
 using ArtNet.Packets;
 
+
 public class TCPTestClient : MonoBehaviour
 {
     #region private members 	
@@ -16,6 +17,9 @@ public class TCPTestClient : MonoBehaviour
     #endregion
 
     public string serverIP = "localhost";
+    public int paketeProSekunde = 10;
+    public string dmxZwischenspeicherUniverse0;
+    public string dmxZwischenspeicherUniverse1;
 
     public DmxController dmxcontroller;
     // Use this for initialization 	
@@ -38,13 +42,21 @@ public class TCPTestClient : MonoBehaviour
             clientReceiveThread = new Thread(new ThreadStart(ListenForData));
             clientReceiveThread.IsBackground = true;
             clientReceiveThread.Start();
+            InvokeRepeating("SendArtNet", 2.0f, 1.0f / paketeProSekunde);
         }
         catch (Exception e)
         {
             Debug.Log("On client connect exception " + e);
         }
     }
-    /// <summary> 	
+
+    private void SendArtNet()
+    {
+        SendMessage(dmxZwischenspeicherUniverse0);
+        SendMessage(dmxZwischenspeicherUniverse1);
+        
+    }
+    /// <summary> 
     /// Runs in background clientReceiveThread; Listens for incomming data. 	
     /// </summary>     
     private void ListenForData()
@@ -134,8 +146,22 @@ public class TCPTestClient : MonoBehaviour
 
     public void ArtNetDatatoSend(ArtNetDmxPacket e)
     {
-        string dat = JsonUtility.ToJson(e);
-        Debug.Log(e);
-        SendMessage(dat);
+        if (e.Universe == 0)
+        {
+            string dat = JsonUtility.ToJson(e);
+            //Debug.Log(e);
+            dmxZwischenspeicherUniverse0 = dat;
+        } else if (e.Universe == 1)
+        {
+            string dat = JsonUtility.ToJson(e);
+            //Debug.Log(e);
+            dmxZwischenspeicherUniverse1 = dat;
+        }
+        else
+        {
+            Debug.Log("this packet has univese: " + e.Universe + " and will not be send");
+        }
+        
+        
     }
 }
