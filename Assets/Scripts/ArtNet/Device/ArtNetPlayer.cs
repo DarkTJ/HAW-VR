@@ -1,22 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 using ArtNet.Packets;
 using FMODUnity;
 
 
-
 public class ArtNetPlayer : MonoBehaviour
 {
-
+    public ArtNetRecorder recorder;
 
     public float paketeProSekunde = 10f; //10 pakete pro sekunde //TODO ddas in der json speichern und mit auslesen :D
     //3 Text-Dateien, die den artnet code in djson verpackt haben.
-    public TextAsset save1;
-    public TextAsset save2;
-    public TextAsset save3;
 
+    public string[] savePath = { "/save1.json", "/save2.json", "/save3.json" };
+    public Button[] savebuttons;
+    public Button playbackButton;
+    private int ids;
     //die sound player
     //public AudioSource[] track;
     //
@@ -35,53 +35,75 @@ public class ArtNetPlayer : MonoBehaviour
     }
 
     //Speicherort der ausgepackten json dateien
-    DMXDataPacketRecorder rec1 = new DMXDataPacketRecorder();
-    DMXDataPacketRecorder rec2 = new DMXDataPacketRecorder();
-    DMXDataPacketRecorder rec3 = new DMXDataPacketRecorder();
-    DMXDataPacketRecorder playback = new DMXDataPacketRecorder();
+    DMXDataPacketRecorder rec = new DMXDataPacketRecorder();
+
+    public bool playing = false;
+
 
 
     void Start()
     {
         //dateien öffnen und in die Packetrecorder speichern
-        rec1 = JsonUtility.FromJson<DMXDataPacketRecorder>(save1.text);
-        rec2 = JsonUtility.FromJson<DMXDataPacketRecorder>(save2.text);
-        rec3 = JsonUtility.FromJson<DMXDataPacketRecorder>(save3.text);
+        savebuttons[0].onClick.AddListener(() => loadfromFile(1));
+        savebuttons[1].onClick.AddListener(() => loadfromFile(2));
+        savebuttons[2].onClick.AddListener(() => loadfromFile(3));
+        playbackButton.onClick.AddListener(() => playbackbuttonevent());
 
-        //StartPlayback(2);
+        //StartPlaZyback(2);
 
     }
 
+    void loadfromFile(int id)
+    {
+        if(id == 1)
+        {
+            rec = JsonUtility.FromJson<DMXDataPacketRecorder>(System.IO.File.ReadAllText(Application.persistentDataPath + savePath[0]));
+
+        }
+        if (id == 2)
+        {
+            rec = JsonUtility.FromJson<DMXDataPacketRecorder>(System.IO.File.ReadAllText(Application.persistentDataPath + savePath[1]));
+
+        }
+        if (id == 3)
+        {
+            rec = JsonUtility.FromJson<DMXDataPacketRecorder>(System.IO.File.ReadAllText(Application.persistentDataPath + savePath[2]));
+
+        }
+        ids = id;
+        Debug.Log(rec);
+    }
     // Update is called once per frame
     void Update()
     {
 
     }
-
-    public void StartPlayback(int id)
+    void playbackbuttonevent()
+    {
+        if (playing != false)
+        {
+            playing = false;
+            StopPlayback();
+            recorder.lockUnlockButtons(false);
+        }
+        else
+        {
+            playing = true;
+            StartPlayback();
+            recorder.lockUnlockButtons(true);
+        }
+    }
+    public void StartPlayback()
     {
 
-    if (id == 1)
-        {
-            length = rec1.m_data.Count;  //anzahl pakete, die gespeichert wurden.
-            playback = rec1;
-        }
-        if (id == 2)
-        {
-            length = rec2.m_data.Count;  //anzahl pakete, die gespeichert wurden.
-            playback = rec2;
-        }
-        if (id == 3)
-        {
-            length = rec3.m_data.Count;  //anzahl pakete, die gespeichert wurden.
-            playback = rec3;
-        }
 
+        
         progres = 0;
+        length = rec.m_data.Count;
 
         InvokeRepeating("PlayArtNet", 2.0f, 1.0f / paketeProSekunde);   
         //erst dann die musik starten, wegen synch näh
-        track[id - 1].Play();
+        track[ids - 1].Play();
     }
 
 
@@ -104,7 +126,7 @@ public class ArtNetPlayer : MonoBehaviour
 
         if (progres < length)
         {
-            dmxcontroller.RecivefromLocalRecorder(playback.m_data[progres]);
+            dmxcontroller.RecivefromLocalRecorder(rec.m_data[progres]);
             progres += 1;
            // Debug.Log("data send: " + progres);
         } else if (progres >= length)

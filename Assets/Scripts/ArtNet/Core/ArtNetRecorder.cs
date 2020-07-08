@@ -7,7 +7,7 @@ using FMODUnity;
 
 public class ArtNetRecorder : MonoBehaviour
 {
-
+    public ArtNetPlayer player;
     public Button startButton;
 
     public Button save1Button;
@@ -15,6 +15,8 @@ public class ArtNetRecorder : MonoBehaviour
     public Button save3Button;
 
     public StudioEventEmitter[] track;
+
+    public Button[] playbackbuttons;
 
 
 
@@ -64,17 +66,12 @@ public class ArtNetRecorder : MonoBehaviour
 
     void RecordButton()
     {
-        Button[] saveButtons = { save1Button, save2Button, save3Button };
         if (recording == true)
         {       // stop Recording
             recording = false;
             startButton.image.color = Color.green;
 
-            //save buttons wieder entsperren
-            for (int i = 0; i < 3; i++)
-            {
-                saveButtons[i].interactable = true;
-            }
+            lockUnlockButtons(false);
             //save m_data to File
             Debug.Log(rec);
             
@@ -102,12 +99,8 @@ public class ArtNetRecorder : MonoBehaviour
         {
             recording = true;
             startButton.image.color = Color.red;
-            
-            //save buttons sperren
-            for (int i = 0; i < 3; i++)
-            {
-                saveButtons[i].interactable = false;
-            }
+
+            lockUnlockButtons(true);
 
             InvokeRepeating("saveLatestToFile", 2.0f, 1.0f / RecordRate);   //1/50 ist paketanzahl.
             track[saveNumber - 1].Play();
@@ -117,11 +110,11 @@ public class ArtNetRecorder : MonoBehaviour
 
     void SwitchSave(int saveNr)
     {
-        Button[] saveButtons = { save1Button, save2Button, save3Button };
+        Button[] saveButtons = { save1Button, save2Button, save3Button, playbackbuttons[0],playbackbuttons[1],playbackbuttons[2],playbackbuttons[3] };
 
         saveNumber = saveNr;
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 7; i++)
         {
             saveButtons[i].image.color = Color.white;
         }
@@ -157,8 +150,31 @@ public class ArtNetRecorder : MonoBehaviour
     private void saveLatestToFile()
     {
         rec.m_data.Add(latestUniverse0Paket);
-        rec.m_data.Add(latestUniverse0Paket);
+        rec.m_data.Add(latestUniverse1Paket);
     }
 
+    public void lockUnlockButtons(bool l)
+    {
+        Button[] saveButtons = { save1Button, save2Button, save3Button, playbackbuttons[3], playbackbuttons[1], playbackbuttons[2] };
+
+        if (l == true)
+        {
+            //lock all buttons
+            //save buttons sperren
+            for (int i = 0; i < 6; i++)
+            {
+                saveButtons[i].interactable = false;
+            }
+
+        } else
+        {
+            //unlock all buttons
+            //save buttons wieder entsperren
+            for (int i = 0; i < 6; i++)
+            {
+                saveButtons[i].interactable = true;
+            }
+        }
+    }
    
 }
