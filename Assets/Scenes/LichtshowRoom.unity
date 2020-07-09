@@ -5111,7 +5111,7 @@ PrefabInstance:
     - target: {fileID: 6735779422961048238, guid: c0c52fe18e219094381d966c9578a517,
         type: 3}
       propertyPath: remoteIP
-      value: 2.3.4.15
+      value: 2.214.216.2
       objectReference: {fileID: 0}
     - target: {fileID: 6735779422961048238, guid: c0c52fe18e219094381d966c9578a517,
         type: 3}
@@ -7897,7 +7897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recorder: {fileID: 1305529647}
-  paketeProSekunde: 50
+  paketeProSekunde: 40
   savePath:
   - /save1.json
   - /save2.json
@@ -7911,6 +7911,7 @@ MonoBehaviour:
   - {fileID: 1524733389}
   - {fileID: 205785036}
   - {fileID: 1524733389}
+  playingMusic: 0
   dmxcontroller: {fileID: 781570249}
   recievedDMX:
     universe: 0
@@ -9149,6 +9150,11 @@ PrefabInstance:
       propertyPath: dmxcontroller
       value: 
       objectReference: {fileID: 781570249}
+    - target: {fileID: 7769491400360635930, guid: 2456bf0910079a44f847252e509fb3ea,
+        type: 3}
+      propertyPath: paketeProSekunde
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7769491400360635931, guid: 2456bf0910079a44f847252e509fb3ea,
         type: 3}
       propertyPath: m_Name

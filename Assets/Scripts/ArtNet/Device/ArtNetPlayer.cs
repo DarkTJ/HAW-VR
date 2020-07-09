@@ -22,6 +22,7 @@ public class ArtNetPlayer : MonoBehaviour
     //
     public StudioEventEmitter[] track;
 
+    public bool playingMusic = false;
     public DmxController dmxcontroller;
 
     //playback variables
@@ -76,7 +77,7 @@ public class ArtNetPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
     }
     void playbackbuttonevent()
     {
@@ -100,10 +101,10 @@ public class ArtNetPlayer : MonoBehaviour
         
         progres = 0;
         length = rec.m_data.Count;
-
-        InvokeRepeating("PlayArtNet", 2.0f, 1.0f / paketeProSekunde);   
+        StartCoroutine("PlayArtNetCorotine");
+        //InvokeRepeating("PlayArtNet", 2.0f, 1.0f / paketeProSekunde);   
         //erst dann die musik starten, wegen synch näh
-        track[ids - 1].Play();
+
     }
 
 
@@ -115,6 +116,7 @@ public class ArtNetPlayer : MonoBehaviour
         if (IsInvoking("PlayArtNet")) {
             CancelInvoke("PlayArtNet");
         }
+        playingMusic = false;
         
     }
     
@@ -123,12 +125,12 @@ public class ArtNetPlayer : MonoBehaviour
 
     void PlayArtNet()
     {
-
+        
         if (progres < length)
         {
             dmxcontroller.RecivefromLocalRecorder(rec.m_data[progres]);
             progres += 1;
-           // Debug.Log("data send: " + progres);
+            Debug.Log("data send: " + progres);
         } else if (progres >= length)
 
         {
@@ -139,5 +141,29 @@ public class ArtNetPlayer : MonoBehaviour
         
 
        
+    }
+
+    IEnumerator PlayArtNetCorotine()
+    {
+        if (playingMusic == false)
+        {
+            track[ids - 1].Play();
+            playingMusic = true;
+        }
+        while (progres < length)
+        {
+            dmxcontroller.RecivefromLocalRecorder(rec.m_data[progres]);
+            progres += 1;
+            Debug.Log("data send: " + progres);
+            yield return new WaitForSeconds(1.0f / paketeProSekunde);
+        }
+        if (progres >= length)
+
+        {
+            Debug.Log("panik now pls");
+            StopCoroutine("PlayArtNetCorotine");
+        }
+
+        
     }
 }

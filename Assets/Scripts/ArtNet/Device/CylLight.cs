@@ -50,17 +50,17 @@ public class CylLight : DMXDevice
 
     void SetColor(byte r, byte g, byte b, byte a)
     {
-        if (r == 0 && g == 0 && b == 0)
+        /*if (r == 0 && g == 0 && b == 0)
         {
 
             cylinderLight.GetComponent<Renderer>().material.SetColor("_EmissionColor", new Vector4(1, 1, 1, (a/265f)* 15 ));
           //myBeam.color = new Vector4(1, 1, 1, 3 * a / 265f);
         }
         else
-        {
+        {*/
             cylinderLight.GetComponent<Renderer>().material.SetColor("_EmissionColor", new Vector4(r / 265f, g / 265f, b / 265f, (a / 265f) * 15));
            
-        }
+        //}
 
         
     }
